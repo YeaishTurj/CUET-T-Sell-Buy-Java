@@ -5,7 +5,6 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
@@ -13,43 +12,56 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fafad2;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerRegScreenController">
-   <children>
-      <TextField fx:id="email" layoutX="240.0" layoutY="159.0" promptText="Email">
+    <children>
+        <TextField fx:id="email" layoutX="240.0" layoutY="159.0" promptText="Email">
+            <effect>
+                <DropShadow height="3.31" radius="1.8925" spread="0.07" width="6.26" />
+            </effect>
+        </TextField>
+        <Button layoutX="278.0" layoutY="252.0" mnemonicParsing="false" onAction="#onRegistered" text="Registration">
+            <font>
+                <Font name="Serif Bold" size="13.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="0.7766203880310059" green="0.8000304698944092" blue="0.8026315569877625" />
+                    </color>
+                </DropShadow>
+            </effect></Button>
+        <Text fontSmoothingType="LCD" layoutX="190.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" textAlignment="CENTER" visible="false" wrappingWidth="40.0">
+            <font>
+                <Font name="Serif Bold" size="13.0" />
+            </font></Text>
+        <Text layoutX="169.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="CENTER" visible="false" wrappingWidth="69.21630859375">
+            <font>
+                <Font name="Serif Bold" size="13.0" />
+            </font></Text>
+        <PasswordField fx:id="password" layoutX="240.0" layoutY="209.0" promptText="Password">
+            <effect>
+                <DropShadow height="3.31" radius="1.8925" width="6.26" />
+            </effect>
+        </PasswordField>
+        <ImageView fx:id="backBtn" fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backToLogin" pickOnBounds="true" preserveRatio="true">
+
+        </ImageView>
+        <Label fx:id="toast" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="290.0" prefHeight="17.0" prefWidth="589.0" textFill="#d30000">
+            <font>
+                <Font name="Serif Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField id="name" fx:id="name" layoutX="240.0" layoutY="114.0" prefHeight="26.0" prefWidth="160.0" promptText="Name">
          <effect>
-            <DropShadow height="3.31" radius="1.8925" spread="0.07" width="6.26" />
-         </effect>
-      </TextField>
-      <Button layoutX="278.0" layoutY="252.0" mnemonicParsing="false" onAction="#onRegistered" text="Registration">
-         <font>
-            <Font name="Serif Bold" size="13.0" />
-         </font>
-         <effect>
-            <DropShadow>
+            <DropShadow height="3.31" radius="4.1025" width="15.1">
                <color>
-                  <Color red="0.7766203880310059" green="0.8000304698944092" blue="0.8026315569877625" />
+                  <Color red="0.02631578966975212" green="0.02631578966975212" blue="0.02631578966975212" />
                </color>
             </DropShadow>
-         </effect></Button>
-      <Text fontSmoothingType="LCD" layoutX="190.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" textAlignment="CENTER" visible="false" wrappingWidth="40.0">
+         </effect></TextField>
+      <Label id="success" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="291.0" prefHeight="17.0" prefWidth="596.0" text="Successfully Registered" textAlignment="CENTER" textFill="#06bc2a" visible="false">
          <font>
-            <Font name="Serif Bold" size="13.0" />
-         </font></Text>
-      <Text layoutX="169.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="CENTER" visible="false" wrappingWidth="69.21630859375">
-         <font>
-            <Font name="Serif Bold" size="13.0" />
-         </font></Text>
-      <PasswordField fx:id="password" layoutX="240.0" layoutY="209.0" promptText="Password">
-         <effect>
-            <DropShadow height="3.31" radius="1.8925" width="6.26" />
-         </effect>
-      </PasswordField>
-      <ImageView fx:id="backBtn" fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backToLogin" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../../../../aseet/back.jpg" />
-      </ImageView>
-      <Label fx:id="toast" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="290.0" prefHeight="17.0" prefWidth="589.0" textFill="#d30000">
-         <font>
-            <Font name="Serif Bold" size="15.0" />
+            <Font name="Serif Bold" size="16.0" />
          </font>
       </Label>
-   </children>
+    </children>
 </AnchorPane>
