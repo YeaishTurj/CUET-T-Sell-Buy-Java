@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fafad2;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerRegScreenController">
+<AnchorPane fx:id="buyer_reg_screen_anchor" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fafad2;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerRegScreenController">
     <children>
         <TextField fx:id="email" layoutX="240.0" layoutY="159.0" promptText="Email">
             <effect>

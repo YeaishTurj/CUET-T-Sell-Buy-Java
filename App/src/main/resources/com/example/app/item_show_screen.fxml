@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.app.ItemShowScreen"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ItemShowScreen">
+    <SplitPane dividerPositions="0.13944723618090452" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="58.0" prefWidth="598.0">
+            <ImageView id="profile" fitHeight="31.0" fitWidth="30.0" layoutX="561.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../../target/classes/assets/person.png" />
+            </image>
+            </ImageView>
+            <Button id="logout" layoutX="492.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOutUser" text="Log Out" textAlignment="CENTER">
+                <effect>
+                    <DropShadow height="9.21" radius="3.3675" width="6.26">
+                        <color>
+                            <Color red="0.8815789222717285" green="0.024488303810358047" blue="0.024488303810358047" />
+                        </color>
+                    </DropShadow>
+                </effect>
+            </Button>
+            <Text id="title" layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CUET T-Sell" wrappingWidth="145.21630859375" />
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <TextField id="searchbar" layoutX="102.0" layoutY="27.0" prefHeight="30.0" prefWidth="363.0" promptText="Search " />
+            <ImageView id="search" fitHeight="30.0" fitWidth="30.0" layoutX="484.0" layoutY="27.0" onTouchPressed="#searchItem" pickOnBounds="true" preserveRatio="true">
+                <effect>
+                    <DropShadow>
+                        <color>
+                            <Color red="0.0941176488995552" green="0.8156862854957581" blue="0.8666666746139526" />
+                        </color>
+                    </DropShadow>
+                </effect>
+<!--                <Image url="@../../../../../App/src/main/resources/assets/person.png" />-->
+                <Image url="@../../../../../main/resources/assets/person.png" />
+            </ImageView>
+            <ImageView id="sort" fitHeight="30.0" fitWidth="30.0" layoutX="554.0" layoutY="68.0" onTouchPressed="#sortItem" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../../../../../target/classes/assets/back.jpg" />
+            </ImageView>
+            <ListView id="listview" layoutX="7.0" layoutY="97.0" prefHeight="237.0" prefWidth="583.0" style="-fx-background-color: #18d0dd;" />
+        </AnchorPane>
+    </SplitPane>
 </AnchorPane>

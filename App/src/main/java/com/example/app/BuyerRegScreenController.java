@@ -14,6 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
@@ -35,7 +36,9 @@ public class BuyerRegScreenController {
     @FXML
     public PasswordField password;
     @FXML
-    public void onRegistered(ActionEvent actionEvent) throws SQLException {
+    public AnchorPane buyerAnchor;
+    @FXML
+    public void onRegistered(ActionEvent actionEvent) throws SQLException, InterruptedException, IOException {
         String userEmail=email.getText();
         String userName=name.getText();
         String userPass=password.getText();
@@ -50,11 +53,12 @@ public class BuyerRegScreenController {
             toast.setStyle("-fx-text-fill: red;");
             toast.setText("Please enter your password");
         }
-        else if (userEmail.length() != 27) {
-            toast.setVisible(true);
-            toast.setStyle("-fx-text-fill: red;");
-            toast.setText("Invalid email address");
-        } else if (checkMail(userEmail)) {
+//        else if (userEmail.length() != 27) {
+//            toast.setVisible(true);
+//            toast.setStyle("-fx-text-fill: red;");
+//            toast.setText("Invalid email address");
+//        }
+        else if (checkMail(userEmail)||true) {
             //====== if mail is perfect ====//
             if(!password.getText().isEmpty()) perfect =1;
         }
@@ -69,6 +73,15 @@ public class BuyerRegScreenController {
             //====== after complete =======//
             toast.setText("Successfully Registered!");
             toast.setStyle("-fx-text-fill: green;");
+            Thread.sleep(3000);
+            //====== navigation from BuyerRegScreen to ItemShowScreen ======//
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("item_show_screen.fxml"));
+            Parent root = loader.load();
+            ItemShowScreen.passedData(userName, userEmail, userPass);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
     private void storeDataInDB(String userName, String userEmail, String userPass) {
