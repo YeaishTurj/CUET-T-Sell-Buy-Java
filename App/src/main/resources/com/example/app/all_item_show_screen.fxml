@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.customDesign.AllItemsShowScreen">
+<AnchorPane prefHeight="768" prefWidth="1024" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.customDesign.AllItemsShowScreen">
     <SplitPane dividerPositions="0.13944723618090452" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="79.0" prefWidth="625.0">
             <ImageView id="profile" fitHeight="31.0" fitWidth="30.0" layoutX="561.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
