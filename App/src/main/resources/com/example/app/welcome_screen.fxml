@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,104 +12,159 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #9575CD, #4FC3F7, #66BB6A);"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.app.WelcomeScreenController"> <!-- Add this line -->
    <children>
-      <!-- Background region for content below the header -->
-      <Region fx:id="reg1" prefHeight="344.0" prefWidth="1024.0" style="-fx-background-color: #001f3f;" />
+      <!-- Background region for content below the header with semi-transparent gradient -->
+      <Region fx:id="reg1" prefHeight="769.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to top, rgba(255,255,255,0.8), rgba(150,200,255,0.6)); " />
 
       <!-- T-shirt Image centered above the platform name -->
       <ImageView fitHeight="172.0" fitWidth="152.0" layoutX="283.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <!-- Replace the path with the correct location of your T-shirt image -->
             <Image url="@../../../assets/tshirt_logo.png" />
          </image>
       </ImageView>
 
-      <!-- Platform name text with moderate spacing and drop shadow effect -->
-      <Text layoutX="429.0" layoutY="227.0" style="-fx-font-size: 60; -fx-font-family: 'Montagu Slab'; -fx-fill: #ADFF2F; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5, 0, 0, 2);" text="Cuet T-Sell &amp; Buy" />
+      <!-- Platform name text with drop shadow effect -->
+      <Text layoutX="429.0" layoutY="227.0" style="-fx-font-size: 60; -fx-font-family: 'Montagu Slab'; -fx-fill: #1F4A67; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 2);" text="Cuet T-Sell &amp; Buy" />
 
-      <!-- Subtitle text in smaller font with lighter color and increased letter spacing -->
-      <Text fx:id="slogan" layoutX="517.0" layoutY="292.0" style="-fx-font-size: 30; -fx-font-family: 'Agdasima'; -fx-fill: #D3D3D3; -fx-letter-spacing: 5px;" text="A T-shirt buying and selling platform for CUET" underline="true" />
+      <!-- Subtitle text with increased letter spacing -->
+      <Text fx:id="slogan" layoutX="517.0" layoutY="292.0" style="-fx-font-size: 30; -fx-font-style: italic; -fx-font-family: 'Agdasima'; -fx-fill: #6D6D6D; -fx-letter-spacing: 5px;" text="A T-shirt buying and selling platform for CUET" underline="true" />
 
-      <!-- Welcome text with bold, large font -->
-      <Text layoutX="36.0" layoutY="96.0" style="-fx-font-size: 80; -fx-font-family: 'Limelight'; -fx-fill: #FFD700; -fx-font-weight: bold;" text="Welcome To," textAlignment="JUSTIFY">
+      <!-- Welcome text with gradient effect and bold font -->
+      <Text layoutX="36.0" layoutY="96.0" style="-fx-font-size: 80; -fx-font-family: 'Limelight'; -fx-fill: #1A3A60; -fx-font-weight: bold;" text="Welcome To," textAlignment="JUSTIFY">
          <font>
             <Font size="76.0" />
          </font>
+         <effect>
+            <DropShadow color="rgba(0, 0, 0, 0.7)" offsetX="0" offsetY="2" radius="10" />
+            <Glow level="0.8" />
+         </effect>
       </Text>
 
-      <!-- Background region for "Continue As" section with light grey color -->
-      <Region fx:id="continueAs" layoutY="343.0" prefHeight="425.0" prefWidth="1024.0" style="-fx-background-color: #F0F0F0;" />
       <VBox alignment="CENTER" layoutY="343.0" prefHeight="425.0" prefWidth="512.0">
          <children>
-
-
-            <!--        &lt;!&ndash; Buyer Button with enhanced 3D effect and hover style &ndash;&gt;-->
-            <!--        <Button layoutX="150.0" layoutY="543.0" mnemonicParsing="false"-->
-            <!--                style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);-->
-            <!--               -fx-text-fill: white;-->
-            <!--               -fx-font-family: 'Limelight';-->
-            <!--               -fx-font-weight: bold;-->
-            <!--               -fx-font-size: 24;-->
-            <!--               -fx-padding: 15 30;-->
-            <!--               -fx-background-radius: 10;-->
-            <!--               -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);-->
-            <!--               -fx-border-color: transparent;-->
-            <!--               -fx-border-radius: 10;"-->
-            <!--                text="Buyer"/>-->
-            <!--&lt;!&ndash;                onMouseEntered="setStyle('-fx-background-color: linear-gradient(to bottom, #66bb6a, #4CAF50); -fx-text-fill: white; -fx-font-family: Limelight; -fx-font-weight: bold; -fx-font-size: 24; -fx-padding: 15 30; -fx-background-radius: 10; -fx-border-color: transparent; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 5, 0, 0, 2);')"&ndash;&gt;-->
-            <!--&lt;!&ndash;                onMouseExited="setStyle('-fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C); -fx-text-fill: white; -fx-font-family: Limelight; -fx-font-weight: bold; -fx-font-size: 24; -fx-padding: 15 30; -fx-background-radius: 10; -fx-border-color: transparent; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);')"&ndash;&gt;-->
-
-            <!--        &lt;!&ndash; Seller Button with enhanced 3D effect and hover style &ndash;&gt;-->
-            <!--        <Button layoutX="650.0" layoutY="543.0" mnemonicParsing="false"-->
-            <!--                style="-fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2);-->
-            <!--               -fx-text-fill: white;-->
-            <!--               -fx-font-family: 'Limelight';-->
-            <!--               -fx-font-weight: bold;-->
-            <!--               -fx-font-size: 24;-->
-            <!--               -fx-padding: 15 30;-->
-            <!--               -fx-background-radius: 10;-->
-            <!--               -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);-->
-            <!--               -fx-border-color: transparent;-->
-            <!--               -fx-border-radius: 10;"-->
-            <!--                text="Seller"/>-->
-            <!--&lt;!&ndash;                onMouseEntered="setStyle('-fx-background-color: linear-gradient(to bottom, #64b5f6, #2196F3); -fx-text-fill: white; -fx-font-family: Limelight; -fx-font-weight: bold; -fx-font-size: 24; -fx-padding: 15 30; -fx-background-radius: 10; -fx-border-color: transparent; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 5, 0, 0, 2);')"&ndash;&gt;-->
-            <!--&lt;!&ndash;                onMouseExited="setStyle('-fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2); -fx-text-fill: white; -fx-font-family: Limelight; -fx-font-weight: bold; -fx-font-size: 24; -fx-padding: 15 30; -fx-background-radius: 10; -fx-border-color: transparent; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);')"&ndash;&gt;-->
-
-            <!-- Buyer Button with updated text color -->
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #2E7D32, #1B5E20); /* Dark Green */                -fx-text-fill: #FFFFFF; /* Bright White */                -fx-font-family: 'Limelight';                -fx-font-weight: bold;                -fx-font-size: 24;                -fx-padding: 15 30;                -fx-background-radius: 10;                -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);                -fx-border-color: transparent;                -fx-border-radius: 10;" text="Buyer" />
+            <!-- Buyer Button with enhanced gradient and hover effect -->
+            <Button fx:id="buyerButton" alignment="TOP_LEFT" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-weight: bold; -fx-font-size: 24; -fx-padding: 15 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 2);" text="Buyer" />
          </children>
       </VBox>
+
       <VBox alignment="CENTER" layoutX="512.0" layoutY="343.0" prefHeight="425.0" prefWidth="512.0">
          <children>
-
-            <!-- Seller Button with updated text color -->
-            <Button mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #1A237E, #0D47A1); /* Navy Blue */                -fx-text-fill: #FFFFFF; /* Bright White */                -fx-font-family: 'Limelight';                -fx-font-weight: bold;                -fx-font-size: 24;                -fx-padding: 15 30;                -fx-background-radius: 10;                -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);                -fx-border-color: transparent;                -fx-border-radius: 10;" text="Seller" />
+            <!-- Seller Button with enhanced gradient and hover effect -->
+            <Button fx:id="sellerButton" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-weight: bold; -fx-font-size: 24; -fx-padding: 15 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 2);" text="Seller" />
          </children>
       </VBox>
+
       <HBox alignment="CENTER" layoutY="345.0" prefHeight="212.5" prefWidth="1024.0">
          <children>
-
-            <!-- Continue As text with stroke for bold effect and glow -->
-            <Text style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: #003366; -fx-stroke: #000000; -fx-stroke-width: 1;" text="Continue As">
+            <!-- "Continue As" text with bold effect and glow -->
+            <Text style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: #1A237E; -fx-stroke: #1A237E; -fx-stroke-width: 1;" text="Continue As">
                <effect>
                   <Glow level="0.75" />
                </effect>
             </Text>
          </children>
       </HBox>
+
       <HBox alignment="TOP_CENTER" layoutY="542.0" prefHeight="227.0" prefWidth="1024.0">
          <children>
-            <!-- Centering "OR" text with stroke for bold effect and glow -->
-            <Text style="-fx-font-size: 30; -fx-font-family: 'Satisfy'; -fx-fill: #A40000; -fx-stroke: #000000; -fx-stroke-width: 1;" text="OR">
+            <!-- "OR" text with stroke for bold effect and glow -->
+            <Text style="-fx-font-size: 30; -fx-font-family: 'Satisfy'; -fx-fill: #D32F2F; -fx-stroke: #000000; -fx-stroke-width: 1;" text="OR">
                <effect>
                   <Glow level="0.5" />
                </effect>
             </Text>
          </children>
       </HBox>
-
-
-
    </children>
 </AnchorPane>
+
+
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+
+<!--<?import javafx.scene.control.Button?>-->
+<!--<?import javafx.scene.effect.DropShadow?>-->
+<!--<?import javafx.scene.effect.Glow?>-->
+<!--<?import javafx.scene.image.Image?>-->
+<!--<?import javafx.scene.image.ImageView?>-->
+<!--<?import javafx.scene.layout.AnchorPane?>-->
+<!--<?import javafx.scene.layout.HBox?>-->
+<!--<?import javafx.scene.layout.Region?>-->
+<!--<?import javafx.scene.layout.VBox?>-->
+<!--<?import javafx.scene.text.Font?>-->
+<!--<?import javafx.scene.text.Text?>-->
+
+<!--<AnchorPane prefHeight="768.0" prefWidth="1024.0"-->
+<!--            style="-fx-background-color: linear-gradient(to bottom right, #9575CD, #4FC3F7, #66BB6A);"-->
+<!--            xmlns="http://javafx.com/javafx/23.0.1"-->
+<!--            xmlns:fx="http://javafx.com/fxml/1"-->
+<!--            fx:controller="com.example.app.WelcomeScreenController"> &lt;!&ndash; Add this line &ndash;&gt;-->
+<!--   <children>-->
+<!--      &lt;!&ndash; Background region for content below the header with semi-transparent gradient &ndash;&gt;-->
+<!--      <Region fx:id="reg1" prefHeight="769.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to top, rgba(255,255,255,0.8), rgba(150,200,255,0.6)); " />-->
+
+<!--      &lt;!&ndash; T-shirt Image centered above the platform name &ndash;&gt;-->
+<!--      <ImageView fitHeight="172.0" fitWidth="152.0" layoutX="283.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">-->
+<!--         <image>-->
+<!--            <Image url="@../../../assets/tshirt_logo.png" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
+
+<!--      &lt;!&ndash; Platform name text with drop shadow effect &ndash;&gt;-->
+<!--      <Text layoutX="429.0" layoutY="227.0" style="-fx-font-size: 60; -fx-font-family: 'Montagu Slab'; -fx-fill: #1F4A67; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 2);" text="Cuet T-Sell &amp; Buy" />-->
+
+<!--      &lt;!&ndash; Subtitle text with increased letter spacing &ndash;&gt;-->
+<!--      <Text fx:id="slogan" layoutX="517.0" layoutY="292.0" style="-fx-font-size: 30; -fx-font-style: italic; -fx-font-family: 'Agdasima'; -fx-fill: #6D6D6D; -fx-letter-spacing: 5px;" text="A T-shirt buying and selling platform for CUET" underline="true" />-->
+
+<!--      &lt;!&ndash; Welcome text with gradient effect and bold font &ndash;&gt;-->
+<!--      <Text layoutX="36.0" layoutY="96.0" style="-fx-font-size: 80; -fx-font-family: 'Limelight'; -fx-fill: #1A3A60; -fx-font-weight: bold;" text="Welcome To," textAlignment="JUSTIFY">-->
+<!--         <font>-->
+<!--            <Font size="76.0" />-->
+<!--         </font>-->
+<!--         <effect>-->
+<!--            <DropShadow color="rgba(0, 0, 0, 0.7)" offsetX="0" offsetY="2" radius="10" />-->
+<!--            <Glow level="0.8" />-->
+<!--         </effect>-->
+<!--      </Text>-->
+
+<!--      <VBox alignment="CENTER" layoutY="343.0" prefHeight="425.0" prefWidth="512.0">-->
+<!--         <children>-->
+<!--            &lt;!&ndash; Buyer Button with enhanced gradient and hover effect &ndash;&gt;-->
+<!--            <Button fx:id="buyerButton" alignment="TOP_LEFT" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-weight: bold; -fx-font-size: 24; -fx-padding: 15 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 2);" text="Buyer" />-->
+<!--         </children>-->
+<!--      </VBox>-->
+
+<!--      <VBox alignment="CENTER" layoutX="512.0" layoutY="343.0" prefHeight="425.0" prefWidth="512.0">-->
+<!--         <children>-->
+<!--            &lt;!&ndash; Seller Button with enhanced gradient and hover effect &ndash;&gt;-->
+<!--            <Button fx:id="sellerButton" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-weight: bold; -fx-font-size: 24; -fx-padding: 15 30; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0, 0, 2);" text="Seller" />-->
+<!--         </children>-->
+<!--      </VBox>-->
+
+<!--      <HBox alignment="CENTER" layoutY="345.0" prefHeight="212.5" prefWidth="1024.0">-->
+<!--         <children>-->
+<!--            &lt;!&ndash; "Continue As" text with bold effect and glow &ndash;&gt;-->
+<!--            <Text style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: #1A237E; -fx-stroke: #1A237E; -fx-stroke-width: 1;" text="Continue As">-->
+<!--               <effect>-->
+<!--                  <Glow level="0.75" />-->
+<!--               </effect>-->
+<!--            </Text>-->
+<!--         </children>-->
+<!--      </HBox>-->
+
+<!--      <HBox alignment="TOP_CENTER" layoutY="542.0" prefHeight="227.0" prefWidth="1024.0">-->
+<!--         <children>-->
+<!--            &lt;!&ndash; "OR" text with stroke for bold effect and glow &ndash;&gt;-->
+<!--            <Text style="-fx-font-size: 30; -fx-font-family: 'Satisfy'; -fx-fill: #D32F2F; -fx-stroke: #000000; -fx-stroke-width: 1;" text="OR">-->
+<!--               <effect>-->
+<!--                  <Glow level="0.5" />-->
+<!--               </effect>-->
+<!--            </Text>-->
+<!--         </children>-->
+<!--      </HBox>-->
+<!--   </children>-->
+<!--</AnchorPane>-->

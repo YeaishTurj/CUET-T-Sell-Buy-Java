@@ -1,0 +1,70 @@
+/* Background */
+.background {
+    -fx-background-color: #F0F0F0; /* Light Grey Background */
+}
+
+/* Welcome Text */
+.welcome-text {
+    -fx-font-size: 36px;
+    -fx-font-family: "Satisfy-Regular";
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFD700; /* Gold Text */
+}
+
+/* Login Text */
+.login-text {
+    -fx-font-size: 18px;
+    -fx-font-family: "MontaguSlab";
+    -fx-font-weight: bold;
+    -fx-text-fill: #ADFF2F; /* Green-Yellow Accent */
+}
+
+.account-text {
+    -fx-font-size: 14px;
+    -fx-font-family: "Agdasima";
+    -fx-text-fill: #D3D3D3; /* Light Gray */
+}
+
+.signup-link {
+    -fx-font-size: 14px;
+    -fx-font-family: "Agdasima";
+    -fx-text-fill: #A40000; /* Red Accent */
+    -fx-underline: true;
+}
+
+/* Input Fields */
+.input-field {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: white; /* White Background for Input Fields */
+    -fx-prompt-text-fill: #b3b3b3;
+    -fx-padding: 10;
+    -fx-font-family: "Agdasima";
+}
+
+/* Login Button */
+.login-button {
+    -fx-background-color: linear-gradient(to bottom, #2E7D32, #1B5E20); /* Dark Green Gradient */
+    -fx-text-fill: white;
+    -fx-font-family: "Limelight";
+    -fx-font-size: 18px;
+    -fx-background-radius: 15;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);
+}
+
+/* Or Text */
+.or-text {
+    -fx-font-size: 14px;
+    -fx-font-family: "MontaguSlab";
+    -fx-text-fill: #A40000; /* Red Accent */
+}
+
+/* Google Button */
+.google-button {
+    -fx-background-color: white;
+    -fx-border-radius: 50;
+    -fx-border-color: #cccccc;
+    -fx-padding: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);
+}
