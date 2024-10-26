@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.WelcomeScreen">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="240.0" layoutY="149.0" mnemonicParsing="false" text="Welcome" />
+      <!-- Main VBox to contain the header, centered in the upper portion -->
+      <VBox alignment="CENTER" prefHeight="360.0" prefWidth="1280.0" spacing="10.0" style="-fx-background-color: #0D2840;">
+         <children>
+            <!-- Welcome text with bold, large font -->
+            <Text style="-fx-font-size: 72; -fx-font-family: 'Limelight'; -fx-fill: #FFD700; -fx-font-weight: bold;" text="Welcome To," />
+
+            <!-- Platform name text with moderate spacing below -->
+            <Text style="-fx-font-size: 56; -fx-font-family: 'Montagu Slab'; -fx-fill: #ADFF2F; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5, 0, 0, 2);" text="Cuet T-sell" />
+
+            <!-- Subtitle text in smaller font with lighter color -->
+            <Text style="-fx-font-size: 24; -fx-font-family: 'Agdasima'; -fx-fill: #D3D3D3;" text="A T-shirt buying and selling platform for CUET" />
+         </children>
+      </VBox>
+
+      <!-- White background region for content below the header -->
+      <Region layoutY="360.0" prefHeight="360.0" prefWidth="1280.0" style="-fx-background-color: white;" />
    </children>
 </AnchorPane>
