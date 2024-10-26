@@ -11,15 +11,15 @@ public class DatabaseConnection {
         String password = "";
         Connection connection = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");  // Load the MySQL driver
-            connection = DriverManager.getConnection(url, user, password);  // Establish the connection
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(url, user, password);
             if (connection != null) {
                 System.out.println("Connected to the database!");
             }
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Database connection failed: " + e.getMessage());
         }
-        return connection;  // Return the connection object, null if the connection failed
+        return connection;
     }
 
 }

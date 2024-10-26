@@ -1,5 +1,6 @@
 package com.example.app;
 
+import com.example.app.customDesign.AllItemsShowScreen;
 import com.example.app.database.DatabaseConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +14,7 @@ import java.sql.Connection;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        loadScreen(primaryStage, "item_show_screen.fxml");
+        loadScreen(primaryStage, "all_item_show_screen.fxml");
     }
     public void loadScreen(Stage stage, String fxmlFile) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
