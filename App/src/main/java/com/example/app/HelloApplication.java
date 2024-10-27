@@ -20,6 +20,8 @@ public class HelloApplication extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent root = loader.load();
         Scene scene = new Scene(root);
+        stage.setWidth(1024);
+        stage.setHeight(768);
         stage.setScene(scene);
         stage.show();
     }

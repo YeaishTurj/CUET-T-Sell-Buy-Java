@@ -16,192 +16,152 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.app.ItemScreenController">
-   <SplitPane dividerPositions="0.15954773869346733" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0"
-                  style="-fx-background-color: #ffffcc;">
-         <ImageView fx:id="buyerProfile" fitHeight="35.0" fitWidth="35.0" layoutX="556.0" layoutY="14.0"
-                    pickOnBounds="true" preserveRatio="true">
+<AnchorPane prefHeight="764.0" prefWidth="1082.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ItemScreenController">
+   <SplitPane dividerPositions="0.10958005249343832" orientation="VERTICAL" prefHeight="764.0" prefWidth="1082.0">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="83.0" prefWidth="1080.0" style="-fx-background-color: #ffffcc;">
+         <ImageView fx:id="buyerProfile" fitHeight="35.0" fitWidth="35.0" layoutX="1017.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
             <effect>
                <DropShadow>
                   <color>
-                     <Color red="0.7894737124443054" green="0.3252924084663391" blue="0.3252924084663391"/>
+                     <Color red="0.7894737124443054" green="0.3252924084663391" blue="0.3252924084663391" />
                   </color>
                </DropShadow>
             </effect>
-            <image>
-               <Image url="@../../../assets/person.png"/>
-            </image>
+            <Image url="@../../../assets/person.png" />
          </ImageView>
-         <Button layoutX="495.0" layoutY="19.0" mnemonicParsing="false" onAction="#logOutUser" text="Log Out"/>
-         <ImageView fx:id="backBtn" fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="13.0"
-                    onMouseClicked="#gotoItemShowScreen" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../assets/back.jpg"/>
+         <Button layoutX="946.0" layoutY="40.0" mnemonicParsing="false" onAction="#logOutUser" text="Log Out" />
+         <ImageView fx:id="backBtn" fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#gotoItemShowScreen" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../assets/back.jpg" />
          </ImageView>
       </AnchorPane>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0"
-                  style="-fx-background-color: #ebf0ee;">
-         <ImageView fx:id="itemImage" fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="45.0"
-                    pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../assets/product_1.png"/>
-            </image>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #ebf0ee;">
+         <ImageView fx:id="itemImage" fitHeight="331.0" fitWidth="388.0" layoutX="102.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../assets/product_1.png" />
          </ImageView>
-         <ImageView fx:id="leftImage" fitHeight="20.0" fitWidth="20.0" layoutX="14.0" layoutY="120.0"
-                    onMouseClicked="#showLeftImage" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-            <image>
-               <Image url="@../../../assets/arrow.png"/>
-            </image>
+         <ImageView fx:id="leftImage" fitHeight="25.0" fitWidth="25.0" layoutX="63.0" layoutY="193.0" onMouseClicked="#showLeftImage" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+            <Image url="@../../../assets/arrow.png" />
          </ImageView>
-         <ImageView fx:id="rightImage" fitHeight="20.0" fitWidth="20.0" layoutX="208.0" layoutY="120.0"
-                    onMouseClicked="#showRightImage" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../assets/arrow.png"/>
-            </image>
+         <ImageView fx:id="rightImage" fitHeight="28.0" fitWidth="35.0" layoutX="466.0" layoutY="191.0" onMouseClicked="#showRightImage" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../assets/arrow.png" />
          </ImageView>
-         <VBox layoutX="266.0" layoutY="12.0" prefHeight="312.0" prefWidth="319.0"
-               style="-fx-background-color: #ebfaea; -fx-border-radius: 100;">
+         <VBox layoutX="550.0" layoutY="12.0" prefHeight="640.0" prefWidth="520.0" style="-fx-background-color: #ebfaea; -fx-border-radius: 100;">
             <effect>
-               <DropShadow/>
+               <DropShadow />
             </effect>
-            <children>
-               <Text fx:id="productName" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name"
-                     textAlignment="CENTER" wrappingWidth="319.5573425292969">
-                  <font>
-                     <Font name="Arial Bold" size="13.0"/>
-                  </font>
-                  <VBox.margin>
-                     <Insets left="2.0" right="2.0" top="8.0"/>
-                  </VBox.margin>
-               </Text>
-               <HBox prefHeight="13.0" prefWidth="323.0">
-                  <children>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" underline="true"
-                           wrappingWidth="38.121856689453125">
-                        <font>
-                           <Font name="Arial Bold" size="13.0"/>
-                        </font>
-                     </Text>
-                     <Text fx:id="productPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Price Here"/>
-                  </children>
-               </HBox>
-               <HBox prefHeight="12.0" prefWidth="315.0">
-                  <children>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" underline="true"
-                           wrappingWidth="60.399444580078125">
-                        <font>
-                           <Font name="Arial Bold" size="13.0"/>
-                        </font>
-                     </Text>
-                     <Text fx:id="productQuantity" strokeType="OUTSIDE" strokeWidth="0.0" text="1000"/>
-                  </children>
-               </HBox>
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" underline="true"
-                     wrappingWidth="76.601318359375">
-                  <font>
-                     <Font name="Arial Bold" size="13.0"/>
-                  </font>
-               </Text>
-               <ScrollPane hbarPolicy="NEVER" prefHeight="227.0" prefWidth="324.0">
-                  <content>
-                     <Label fx:id="productDescription" alignment="TOP_LEFT" prefHeight="224.0" prefWidth="322.0"
-                            text="Label"/>
-                  </content>
-                  <VBox.margin>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
-                  </VBox.margin>
-                  <padding>
-                     <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
-                  </padding>
-               </ScrollPane>
-            </children>
             <padding>
-               <Insets left="5.0"/>
+               <Insets left="5.0" />
             </padding>
+            <Text fx:id="productName" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name" textAlignment="CENTER" wrappingWidth="507.7297058105469">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" top="8.0" />
+               </VBox.margin>
+            </Text>
+            <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="521.0">
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" underline="true">
+                  <font>
+                     <Font name="Arial Bold" size="16.0" />
+                  </font>
+               </Text>
+               <Text fx:id="productPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Price Here">
+                  <font>
+                     <Font name="System Italic" size="16.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets left="8.0" />
+                  </HBox.margin></Text>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="524.0">
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" underline="true">
+                  <font>
+                     <Font name="Arial Bold" size="15.0" />
+                  </font>
+               </Text>
+               <Text fx:id="productQuantity" strokeType="OUTSIDE" strokeWidth="0.0" text="1000">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets left="8.0" />
+                  </HBox.margin></Text>
+            </HBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" underline="true">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" right="10.0" top="6.0" />
+               </VBox.margin>
+            </Text>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="516.0" prefWidth="515.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+               <Label fx:id="productDescription" alignment="TOP_LEFT" prefHeight="512.0" prefWidth="502.0" text="Label" />
+            </ScrollPane>
          </VBox>
-         <VBox layoutX="2.0" layoutY="189.0" prefHeight="136.0" prefWidth="260.0">
-            <children>
-               <HBox prefHeight="15.0" prefWidth="186.0">
-                  <children>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Owner:" underline="true"
-                           wrappingWidth="49.21630859375">
-                        <font>
-                           <Font name="Arial Bold" size="13.0"/>
-                        </font>
-                     </Text>
-                     <Text fx:id="ownerName" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner name"/>
-                  </children>
-                  <VBox.margin>
-                     <Insets bottom="5.0" left="5.0" top="10.0"/>
-                  </VBox.margin>
-               </HBox>
-               <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="175.0">
-                  <children>
-                     <ImageView fitHeight="28.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../../../assets/contact.jpg"/>
-                        </image>
-                     </ImageView>
-                     <Text fx:id="contactNo" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number"
-                           textAlignment="CENTER" wrappingWidth="94.21630859375">
-                        <font>
-                           <Font name="Arial Bold" size="13.0"/>
-                        </font>
-                     </Text>
-                  </children>
-                  <VBox.margin>
-                     <Insets left="5.0"/>
-                  </VBox.margin>
-               </HBox>
-               <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="242.0">
-                  <children>
-                     <ImageView fitHeight="28.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../../../assets/wapp.jpeg"/>
-                        </image>
-                     </ImageView>
-                     <Text fx:id="wAppNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="W app number"
-                           wrappingWidth="206.21630859375">
-                        <font>
-                           <Font name="Arial Bold" size="13.0"/>
-                        </font>
-                     </Text>
-                  </children>
-               </HBox>
-               <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="186.0">
-                  <children>
-                     <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../../../assets/facebook.png"/>
-                        </image>
-                     </ImageView>
-                     <Hyperlink fx:id="facebookLink" onAction="#navigateToLink" text="Facebook Link"
-                                underline="true"/>
-                  </children>
-                  <VBox.margin>
-                     <Insets left="5.0"/>
-                  </VBox.margin>
-               </HBox>
-               <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="175.0">
-                  <children>
-                     <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../../../assets/contact.jpg"/>
-                        </image>
-                        <HBox.margin>
-                           <Insets left="5.0"/>
-                        </HBox.margin>
-                     </ImageView>
-                     <Text fx:id="emailId" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Id"
-                           wrappingWidth="94.21630859375">
-                        <font>
-                           <Font name="Arial Bold" size="13.0"/>
-                        </font>
-                     </Text>
-                  </children>
-               </HBox>
-            </children>
+         <VBox layoutX="8.0" layoutY="380.0" prefHeight="246.0" prefWidth="533.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="528.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" top="10.0" />
+               </VBox.margin>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Owner:" underline="true" wrappingWidth="49.21630859375">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font>
+               </Text>
+               <Text fx:id="ownerName" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner name" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="528.0">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+               <ImageView fitHeight="28.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../assets/contact.jpg" />
+               </ImageView>
+               <Text fx:id="contactNo" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" textAlignment="CENTER">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font>
+               </Text>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="533.0">
+               <ImageView fitHeight="28.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../assets/wapp.jpeg" />
+               </ImageView>
+               <Text fx:id="wAppNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="W app number">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font>
+               </Text>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="535.0">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+               <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../../assets/facebook.png" />
+               </ImageView>
+               <Hyperlink fx:id="facebookLink" onAction="#navigateToLink" text="Facebook Link" underline="true" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="530.0">
+               <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                  <HBox.margin>
+                     <Insets left="5.0" />
+                  </HBox.margin>
+                  <Image url="@../../../assets/contact.jpg" />
+               </ImageView>
+               <Text fx:id="emailId" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Id">
+                  <font>
+                     <Font name="Arial Bold" size="13.0" />
+                  </font>
+               </Text>
+            </HBox>
          </VBox>
       </AnchorPane>
    </SplitPane>

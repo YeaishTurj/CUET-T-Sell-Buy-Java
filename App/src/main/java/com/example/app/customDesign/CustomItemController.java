@@ -1,6 +1,7 @@
 package com.example.app.customDesign;
 
 import com.example.app.ItemScreenController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,46 +19,75 @@ import java.util.ResourceBundle;
 
 public class CustomItemController implements Initializable {
     @FXML
-    public ImageView itemImage;
+    private ImageView itemImage1;
     @FXML
-    private Button more;
+    private ImageView itemImage2;
     @FXML
-    public Text itemTitle;
+    private Text itemPrice1;
     @FXML
-    private Text itemPrice;
+    private Text itemPrice2;
     @FXML
-    private Text itemQuantity;
-    public Owner itemOwner;
-    public Item singleItem;
+    private Text itemQuantity1;
+    @FXML
+    private Text itemQuantity2;
+    @FXML
+    private Text itemTitle1;
+    @FXML
+    private Text itemTitle2;
+    @FXML
+    private Button more1;
+    @FXML
+    private Button more2;
+    public Owner itemOwner1;
+    public Item singleItem1;
+    public Owner itemOwner2;
+    public Item singleItem2;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        more.setOnMouseClicked(this::seeDetails);
+        //more1.setOnMouseClicked(this::seeDetails1);
     }
     //------- here we receive the data of item and owner to show in the custom design ------//
-    public void setData(Item item,Owner owner){
-            itemTitle.setText(item.getTitle());
-            itemPrice.setText(Integer.toString(item.getPrice()));
-            itemQuantity.setText(Integer.toString(item.getQuantity()));
-            singleItem=item;
-            itemOwner=owner;
+    public void setData1(Item item,Owner owner){
+        itemTitle1.setText(item.getTitle());
+        itemPrice1.setText(Integer.toString(item.getPrice()));
+        itemQuantity1.setText(Integer.toString(item.getQuantity()));
+        singleItem1=item;
+        itemOwner1=owner;
     }
-    public void seeDetails(MouseEvent event) {
+    public void setData2(Item item,Owner owner){
+        itemTitle2.setText(item.getTitle());
+        itemPrice2.setText(Integer.toString(item.getPrice()));
+        itemQuantity2.setText(Integer.toString(item.getQuantity()));
+        singleItem2=item;
+        itemOwner2=owner;
+    }
+    public void seeDetails2(ActionEvent actionEvent) {
         try {
-            //----- load the fxml where we will navigate ----//
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/item_screen.fxml"));
             Parent root = loader.load();
-            //----- get the controller of the fxml file ------//
             ItemScreenController itemScreenController = loader.getController();
-            //------- here we pass those data of clicked item to the single item screen ------
-            itemScreenController.getDetails(itemOwner,singleItem);
-            //----- Switch to the new scene -------//
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            itemScreenController.getDetails(itemOwner2,singleItem2);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             System.out.println(e);
         }
-        System.out.println("Item clicked: " + itemTitle.getText());
+    }
+    public void seeDetails1(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/item_screen.fxml"));
+            Parent root = loader.load();
+            ItemScreenController itemScreenController = loader.getController();
+            itemScreenController.getDetails(itemOwner1,singleItem1);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }

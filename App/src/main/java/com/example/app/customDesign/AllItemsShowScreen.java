@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
@@ -19,8 +20,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AllItemsShowScreen implements Initializable {
+    public TextField searchBox;
     @FXML
     private Text sortTypeText;
     @FXML
@@ -30,6 +33,7 @@ public class AllItemsShowScreen implements Initializable {
     //--------- globally declared variable for further modification ------------//
     public List<Item> listOfItem;
     public List<Owner> listOfOwner;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //-------- when the screen is lode then we need to fetch the data first ----------//
@@ -41,7 +45,7 @@ public class AllItemsShowScreen implements Initializable {
         */
         //------- call the function to load data ----------//
         listOfItem=itemList();
-        loadDataInListView();
+        loadDataInListView(listOfItem);
     }
     private List<Item> itemList(){
         List<Item> ls=new ArrayList<>();
@@ -55,7 +59,7 @@ public class AllItemsShowScreen implements Initializable {
         item3.setItem("Title of T-shirt3", 400, 3, "","description-1");
         ls.add(item3);
         Item item4 = new Item();
-        item4.setItem("Title of T-shirt4", 500, 6, "","description-1");
+        item4.setItem("Title of T-shirt4", 600, 6, "","description-1");
         ls.add(item4);
         return ls;
     }
@@ -64,7 +68,9 @@ public class AllItemsShowScreen implements Initializable {
     @FXML
     void logOutUser(ActionEvent event) {}
     @FXML
-    void searchItem(TouchEvent event) {}
+    void searchItem(TouchEvent event) {
+
+    }
     public void showDialog(MouseEvent events) {
         ComboBox<String> comboBox = new ComboBox<>();
         comboBox.getItems().addAll("All", "New Arrival", "Old Classic", "High Quantity", "Low to High Price", "High to Low Price");
@@ -113,39 +119,53 @@ public class AllItemsShowScreen implements Initializable {
         if(index==3){
             System.out.println("under 3");
             listOfItem.sort(Comparator.comparingInt(Item::getQuantity).reversed());
-            loadDataInListView();
+            loadDataInListView(listOfItem);
         } else if (index==4) {
             System.out.println("under 4");
             listOfItem.sort(Comparator.comparingInt(Item::getPrice));
-            loadDataInListView();
+            loadDataInListView(listOfItem);
         }else if (index==5) {
             System.out.println("under 5");
             listOfItem.sort(Comparator.comparingInt(Item::getPrice).reversed());
-            loadDataInListView();
+            loadDataInListView(listOfItem);
         }else if (index==6) {
             System.out.println("under 6");
             Collections.shuffle(listOfItem);
-            loadDataInListView();
+            loadDataInListView(listOfItem);
         }
     }
-    private void loadDataInListView(){
+    private void loadDataInListView(List<Item> myItem){
+        holder.getChildren().clear();
         Owner owner=new Owner();
         owner.setOwner("Zia","01813635343","01813635343","www.facebook.com/zia002","u2104025@student.cuet.ac.bd");
-        for (Item item : listOfItem) {
-            System.out.println(item.getPrice());
+        for (int i=0;i<myItem.size();i+=2) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/com/example/app/custom_item.fxml"));
             try {
                 HBox hBox = fxmlLoader.load();
                 CustomItemController customItemController = fxmlLoader.getController();
-                //------- here we are passing those item information ------//
-                //------- also need to pass owner information for further click event ------//
-                customItemController.setData(item,owner);
+                customItemController.setData1(myItem.get(i),owner);
+                if(i+1<myItem.size()) {
+                    customItemController.setData2(myItem.get(i+1),owner);
+                }
                 holder.getChildren().add(hBox);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
-    }
 
+    }
+    public void startSearchItem(MouseEvent event) {
+        String search=searchBox.getText();
+        if(search!=null){
+            List<Item> searchItems=searchItems(listOfItem,search);
+            loadDataInListView(searchItems);
+        }
+    }
+    public static List<Item> searchItems(List<Item> listOfItems, String searchTerm) {
+        String lowerCaseSearchTerm = searchTerm.toLowerCase();
+        return listOfItems.stream()
+                .filter(item -> item.getTitle().toLowerCase().contains(lowerCaseSearchTerm))
+                .collect(Collectors.toList());
+    }
 }
