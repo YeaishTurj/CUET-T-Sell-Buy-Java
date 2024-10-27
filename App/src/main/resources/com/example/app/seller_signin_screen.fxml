@@ -36,8 +36,12 @@
                 <!-- Forgot Password Link with Hover Effect -->
                 <Text fx:id="forgotPasswordText" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Forgot Password?" />
 
-                <!-- "Don't have an account? Sign Up" Text with Hover Effect -->
-                <Text fx:id="signUpText" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Don't have an account? Sign Up" />
+<!--                &lt;!&ndash; "Don't have an account? Sign Up" Text with Hover Effect &ndash;&gt;-->
+<!--                <Text fx:id="signUpText" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Don't have an account? Sign Up" />-->
+                <Text fx:id="signUpText"
+                      style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;"
+                      text="Don't have an account? Sign Up"
+                      onMouseClicked="#handleSignUpClick" />
             </children>
         </VBox>
         <HBox alignment="CENTER" prefHeight="242.0" prefWidth="1024.0">
