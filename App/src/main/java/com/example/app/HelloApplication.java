@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
         Font.loadFont(Objects.requireNonNull(HelloApplication.class.getResource("/fonts/Satisfy-Regular.ttf")).toExternalForm(), 64);
 
         // Load FXML
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("log_in_screen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("all_item_show_screen.fxml"));
         AnchorPane root = fxmlLoader.load();
         Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 
@@ -33,7 +33,7 @@ public class HelloApplication extends Application {
 //        stage.setResizable(false); // Optional: Prevent resizing
 
         // Load CSS from the 'css' folder
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
+//        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
 
 
         stage.show();
