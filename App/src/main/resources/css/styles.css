@@ -1,5 +1,4 @@
-/* styles.css */
-
+/* General styles for both buttons */
 #sellerButton, #buyerButton {
     -fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F); /* default color for both */
     -fx-text-fill: #FFFFFF;
@@ -9,16 +8,18 @@
     -fx-padding: 15 30;
     -fx-background-radius: 10;
 
-    /* Permanent shadow for 3D effect */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 12, 0.2, 0, 6);
+    /* 3D Effect: Permanent deep shadow with slight inner shadow */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8),
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);
     -fx-translate-y: -2; /* Lift the button slightly from the background */
     -fx-transition: all 0.2s ease-in-out;
 }
 
 #sellerButton:hover, #buyerButton:hover {
-    /* Deepen shadow on hover for a stronger floating effect */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 16, 0.3, 0, 8);
-    -fx-translate-y: -4; /* Increase lift on hover */
+    /* Intensify the shadow and lift on hover for a floating effect */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12),
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2);
+    -fx-translate-y: -6; /* Increase lift on hover */
 }
 
 /* Specific background colors for each button */
@@ -28,4 +29,51 @@
 
 #buyerButton {
     -fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);
+}
+
+/* General styles for the back button */
+.backButton {
+    -fx-background-color: transparent; /* Make background transparent for the image */
+    -fx-padding: 0; /* Remove padding */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2); /* Initial shadow effect */
+    -fx-translate-y: -2; /* Lift the button slightly from the background */
+    -fx-transition: all 0.2s ease-in-out; /* Smooth transition for effects */
+}
+
+/* 3D Effect: Permanent deep shadow with slight inner shadow */
+.backButton {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8),
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);
+}
+
+/* Hover effect to intensify the shadow and lift on hover */
+.backButton:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12),
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2);
+    -fx-translate-y: -6; /* Increase lift on hover */
+}
+
+/* General styles for the Sign In button */
+.signInButton {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32); /* Gradient background */
+    -fx-text-fill: #FFFFFF; /* Text color */
+    -fx-font-family: 'Limelight'; /* Font family */
+    -fx-font-weight: bold; /* Font weight */
+    -fx-font-size: 24; /* Font size */
+    -fx-background-radius: 15; /* Rounded corners */
+    -fx-padding: 10 30; /* Padding for the button */
+
+    /* 3D Effect: Shadow and lifting */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), /* Permanent shadow */
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2); /* Inner shadow for depth */
+    -fx-translate-y: -2; /* Lift the button slightly from the background */
+    -fx-transition: all 0.2s ease-in-out; /* Smooth transition for effects */
+}
+
+/* Hover effect for floating effect */
+.signInButton:hover {
+    /* Intensify the shadow and lift on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12), /* Stronger shadow */
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2); /* Stronger inner shadow */
+    -fx-translate-y: -6; /* Increase lift on hover */
 }
