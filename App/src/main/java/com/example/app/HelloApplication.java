@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
         Font.loadFont(Objects.requireNonNull(HelloApplication.class.getResource("/fonts/Satisfy-Regular.ttf")).toExternalForm(), 64);
 
         // Load FXML
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("all_item_show_screen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("welcome_screen.fxml"));
         AnchorPane root = fxmlLoader.load();
         Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 

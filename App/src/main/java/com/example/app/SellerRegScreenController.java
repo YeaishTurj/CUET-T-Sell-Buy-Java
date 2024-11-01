@@ -133,9 +133,9 @@ public class SellerRegScreenController {
                     con = DatabaseConnection.connect();
                     if (con != null) {
                         ps = con.prepareStatement("INSERT INTO seller (name, email,password,contact,w_app,facebook_link) VALUES (?,?,?,?,?,?)");
-                        ps.setString(1,email );
-                        ps.setString(2, pass);
-                        ps.setString(3, name);
+                        ps.setString(1,name );
+                        ps.setString(2, email);
+                        ps.setString(3, pass);
                         ps.setString(4,phone);
                         ps.setString(5, wApp);
                         ps.setString(6, fbLink);
