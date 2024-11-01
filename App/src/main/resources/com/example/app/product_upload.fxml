@@ -30,7 +30,7 @@
                 <HBox prefHeight="91.0" prefWidth="616.0">
                     <children>
                         <!-- Title Text with Glow Effect -->
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 70; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Product Management">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 70; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Product Upload">
                             <effect>
                                 <Glow level="0.3" />
                             </effect>
