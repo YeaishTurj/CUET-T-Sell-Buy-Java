@@ -2,123 +2,82 @@ package com.example.app;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
-import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class SellerPageController {
 
-    @FXML
-    private VBox profileInfoPane;
+    // Constants for FXML file paths, CSS path, and dimensions
+    private static final String WELCOME_SCREEN_FXML = "welcome_screen.fxml";           // Path to the welcome screen FXML file
+    private static final String PRODUCT_MANAGEMENT_FMXL = "product_management.fxml";     // Path to the seller registration screen FXML file
+    private static final String PRODUCT_UPLOAD_FXML = "product_upload.fxml";                 // Path to the seller page screen FXML file
+    private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
+    private static final double SCREEN_WIDTH = 1024;                                   // Width for new scenes
+    private static final double SCREEN_HEIGHT = 768;                                   // Height for new scenes
 
     @FXML
-    private VBox manageProductsSection; // Add this to control visibility
-
+    private Button backButton;
     @FXML
-    private TextField searchField;
+    private void handleBackButtonClick() throws IOException {
+        // Load the welcome screen using the specified FXML path
+        Parent root = loadFXML(WELCOME_SCREEN_FXML);
 
-    @FXML
-    private TableView<?> productTable; // Replace with appropriate product type
-
-    @FXML
-    private ImageView profileIcon;
-
-    // Initialize method to set up any initial states
-    @FXML
-    public void initialize() {
-        // Optionally load initial product data or any other setup
-        loadProducts();
-    }
-
-    // Method to load products into the table
-    private void loadProducts() {
-        // Load product data from your data source and populate productTable
-    }
-
-    // Method called when the profile icon is clicked
-    @FXML
-    private void onProfileIconClick() {
-        // Toggle visibility of the profile info pane
-        profileInfoPane.setVisible(!profileInfoPane.isVisible());
-    }
-
-    // Method called when "Manage Products" label is clicked
-    @FXML
-    private void toggleManageProductsSection() {
-        manageProductsSection.setVisible(!manageProductsSection.isVisible());
-    }
-
-    // Methods for button actions within the manage products section
-    @FXML
-    private void onViewProductsClick() {
-        // Logic to view products
+        // Get the current stage and set the new scene with the specified dimensions
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        setScene(stage, root);
     }
 
     @FXML
-    private void onEditProductClick() {
-        // Logic to edit a selected product
+    private Button manageProductsButton;
+    @FXML
+    public void handleManageProducts() throws IOException {
+        Parent root = loadFXML(PRODUCT_MANAGEMENT_FMXL);
+        Stage stage = (Stage) manageProductsButton.getScene().getWindow();
+        setScene(stage, root);
     }
 
     @FXML
-    private void onDeleteProductClick() {
-        // Logic to delete a selected product
-    }
-
-    // Method called when the "Upload New Product" label is clicked
+    private Button uploadProductButton;
     @FXML
-    private void onUploadProductClick() {
-        // Logic to open upload new product dialog/form
-        openUploadProductDialog();
+    public void handleUploadProduct() throws IOException {
+        Parent root = loadFXML(PRODUCT_UPLOAD_FXML);
+        Stage stage = (Stage) uploadProductButton.getScene().getWindow();
+        setScene(stage, root);
     }
 
-    // Method called when the "Orders" label is clicked
-    @FXML
-    private void onOrdersClick() {
-        // Logic to navigate to orders section
-        loadOrders();
+
+    /**
+     * Loads an FXML file and returns the root node of the layout.
+     *
+     * @param fxmlPath The relative path to the FXML file
+     * @return Parent - the root node of the loaded FXML layout
+     * @throws IOException if the FXML file cannot be loaded
+     */
+    private Parent loadFXML(String fxmlPath) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        return loader.load();
     }
 
-    // Method called when the "Sign Out" button is clicked
-    @FXML
-    private void onSignOutClick() {
-        // Logic to sign out the seller and redirect to login page
-        signOut();
-    }
 
-    // Method to open the upload product dialog
-    private void openUploadProductDialog() {
-        // Implementation for opening the upload product dialog
-    }
-
-    // Method to load orders
-    private void loadOrders() {
-        // Implementation for loading seller's orders
-    }
-
-    // Method to sign out
-    private void signOut() {
-        // Implementation for signing out the seller
-    }
-
-    public void onUploadNewProductClick(ActionEvent actionEvent) {
-
-    }
-
-    public void handleMouseEnter(MouseEvent mouseEvent) {
-    }
-
-    public void handleMouseExit(MouseEvent mouseEvent) {
-    }
-
-    public void handleFacebookClick(MouseEvent mouseEvent) {
-    }
-
-    public void handleSearch(KeyEvent keyEvent) {
-
+    /**
+     * Sets a new scene for the specified stage with the given root node, default dimensions, and applies the CSS stylesheet.
+     *
+     * @param stage The stage on which to set the new scene
+     * @param root  The root node of the new scene layout
+     */
+    private void setScene(Stage stage, Parent root) {
+        Scene scene = new Scene(root, SCREEN_WIDTH, SCREEN_HEIGHT);
+        // Load and apply the CSS stylesheet for the scene
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(CSS_PATH)).toExternalForm());
+        stage.setScene(scene);
+        stage.show();
     }
 }

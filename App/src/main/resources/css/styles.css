@@ -77,3 +77,64 @@
                 innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2); /* Stronger inner shadow */
     -fx-translate-y: -6; /* Increase lift on hover */
 }
+
+.main-pane {
+    -fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);
+}
+
+.header {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-border-color: #1F4A67;
+    -fx-border-width: 0 0 2 0;
+}
+
+.transparent-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.title-text {
+    -fx-font-size: 50;
+    -fx-font-family: 'Satisfy';
+    -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);
+    -fx-stroke: #000000;
+    -fx-stroke-width: 1.0;
+}
+
+
+.log-out-button {
+    -fx-padding: 10px;
+}
+
+.main-content .field-label {
+    -fx-font-size: 18;
+    -fx-fill: #1F4A67;
+}
+
+.input-field {
+    -fx-font-size: 16;
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-background-radius: 10;
+    -fx-border-color: #B0BEC5;
+    -fx-border-width: 1;
+    -fx-padding: 8 12;
+}
+
+.photo-box {
+    -fx-border-width: 1;
+    -fx-border-color: black;
+    -fx-border-style: dotted;
+    -fx-background-color: C6E7FF;
+}
+
+.additional-photo-box {
+    -fx-border-color: black;
+    -fx-background-color: C6E7FF;
+    -fx-border-style: dotted;
+    -fx-border-radius: 5;
+}
+
+.upload-button {
+    -fx-font-size: 18;
+    -fx-padding: 10px;
+}

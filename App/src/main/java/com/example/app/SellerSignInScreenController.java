@@ -18,12 +18,15 @@ public class SellerSignInScreenController {
     // Constants for FXML file paths, CSS path, and dimensions
     private static final String WELCOME_SCREEN_FXML = "welcome_screen.fxml";           // Path to the welcome screen FXML file
     private static final String SELLER_REG_SCREEN_FXML = "seller_reg_screen.fxml";     // Path to the seller registration screen FXML file
+    private static final String SELLER_PAGE_FXML = "seller_page.fxml";                 // Path to the seller page screen FXML file
     private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
     private static final double SCREEN_WIDTH = 1024;                                   // Width for new scenes
     private static final double SCREEN_HEIGHT = 768;                                   // Height for new scenes
 
     @FXML
     private Button backButton;
+    @FXML // Make sure to include this annotation so FXML can inject the button
+    private Button signInButton;
 
     /**
      * Handles the back button click event and loads the welcome screen.
@@ -40,6 +43,17 @@ public class SellerSignInScreenController {
         setScene(stage, root);
     }
 
+
+    // Handle sign-in button click event
+    @FXML
+    private void handleSignInButtonClick() throws IOException {
+        // Load the seller page using the specified FXML path
+        Parent root = loadFXML(SELLER_PAGE_FXML);
+
+        // Get the current stage and set the new scene with the specified dimensions
+        Stage stage = (Stage) signInButton.getScene().getWindow();
+        setScene(stage, root);
+    }
     /**
      * Handles the sign-up text click event and loads the seller registration screen.
      *
@@ -58,6 +72,29 @@ public class SellerSignInScreenController {
             e.printStackTrace(); // Log the exception stack trace
         }
     }
+
+
+    // Handle mouse entered event
+    @FXML
+    private void handleMouseEnter() {
+        signInButton.setStyle("-fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);"
+                + "-fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';"
+                + "-fx-font-weight: bold; -fx-font-size: 24;"
+                + "-fx-background-radius: 15; -fx-padding: 10 30;"
+                + "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);");
+    }
+//
+    // Handle mouse exited event
+    @FXML
+    private void handleMouseExit() {
+        signInButton.setStyle("-fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32);"
+                + "-fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';"
+                + "-fx-font-weight: bold; -fx-font-size: 24;"
+                + "-fx-background-radius: 15; -fx-padding: 10 30;"
+                + "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0, 3, 3);");
+    }
+
+
 
     /**
      * Loads an FXML file and returns the root node of the layout.
@@ -83,33 +120,5 @@ public class SellerSignInScreenController {
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(CSS_PATH)).toExternalForm());
         stage.setScene(scene);
         stage.show();
-    }
-
-    @FXML
-    private Button signInButton;
-
-    // Handle mouse entered event
-    @FXML
-    private void handleMouseEnter() {
-        signInButton.setStyle("-fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);"
-                + "-fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';"
-                + "-fx-font-weight: bold; -fx-font-size: 24;"
-                + "-fx-background-radius: 15; -fx-padding: 10 30;"
-                + "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);");
-    }
-
-    // Handle mouse exited event
-    @FXML
-    private void handleMouseExit() {
-        signInButton.setStyle("-fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32);"
-                + "-fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';"
-                + "-fx-font-weight: bold; -fx-font-size: 24;"
-                + "-fx-background-radius: 15; -fx-padding: 10 30;"
-                + "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0, 3, 3);");
-    }
-
-    public void handleSignInButtonClick(MouseEvent actionEvent) {
-        Button button = (Button) actionEvent.getSource();
-        
     }
 }

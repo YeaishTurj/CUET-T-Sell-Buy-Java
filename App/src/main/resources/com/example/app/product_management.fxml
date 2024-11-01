@@ -1,75 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0"
-            style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);"
-            xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.app.ProductManagementController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ProductManagementController">
 
     <children>
 
-        <!-- Header Text -->
-        <Text layoutX="180.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Product Management"
-              style="-fx-font-size: 36; -fx-font-weight: bold; -fx-fill: #1F4A67;">
-            <effect>
-                <DropShadow color="rgba(0, 0, 0, 0.5)" offsetX="2.0" offsetY="2.0" radius="5.0"/>
-            </effect>
-        </Text>
+        <!-- Header Section with Title and Buttons -->
+        <HBox prefHeight="113.0" prefWidth="1024.0" spacing="15.0" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0;">
+            <children>
+            <HBox alignment="CENTER" prefHeight="91.0" prefWidth="77.0">
+               <children>
+                      <!-- Back Button with ImageView -->
+                      <Button fx:id="backButton" onAction="#handleBackButtonClick" style="-fx-background-color: transparent;                        -fx-padding: 0;                        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);">
+                     <graphic>
+                              <ImageView fitHeight="55.0" fitWidth="60.0">
+                                  <image>
+                                      <Image url="@../../../assets/back_button.png" /> <!-- Update this path to your image location -->
+                                  </image>
+                              </ImageView>
+                     </graphic>
+                      </Button>
+               </children>
+            </HBox>
+
+                <HBox prefHeight="91.0" prefWidth="616.0">
+                    <children>
+                        <!-- Title Text with Glow Effect -->
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 70; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Product Management">
+                            <effect>
+                                <Glow level="0.3" />
+                            </effect>
+                        </Text>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="128.0" prefWidth="215.0" spacing="20.0">
+                    <children>
+                        <!-- Log Out Button -->
+                        <Button text="Log Out">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                        </Button>
+                        <ImageView accessibleRole="BUTTON" fitHeight="64.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../assets/person.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+        </HBox>
 
         <!-- Separator -->
         <Separator layoutX="62.0" layoutY="100.0" prefWidth="900.0" />
 
-        <!-- Add Product Button -->
-        <Button layoutX="62.0" layoutY="130.0" mnemonicParsing="false"
-                text="Add New Product"
-                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;"
-                onMouseEntered="#handleMouseEnter"
-                onMouseExited="#handleMouseExit">
-            <Tooltip text="Click to add a new product"/>
-        </Button>
 
         <!-- Manage Products Table -->
-        <TableView layoutX="62.0" layoutY="180.0" prefWidth="900.0" prefHeight="400.0">
+        <TableView layoutX="62.0" layoutY="180.0" prefHeight="400.0" prefWidth="900.0">
             <columns>
-                <TableColumn text="Product ID" prefWidth="100.0">
+                <TableColumn prefWidth="100.0" text="Product ID">
                     <cellValueFactory>
-                        <PropertyValueFactory property="productId"/>
+                        <PropertyValueFactory property="productId" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn text="Product Name" prefWidth="200.0">
+                <TableColumn prefWidth="200.0" text="Product Name">
                     <cellValueFactory>
-                        <PropertyValueFactory property="productName"/>
+                        <PropertyValueFactory property="productName" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn text="Price" prefWidth="100.0">
+                <TableColumn prefWidth="100.0" text="Price">
                     <cellValueFactory>
-                        <PropertyValueFactory property="price"/>
+                        <PropertyValueFactory property="price" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn text="Quantity" prefWidth="100.0">
+                <TableColumn prefWidth="100.0" text="Quantity">
                     <cellValueFactory>
-                        <PropertyValueFactory property="quantity"/>
+                        <PropertyValueFactory property="quantity" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn text="Actions" prefWidth="150.0">
+                <TableColumn prefWidth="150.0" text="Actions">
                     <cellValueFactory>
-                        <PropertyValueFactory property="actions"/>
+                        <PropertyValueFactory property="actions" />
                     </cellValueFactory>
                 </TableColumn>
             </columns>
@@ -78,26 +104,11 @@
         <!-- Buttons for Manage and Delete Actions -->
         <HBox layoutX="62.0" layoutY="590.0" spacing="20">
             <children>
-                <Button mnemonicParsing="false"
-                        text="Edit Selected Product"
-                        style="-fx-background-color: #FFC107; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;"
-                        onMouseEntered="#handleMouseEnter"
-                        onMouseExited="#handleMouseExit">
-                    <Tooltip text="Edit the selected product"/>
-                </Button>
-                <Button mnemonicParsing="false"
-                        text="Delete Selected Product"
-                        style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;"
-                        onMouseEntered="#handleMouseEnter"
-                        onMouseExited="#handleMouseExit">
-                    <Tooltip text="Delete the selected product"/>
-                </Button>
+                <Button fx:id="updateProductButton" mnemonicParsing="false" onMouseClicked="#handleUpdateProductButtonClick" style="-fx-background-color: #FFC107; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;" text="Edit Selected Product" />
+
+                <Button fx:id="deleteProductButton" mnemonicParsing="false" onMouseClicked="#handleDeleteProductButtonClick" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;" text="Delete Selected Product" />
             </children>
         </HBox>
-
-        <!-- Footer -->
-        <Text layoutX="400.0" layoutY="740.0" text="© 2024 CUET T-Sell &amp; Buy | Contact Us: support@cuet.ac.bd"
-              style="-fx-font-size: 12; -fx-fill: #1F4A67;"/>
 
     </children>
 </AnchorPane>

@@ -13,38 +13,37 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class ProductManagementController {
+public class ProductUpdateController {
 
     // Constants for FXML file paths, CSS path, and dimensions
-    private static final String PRODUCT_UPDATE_FXML = "product_update.fxml";            // Path to the seller page screen FXML file
-    private static final String SELLER_PAGE_FXML = "seller_page.fxml";                  // Path to the seller page screen FXML file
+    private static final String PRODUCT_MANAGEMENT_FXML = "product_management.fxml";            // Path to the seller page screen FXML file
     private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
     private static final double SCREEN_WIDTH = 1024;                                   // Width for new scenes
     private static final double SCREEN_HEIGHT = 768;                                   // Height for new scenes
 
     @FXML
     private Button backButton;
+
+
     @FXML
     private void handleBackButtonClick() throws IOException {
         // Load the welcome screen using the specified FXML path
-        Parent root = loadFXML(SELLER_PAGE_FXML);
+        Parent root = loadFXML(PRODUCT_MANAGEMENT_FXML);
 
         // Get the current stage and set the new scene with the specified dimensions
         Stage stage = (Stage) backButton.getScene().getWindow();
         setScene(stage, root);
     }
 
+
     @FXML
     private Button updateProductButton;
     @FXML
-    public void handleUpdateProductButtonClick() throws IOException {
-        Parent root = loadFXML(PRODUCT_UPDATE_FXML);
+    public void handleUpdateProduct() throws IOException {
+        Parent root = loadFXML(PRODUCT_MANAGEMENT_FXML);
         Stage stage = (Stage) updateProductButton.getScene().getWindow();
         setScene(stage, root);
     }
-
-    @FXML
-    private Button deleteProductButton;
 
 
     /**
@@ -74,8 +73,4 @@ public class ProductManagementController {
         stage.show();
     }
 
-
-    public void handleDeleteProductButtonClick(MouseEvent mouseEvent) {
-
-    }
 }
