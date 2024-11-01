@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.app.SellerPageController">
+    <children>
+
+        <!-- Header Text -->
+        <Text layoutX="180.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="CUET T-Sell &amp; Buy"
+              style="-fx-font-size: 36; -fx-font-weight: bold; -fx-fill: #1F4A67;">
+            <effect>
+                <DropShadow color="rgba(0, 0, 0, 0.5)" offsetX="2.0" offsetY="2.0" radius="5.0"/>
+            </effect>
+        </Text>
+
+        <!-- Dashboard Title -->
+        <Text layoutX="62.0" layoutY="130.0" text="Dashboard"
+              style="-fx-font-size: 24; -fx-font-weight: bold; -fx-fill: #333;"/>
+
+        <!-- Company Name -->
+        <Text layoutX="62.0" layoutY="170.0" text="Company Name: Deikkha Lon, Baichcha Lon"
+              style="-fx-font-size: 20; -fx-fill: #333; -fx-font-weight: bold;"/>
+
+        <!-- Email -->
+        <Text layoutX="62.0" layoutY="210.0" text="Email: u210422@student.cuet.ac.bd"
+              style="-fx-font-size: 18; -fx-fill: #555;"/>
+
+        <!-- Phone Number -->
+        <Text layoutX="62.0" layoutY="240.0" text="Phone Number: 01537151211 (edit)"
+              style="-fx-font-size: 18; -fx-fill: #555;"/>
+
+        <!-- WhatsApp -->
+        <Text layoutX="62.0" layoutY="270.0" text="WhatsApp: 01537151211 (edit)"
+              style="-fx-font-size: 18; -fx-fill: #555;"/>
+
+        <!-- Facebook Link -->
+        <Text layoutX="62.0" layoutY="300.0" text="Facebook: facebook link"
+              style="-fx-font-size: 18; -fx-fill: #1A237E; -fx-underline: true; -fx-cursor: hand;"
+              onMouseClicked="#handleFacebookClick"/>
+
+        <!-- Separator -->
+        <Separator layoutX="62.0" layoutY="330.0" prefWidth="900.0" />
+
+        <!-- Logout Button -->
+        <Button layoutX="800.0" layoutY="35.0" mnemonicParsing="false"
+                text="Log Out"
+                style="-fx-background-color: #FF5252; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;"
+                onMouseEntered="#handleMouseEnter"
+                onMouseExited="#handleMouseExit">
+            <Tooltip text="Logout the current user"/>
+        </Button>
+
+        <!-- Button Box for Better Layout -->
+        <VBox layoutX="62.0" layoutY="380.0" spacing="20">
+            <!-- Manage Products Button -->
+            <Button mnemonicParsing="false"
+                    text="Manage Your Products"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;"
+                    onMouseEntered="#handleMouseEnter"
+                    onMouseExited="#handleMouseExit">
+                <Tooltip text="View and edit your products"/>
+            </Button>
+
+            <!-- Upload Product Button -->
+            <Button mnemonicParsing="false"
+                    text="Upload Product"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;"
+                    onMouseEntered="#handleMouseEnter"
+                    onMouseExited="#handleMouseExit">
+                <Tooltip text="Add a new product to your listing"/>
+            </Button>
+        </VBox>
+
+        <!-- Footer -->
+        <Text layoutX="400.0" layoutY="740.0" text="© 2024 CUET T-Sell &amp; Buy | Contact Us: support@cuet.ac.bd"
+              style="-fx-font-size: 12; -fx-fill: #1F4A67;"/>
+
+    </children>
+</AnchorPane>

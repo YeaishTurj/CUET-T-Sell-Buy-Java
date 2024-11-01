@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.app.ProductManagementController">
+
+    <children>
+
+        <!-- Header Text -->
+        <Text layoutX="180.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Product Management"
+              style="-fx-font-size: 36; -fx-font-weight: bold; -fx-fill: #1F4A67;">
+            <effect>
+                <DropShadow color="rgba(0, 0, 0, 0.5)" offsetX="2.0" offsetY="2.0" radius="5.0"/>
+            </effect>
+        </Text>
+
+        <!-- Separator -->
+        <Separator layoutX="62.0" layoutY="100.0" prefWidth="900.0" />
+
+        <!-- Add Product Button -->
+        <Button layoutX="62.0" layoutY="130.0" mnemonicParsing="false"
+                text="Add New Product"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;"
+                onMouseEntered="#handleMouseEnter"
+                onMouseExited="#handleMouseExit">
+            <Tooltip text="Click to add a new product"/>
+        </Button>
+
+        <!-- Manage Products Table -->
+        <TableView layoutX="62.0" layoutY="180.0" prefWidth="900.0" prefHeight="400.0">
+            <columns>
+                <TableColumn text="Product ID" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="productId"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Product Name" prefWidth="200.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="productName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Price" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="price"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Quantity" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="quantity"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Actions" prefWidth="150.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="actions"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <!-- Buttons for Manage and Delete Actions -->
+        <HBox layoutX="62.0" layoutY="590.0" spacing="20">
+            <children>
+                <Button mnemonicParsing="false"
+                        text="Edit Selected Product"
+                        style="-fx-background-color: #FFC107; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;"
+                        onMouseEntered="#handleMouseEnter"
+                        onMouseExited="#handleMouseExit">
+                    <Tooltip text="Edit the selected product"/>
+                </Button>
+                <Button mnemonicParsing="false"
+                        text="Delete Selected Product"
+                        style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;"
+                        onMouseEntered="#handleMouseEnter"
+                        onMouseExited="#handleMouseExit">
+                    <Tooltip text="Delete the selected product"/>
+                </Button>
+            </children>
+        </HBox>
+
+        <!-- Footer -->
+        <Text layoutX="400.0" layoutY="740.0" text="© 2024 CUET T-Sell &amp; Buy | Contact Us: support@cuet.ac.bd"
+              style="-fx-font-size: 12; -fx-fill: #1F4A67;"/>
+
+    </children>
+</AnchorPane>

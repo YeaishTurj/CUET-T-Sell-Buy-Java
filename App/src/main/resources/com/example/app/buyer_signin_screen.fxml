@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,14 +13,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #9575CD, #4FC3F7, #66BB6A);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerSignInScreenController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerSignInScreenController">
 
     <children>
         <!-- Background Panel with Glow Effect -->
 
         <VBox alignment="CENTER" layoutX="231.5" layoutY="264.0" prefHeight="425.0" prefWidth="561.0" style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 25;">
             <effect>
-                <Glow level="0.3" />
+                <Glow>
+                    <input>
+                        <Reflection />
+                    </input>
+                </Glow>
             </effect>
         </VBox>
 
@@ -33,26 +38,14 @@
                 <PasswordField fx:id="passwordField" promptText="Enter your password" style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" />
 
                 <!-- Login Button with 3D and Gradient Effect -->
-                <Button fx:id="signInButton" alignment="TOP_LEFT" mnemonicParsing="false"
-                        onAction="#handleSignInButtonClick"
-                        onMouseEntered="#handleMouseEnter"
-                        onMouseExited="#handleMouseExit"
-                        style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32);
-               -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';
-               -fx-font-weight: bold; -fx-font-size: 24;
-               -fx-background-radius: 15; -fx-padding: 10 30;
-               -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0, 3, 3);"
-                        text="Sign In" />
+                <Button fx:id="signInButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#handleSignInButtonClick" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32);                -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';                -fx-font-weight: bold; -fx-font-size: 24;                -fx-background-radius: 15; -fx-padding: 10 30;                -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0, 3, 3);" text="Sign In" />
 
                 <!-- Forgot Password Link with Hover Effect -->
                 <Text fx:id="forgotPasswordText" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Forgot Password?" />
 
-<!--                &lt;!&ndash; "Don't have an account? Sign Up" Text with Hover Effect &ndash;&gt;-->
-<!--                <Text fx:id="signUpText" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Don't have an account? Sign Up" />-->
-                <Text fx:id="signUpText"
-                      style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;"
-                      text="Don't have an account? Sign Up"
-                      onMouseClicked="#handleSignUpClick" />
+                <!--                &lt;!&ndash; "Don't have an account? Sign Up" Text with Hover Effect &ndash;&gt;-->
+                <!--                <Text fx:id="signUpText" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Don't have an account? Sign Up" />-->
+                <Text fx:id="signUpText" onMouseClicked="#handleSignUpClick" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Don't have an account? Sign Up" />
             </children>
         </VBox>
         <HBox alignment="CENTER" prefHeight="242.0" prefWidth="1024.0">
@@ -86,14 +79,11 @@
         </HBox>
 
         <!-- Back Button with ImageView -->
-        <Button fx:id="backButton" layoutX="20.0" layoutY="16.0" onAction="#handleBackButtonClick"
-                style="-fx-background-color: transparent;
-                       -fx-padding: 0;
-                       -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);">
+        <Button fx:id="backButton" layoutX="20.0" layoutY="16.0" onAction="#handleBackButtonClick" style="-fx-background-color: transparent;                        -fx-padding: 0;                        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);">
             <graphic>
                 <ImageView fitHeight="55.0" fitWidth="60.0">
                     <image>
-                        <Image url="@../../../assets/back_button.png"/> <!-- Update this path to your image location -->
+                        <Image url="@../../../assets/back_button.png" /> <!-- Update this path to your image location -->
                     </image>
                 </ImageView>
             </graphic>
