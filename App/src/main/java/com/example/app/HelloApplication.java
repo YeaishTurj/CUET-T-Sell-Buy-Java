@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
     // Constants for resource paths and dimensions
     private static final String FONT_PATH = "/fonts/";                // Directory where font files are located
     private static final String CSS_PATH = "/css/styles.css";        // Path to the CSS stylesheet
-    private static final String FXML_PATH = "seller_page.fxml";            // Path to the FXML layout file
+    private static final String FXML_PATH = "welcome_screen.fxml";            // Path to the FXML layout file
     private static final double WIDTH = 1024;                        // Width of the application window
     private static final double HEIGHT = 768;                       // Height of the application window
 

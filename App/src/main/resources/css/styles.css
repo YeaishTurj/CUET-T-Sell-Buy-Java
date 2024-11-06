@@ -138,3 +138,29 @@
     -fx-font-size: 18;
     -fx-padding: 10px;
 }
+
+/* Style for Sign Out Button */
+#signOutButton {
+    -fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Limelight';
+    -fx-font-size: 18;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+#signOutButton {
+    -fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Limelight';
+    -fx-font-size: 18;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);
+}
+
+#signOutButton:hover {
+    -fx-background-color: linear-gradient(to bottom, #757575, #BDBDBD);
+    -fx-text-fill: #FFFF00; /* Change to a different color on hover if desired */
+    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.5), 8, 0, 2, 2); /* Optional: change effect on hover */
+}
