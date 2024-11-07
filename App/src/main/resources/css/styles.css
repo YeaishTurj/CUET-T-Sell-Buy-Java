@@ -1,5 +1,5 @@
 /* General Button Styles */
-#sellerButton, #buyerButton, #uploadProductButton, #manageProductsButton, #uploadButton, #updateButton {
+#sellerButton, #buyerButton, #uploadProductButton, #manageProductsButton, #uploadButton, #updateButton, #updateProductButton, #deleteProductButton {
     -fx-background-radius: 10;
     -fx-text-fill: #FFFFFF;
     -fx-font-family: 'Limelight';
@@ -36,6 +36,11 @@
     -fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2);
     -fx-font-size: 20;
 }
+#updateProductButton{
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);
+    -fx-font-size: 20;
+    -fx-background-radius: 20;
+}
 
 #manageProductsButton {
     -fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);
@@ -47,8 +52,14 @@
     -fx-font-size: 20;
 }
 
+#deleteProductButton{
+    -fx-background-color: linear-gradient(to bottom, #D32F2F, #C62828);
+    -fx-font-size: 20;
+    -fx-background-radius: 20;
+}
+
 /* Hover Effects */
-#sellerButton:hover, #buyerButton:hover, #signOutButton:hover, #uploadProductButton:hover, #manageProductsButton:hover, #uploadButton:hover, #updateButton:hover {
+#deleteProductButton:hover, #updateProductButton:hover, #sellerButton:hover, #buyerButton:hover, #signOutButton:hover, #uploadProductButton:hover, #manageProductsButton:hover, #uploadButton:hover, #updateButton:hover {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12), innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2);
     -fx-translate-y: -6;
 }

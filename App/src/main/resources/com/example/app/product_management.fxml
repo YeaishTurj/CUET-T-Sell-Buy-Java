@@ -104,13 +104,17 @@
         </TableView>
 
         <!-- Buttons for Manage and Delete Actions -->
-        <HBox layoutX="62.0" layoutY="590.0" spacing="20">
-            <children>
-                <Button fx:id="updateProductButton" mnemonicParsing="false" onMouseClicked="#handleUpdateProductButtonClick" style="-fx-background-color: #FFC107; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;" text="Edit Selected Product" />
+        <HBox layoutX="59.0" layoutY="642.0" prefHeight="58.0" prefWidth="904.0" spacing="20" />
 
-                <Button fx:id="deleteProductButton" mnemonicParsing="false" onMouseClicked="#handleDeleteProductButtonClick" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-size: 14; -fx-padding: 10; -fx-background-radius: 20;" text="Delete Selected Product" />
-            </children>
-        </HBox>
+          <HBox alignment="CENTER" layoutX="55.0" layoutY="607.0" prefHeight="83.0" prefWidth="904.0" spacing="100.0">
+              <children>
+                  <!-- Edit Product Button -->
+                  <Button fx:id="updateProductButton" mnemonicParsing="false" onMouseClicked="#handleUpdateProductButtonClick" prefHeight="60.0" prefWidth="350.0" stylesheets="@../../../css/styles.css" text="Edit Selected Product" />
+
+                  <!-- Delete Product Button -->
+                  <Button fx:id="deleteProductButton" mnemonicParsing="false" onMouseClicked="#handleDeleteProductButtonClick" prefHeight="60.0" prefWidth="350.0" stylesheets="@../../../css/styles.css" text="Delete Selected Product" />
+              </children>
+          </HBox>
 
     </children>
 </AnchorPane>

@@ -38,6 +38,7 @@ public class HelloApplication extends Application {
         stage.setWidth(WIDTH);
         stage.setHeight(HEIGHT);
         stage.setResizable(false); // Optional: Prevent resizing of the window
+        stage.setTitle("CUET T-Sell & Buy : A T-shirt buying and selling platform for CUET"); // Set the title of the application window
         stage.show(); // Display the application window
     }
 
