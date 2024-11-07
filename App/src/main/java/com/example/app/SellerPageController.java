@@ -80,4 +80,13 @@ public class SellerPageController {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    private Button signOutButton;
+    @FXML
+    public void handleSignOut() throws IOException {
+        Parent root = loadFXML(WELCOME_SCREEN_FXML);
+        Stage stage = (Stage) signOutButton.getScene().getWindow();
+        setScene(stage, root);
+    }
 }

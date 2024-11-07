@@ -17,6 +17,7 @@ public class ProductUploadController {
 
     // Constants for FXML file paths, CSS path, and dimensions
     private static final String PRODUCT_MANAGEMENT_FXML = "product_management.fxml";            // Path to the seller page screen FXML file
+    private static final String WELCOME_SCREEN_FXML = "welcome_screen.fxml";                    // Path to the welcome screen FXML file
     private static final String SELLER_PAGE_FXML = "seller_page.fxml";                          // Path to the seller page screen FXML file
     private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
     private static final double SCREEN_WIDTH = 1024;                                   // Width for new scenes
@@ -68,6 +69,15 @@ public class ProductUploadController {
     public void handleUploadProductButtonClick() throws IOException {
         Parent root = loadFXML(SELLER_PAGE_FXML);
         Stage stage = (Stage) uploadProductButton.getScene().getWindow();
+        setScene(stage, root);
+    }
+
+    @FXML
+    private Button signOutButton;
+    @FXML
+    public void handleSignOutButtonClick() throws IOException {
+        Parent root = loadFXML(WELCOME_SCREEN_FXML);
+        Stage stage = (Stage) signOutButton.getScene().getWindow();
         setScene(stage, root);
     }
 }
