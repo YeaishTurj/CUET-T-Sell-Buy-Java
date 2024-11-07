@@ -11,42 +11,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<AnchorPane prefHeight="768.0" prefWidth="1024.0"
-            style="-fx-background-color: linear-gradient(to bottom right, #9575CD, #4FC3F7, #66BB6A);"
-            xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.app.WelcomeScreenController">
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #9575CD, #4FC3F7, #66BB6A);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.WelcomeScreenController">
 
    <children>
       <!-- Semi-transparent overlay region for aesthetic purposes -->
-      <Region fx:id="reg1" prefHeight="769.0" prefWidth="1024.0"
-              style="-fx-background-color: linear-gradient(to top, rgba(255,255,255,0.8), rgba(150,200,255,0.6));" />
+      <Region fx:id="reg1" prefHeight="769.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to top, rgba(255,255,255,0.8), rgba(150,200,255,0.6));" />
 
       <!-- Logo image of the application -->
-      <ImageView fitHeight="172.0" fitWidth="152.0" layoutX="283.0" layoutY="122.0"
-                 pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="172.0" fitWidth="152.0" layoutX="283.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../assets/tshirt_logo.png" />
          </image>
       </ImageView>
 
       <!-- Main title text for the application -->
-      <Text layoutX="429.0" layoutY="227.0"
-            style="-fx-font-size: 60; -fx-font-family: 'Montagu Slab'; -fx-fill: #1F4A67;
-                   -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 2);"
-            text="Cuet T-Sell &amp; Buy" />
+      <Text layoutX="429.0" layoutY="227.0" style="-fx-font-size: 60; -fx-font-family: 'Montagu Slab'; -fx-fill: #1F4A67;                    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 2);" text="Cuet T-Sell &amp; Buy" />
 
       <!-- Slogan text under the main title -->
-      <Text fx:id="slogan" layoutX="517.0" layoutY="292.0"
-            style="-fx-font-size: 30; -fx-font-style: italic; -fx-font-family: 'Agdasima';
-                   -fx-fill: #6D6D6D; -fx-letter-spacing: 5px;"
-            text="A T-shirt buying and selling platform for CUET" underline="true" />
+      <Text fx:id="slogan" layoutX="517.0" layoutY="292.0" style="-fx-font-size: 30; -fx-font-style: italic; -fx-font-family: 'Agdasima';                    -fx-fill: #6D6D6D; -fx-letter-spacing: 5px;" text="A T-shirt buying and selling platform for CUET" underline="true" />
 
       <!-- Welcome message -->
-      <Text layoutX="36.0" layoutY="96.0"
-            style="-fx-font-size: 80; -fx-font-family: 'Limelight'; -fx-fill: #1A3A60;
-                   -fx-font-weight: bold;"
-            text="Welcome To," textAlignment="JUSTIFY">
+      <Text layoutX="36.0" layoutY="96.0" style="-fx-font-size: 80; -fx-font-family: 'Limelight'; -fx-fill: #1A3A60;                    -fx-font-weight: bold;" text="Welcome To," textAlignment="JUSTIFY">
          <font>
             <Font size="76.0" />
          </font>
@@ -59,9 +45,7 @@
       <!-- Header for the user action buttons -->
       <HBox alignment="CENTER" layoutY="345.0" prefHeight="212.5" prefWidth="1024.0">
          <children>
-            <Text style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: #1A237E;
-                         -fx-stroke: #1A237E; -fx-stroke-width: 1;"
-                  text="Continue As">
+            <Text style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: #1A237E;                          -fx-stroke: #1A237E; -fx-stroke-width: 1;" text="Continue As">
                <effect>
                   <Glow level="0.75" />
                </effect>
@@ -72,8 +56,7 @@
       <!-- Separator text for the options -->
       <HBox alignment="TOP_CENTER" layoutY="542.0" prefHeight="227.0" prefWidth="1024.0">
          <children>
-            <Text style="-fx-font-size: 30; -fx-font-family: 'Satisfy'; -fx-fill: #D32F2F;
-                         -fx-stroke: #000000; -fx-stroke-width: 1;" text="OR">
+            <Text style="-fx-font-size: 30; -fx-font-family: 'Satisfy'; -fx-fill: #D32F2F;                          -fx-stroke: #000000; -fx-stroke-width: 1;" text="OR">
                <effect>
                   <Glow level="0.5" />
                </effect>
@@ -84,28 +67,22 @@
       <!-- Button for buyers -->
       <VBox alignment="CENTER" layoutY="343.0" prefHeight="425.0" prefWidth="512.0">
          <children>
-            <Button fx:id="buyerButton" alignment="TOP_LEFT" mnemonicParsing="false"
-                    onAction="#handleBuyerButtonClick"
-                    style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);
-                           -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';
-                           -fx-font-weight: bold; -fx-font-size: 24;
-                           -fx-padding: 15 30; -fx-background-radius: 10;
-                           -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);"
-                    text="Buyer" />
+            <Button fx:id="buyerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleBuyerButtonClick" prefHeight="75.0" prefWidth="200.0" stylesheets="@../../../css/styles.css" text="Buyer" textAlignment="CENTER" />
+<!--                    style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #-->
+
          </children>
       </VBox>
 
       <!-- Button for sellers -->
       <VBox alignment="CENTER" layoutX="512.0" layoutY="343.0" prefHeight="425.0" prefWidth="512.0">
          <children>
-            <Button fx:id="sellerButton" mnemonicParsing="false"
-                    onAction="#handleSellerButtonClick"
-                    style="-fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F);
-                           -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';
-                           -fx-font-weight: bold; -fx-font-size: 24;
-                           -fx-padding: 15 30; -fx-background-radius: 10;
-                           -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);"
-                    text="Seller" />
+            <Button fx:id="sellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleSellerButtonClick" prefHeight="75.0" prefWidth="200.0" stylesheets="@../../../css/styles.css" text="Seller" />
+<!--                    style="-fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F);-->
+<!--                           -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';-->
+<!--                           -fx-font-weight: bold; -fx-font-size: 24;-->
+<!--                           -fx-padding: 15 30; -fx-background-radius: 10;-->
+<!--                           -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);"-->
+
          </children>
       </VBox>
    </children>

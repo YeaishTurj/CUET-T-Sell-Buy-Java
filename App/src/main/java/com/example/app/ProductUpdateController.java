@@ -38,11 +38,11 @@ public class ProductUpdateController {
 
 
     @FXML
-    private Button updateProductButton;
+    private Button updateButton;
     @FXML
     public void handleUpdateProduct() throws IOException {
         Parent root = loadFXML(PRODUCT_MANAGEMENT_FXML);
-        Stage stage = (Stage) updateProductButton.getScene().getWindow();
+        Stage stage = (Stage) updateButton.getScene().getWindow();
         setScene(stage, root);
     }
 

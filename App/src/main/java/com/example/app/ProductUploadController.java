@@ -64,11 +64,11 @@ public class ProductUploadController {
     }
 
     @FXML
-    private Button uploadProductButton;
+    private Button uploadButton;
     @FXML
     public void handleUploadProductButtonClick() throws IOException {
         Parent root = loadFXML(SELLER_PAGE_FXML);
-        Stage stage = (Stage) uploadProductButton.getScene().getWindow();
+        Stage stage = (Stage) uploadButton.getScene().getWindow();
         setScene(stage, root);
     }
 

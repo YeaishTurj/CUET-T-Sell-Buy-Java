@@ -17,7 +17,7 @@
 
 
         <!-- Main Content Area -->
-        <VBox layoutX="477.0" layoutY="190.0" prefHeight="538.0" prefWidth="502.0" spacing="20.0">
+        <VBox layoutX="477.0" layoutY="154.0" prefHeight="538.0" prefWidth="502.0" spacing="20.0">
             <effect>
                 <Glow />
             </effect>
@@ -36,7 +36,7 @@
             </children>
         </VBox>
 
-      <VBox alignment="CENTER" layoutX="28.0" layoutY="154.0" prefHeight="600.0" prefWidth="424.0" spacing="30.0">
+      <VBox alignment="CENTER" layoutX="28.0" layoutY="128.0" prefHeight="600.0" prefWidth="424.0" spacing="30.0">
          <children>
             <VBox layoutX="10.0" layoutY="244.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="250.0" style="-fx-border-width: 1; -fx-border-color: black; -fx-border-radius: 10; -fx-border-style: dotted; -fx-background-radius: 10; -fx-background-color: C6E7FF;">
                <children>
@@ -119,12 +119,12 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="57.0" prefWidth="424.0">
                <children>
-                  <Button fx:id="uploadProductButton" mnemonicParsing="false" onMouseClicked="#handleUploadProductButtonClick" text="Upload you product" />
+                  <Button fx:id="uploadButton" mnemonicParsing="false" onMouseClicked="#handleUploadProductButtonClick" stylesheets="@../../../css/styles.css" text="Upload" />
                </children>
             </VBox>
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0;">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);">
          <children>
             <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0">
                <children>
@@ -156,10 +156,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="324.0">
                <children>
-                  <Button
-                          fx:id="signOutButton"
-                          onAction="#handleSignOutButtonClick"
-                          contentDisplay="TOP" prefHeight="68.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);" text="Sign Out">
+                  <Button fx:id="signOutButton" contentDisplay="TOP" onAction="#handleSignOutButtonClick" prefHeight="68.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);" text="Sign Out">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>

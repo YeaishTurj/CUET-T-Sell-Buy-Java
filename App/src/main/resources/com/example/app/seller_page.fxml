@@ -88,8 +88,9 @@
             <!-- Upload Product Button -->
             <VBox alignment="CENTER" />
         </VBox>
-        <Button fx:id="uploadProductButton" alignment="CENTER" layoutX="547.0" layoutY="502.0" mnemonicParsing="false" onMouseClicked="#handleUploadProduct" prefHeight="85.0" prefWidth="380.0" style="-fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-weight: bold; -fx-font-size: 24;                            -fx-padding: 15 30; -fx-background-radius: 10;                            -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);" text="Upload Your Products" />
-        <Button fx:id="manageProductsButton" alignment="CENTER" contentDisplay="CENTER" layoutX="93.0" layoutY="501.0" mnemonicParsing="false" onMouseClicked="#handleManageProducts" prefHeight="85.0" prefWidth="380.0" style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';                            -fx-font-weight: bold; -fx-font-size: 24;                            -fx-padding: 15 30; -fx-background-radius: 10;                            -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);" text="Manage Your Products" textAlignment="CENTER" />
+        <Button fx:id="uploadProductButton" alignment="CENTER" layoutX="547.0" layoutY="502.0" mnemonicParsing="false" onMouseClicked="#handleUploadProduct" prefHeight="85.0" prefWidth="380.0" stylesheets="@../../../css/styles.css" text="Upload Your Products" />
+
+        <Button fx:id="manageProductsButton" alignment="CENTER" layoutX="93.0" layoutY="502.0" mnemonicParsing="false" onMouseClicked="#handleManageProducts" prefHeight="85.0" prefWidth="380.0" stylesheets="@../../../css/styles.css" text="Manage Your Products" />
 
 
 
