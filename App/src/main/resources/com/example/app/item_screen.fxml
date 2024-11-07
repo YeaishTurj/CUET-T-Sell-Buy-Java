@@ -18,7 +18,7 @@
 
 <AnchorPane prefHeight="764.0" prefWidth="1082.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ItemScreenController">
    <SplitPane dividerPositions="0.10958005249343832" orientation="VERTICAL" prefHeight="764.0" prefWidth="1082.0">
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="83.0" prefWidth="1080.0" style="-fx-background-color: #ffffcc;">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="83.0" prefWidth="1080.0"  style="-fx-background-color: rgba(255, 255, 255, 0.8)" >
          <ImageView fx:id="buyerProfile" fitHeight="35.0" fitWidth="35.0" layoutX="1017.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
             <effect>
                <DropShadow>

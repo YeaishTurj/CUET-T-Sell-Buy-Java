@@ -5,63 +5,57 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="buyer_reg_screen_anchor" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fafad2;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerRegScreenController">
+<AnchorPane fx:id="buyer_reg_screen_anchor" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerRegScreenController">
     <children>
-        <TextField fx:id="email" layoutX="240.0" layoutY="159.0" promptText="Email">
+        <!-- Background Panel with Glow Effect -->
+        <VBox alignment="CENTER" layoutX="231.5" layoutY="150.0" prefHeight="500.0" prefWidth="561.0" style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 25;">
             <effect>
-                <DropShadow height="3.31" radius="1.8925" spread="0.07" width="6.26" />
+                <Glow>
+                    <input>
+                        <Reflection />
+                    </input>
+                </Glow>
             </effect>
-        </TextField>
-        <Button layoutX="278.0" layoutY="252.0" mnemonicParsing="false" onAction="#onRegistered" text="Registration">
-            <font>
-                <Font name="Serif Bold" size="13.0" />
-            </font>
-            <effect>
-                <DropShadow>
-                    <color>
-                        <Color red="0.7766203880310059" green="0.8000304698944092" blue="0.8026315569877625" />
-                    </color>
-                </DropShadow>
-            </effect></Button>
-        <Text fontSmoothingType="LCD" layoutX="190.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" textAlignment="CENTER" visible="false" wrappingWidth="40.0">
-            <font>
-                <Font name="Serif Bold" size="13.0" />
-            </font></Text>
-        <Text layoutX="169.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="CENTER" visible="false" wrappingWidth="69.21630859375">
-            <font>
-                <Font name="Serif Bold" size="13.0" />
-            </font></Text>
-        <PasswordField fx:id="password" layoutX="240.0" layoutY="209.0" promptText="Password">
-            <effect>
-                <DropShadow height="3.31" radius="1.8925" width="6.26" />
-            </effect>
-        </PasswordField>
-        <ImageView fx:id="backBtn" fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backToLogin" pickOnBounds="true" preserveRatio="true">
+        </VBox>
 
-        </ImageView>
-        <Label fx:id="toast" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="290.0" prefHeight="17.0" prefWidth="589.0" textFill="#d30000">
-            <font>
-                <Font name="Serif Bold" size="15.0" />
-            </font>
-        </Label>
-        <TextField id="name" fx:id="name" layoutX="240.0" layoutY="114.0" prefHeight="26.0" prefWidth="160.0" promptText="Name">
-         <effect>
-            <DropShadow height="3.31" radius="4.1025" width="15.1">
-               <color>
-                  <Color red="0.02631578966975212" green="0.02631578966975212" blue="0.02631578966975212" />
-               </color>
-            </DropShadow>
-         </effect></TextField>
-      <Label id="success" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="291.0" prefHeight="17.0" prefWidth="596.0" text="Successfully Registered" textAlignment="CENTER" textFill="#06bc2a" visible="false">
-         <font>
-            <Font name="Serif Bold" size="16.0" />
-         </font>
-      </Label>
+        <!-- VBox for Centered Registration Form with Shadow Effect -->
+        <VBox alignment="CENTER" layoutX="312.0" layoutY="200.0" prefWidth="400.0" spacing="25.0">
+            <children>
+                <!-- Name Field with 3D Effect -->
+                <TextField fx:id="name" promptText="Enter your name" style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" />
+
+                <!-- Email Field with 3D Effect -->
+                <TextField fx:id="email" promptText="Enter your CUET mail address" style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" />
+
+                <!-- Password Field with 3D Effect -->
+                <PasswordField fx:id="password" promptText="Enter your password" style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" />
+
+                <!-- Registration Button with 3D and Gradient Effect -->
+                <Button fx:id="registerButton" mnemonicParsing="false" onAction="#onRegistered" style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-weight: bold; -fx-font-size: 24; -fx-background-radius: 15; -fx-padding: 10 30; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0, 3, 3);" text="Register" />
+            </children>
+        </VBox>
+
+        <!-- Status Labels -->
+        <Label fx:id="toast" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="700.0" prefHeight="17.0" prefWidth="1016.0" textFill="#d30000" style="-fx-font-size: 15; -fx-font-family: 'Serif Bold';" />
+        <Label fx:id="success" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="700.0" prefHeight="17.0" prefWidth="1016.0" text="Successfully Registered" textFill="#06bc2a" visible="false" style="-fx-font-size: 16; -fx-font-family: 'Serif Bold';" />
+
+        <!-- Back Button with ImageView -->
+        <Button fx:id="backButton" layoutX="20.0" layoutY="16.0" onAction="#backToLogin" style="-fx-background-color: transparent; -fx-padding: 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);">
+            <graphic>
+                <ImageView fitHeight="55.0" fitWidth="60.0">
+                    <image>
+                        <Image url="@../../../assets/back_button.png" /> <!-- Update this path to your image location -->
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
     </children>
 </AnchorPane>

@@ -104,7 +104,7 @@ public class SellerRegScreenController {
     }
     public void backToLogin(MouseEvent mouseEvent) throws IOException {
         //====== back to log in or registration screen ========//
-        String logInPageFileName="";
+        String logInPageFileName="seller_signin_screen";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(logInPageFileName));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
