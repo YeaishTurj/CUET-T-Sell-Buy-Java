@@ -1,70 +1,140 @@
-/* Background */
-.background {
-    -fx-background-color: #F0F0F0; /* Light Grey Background */
-}
-
-/* Welcome Text */
-.welcome-text {
-    -fx-font-size: 36px;
-    -fx-font-family: "Satisfy-Regular";
+/* General styles for both buttons */
+#sellerButton, #buyerButton {
+    -fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F); /* default color for both */
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Limelight';
     -fx-font-weight: bold;
-    -fx-text-fill: #FFD700; /* Gold Text */
+    -fx-font-size: 24;
+    -fx-padding: 15 30;
+    -fx-background-radius: 10;
+
+    /* 3D Effect: Permanent deep shadow with slight inner shadow */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8),
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);
+    -fx-translate-y: -2; /* Lift the button slightly from the background */
+    -fx-transition: all 0.2s ease-in-out;
 }
 
-/* Login Text */
-.login-text {
-    -fx-font-size: 18px;
-    -fx-font-family: "MontaguSlab";
-    -fx-font-weight: bold;
-    -fx-text-fill: #ADFF2F; /* Green-Yellow Accent */
+#sellerButton:hover, #buyerButton:hover {
+    /* Intensify the shadow and lift on hover for a floating effect */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12),
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2);
+    -fx-translate-y: -6; /* Increase lift on hover */
 }
 
-.account-text {
-    -fx-font-size: 14px;
-    -fx-font-family: "Agdasima";
-    -fx-text-fill: #D3D3D3; /* Light Gray */
+/* Specific background colors for each button */
+#sellerButton {
+    -fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F);
 }
 
-.signup-link {
-    -fx-font-size: 14px;
-    -fx-font-family: "Agdasima";
-    -fx-text-fill: #A40000; /* Red Accent */
-    -fx-underline: true;
+#buyerButton {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);
 }
 
-/* Input Fields */
+/* General styles for the back button */
+.backButton {
+    -fx-background-color: transparent; /* Make background transparent for the image */
+    -fx-padding: 0; /* Remove padding */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2); /* Initial shadow effect */
+    -fx-translate-y: -2; /* Lift the button slightly from the background */
+    -fx-transition: all 0.2s ease-in-out; /* Smooth transition for effects */
+}
+
+/* 3D Effect: Permanent deep shadow with slight inner shadow */
+.backButton {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8),
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);
+}
+
+/* Hover effect to intensify the shadow and lift on hover */
+.backButton:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12),
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2);
+    -fx-translate-y: -6; /* Increase lift on hover */
+}
+
+/* General styles for the Sign In button */
+.signInButton {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32); /* Gradient background */
+    -fx-text-fill: #FFFFFF; /* Text color */
+    -fx-font-family: 'Limelight'; /* Font family */
+    -fx-font-weight: bold; /* Font weight */
+    -fx-font-size: 24; /* Font size */
+    -fx-background-radius: 15; /* Rounded corners */
+    -fx-padding: 10 30; /* Padding for the button */
+
+    /* 3D Effect: Shadow and lifting */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), /* Permanent shadow */
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2); /* Inner shadow for depth */
+    -fx-translate-y: -2; /* Lift the button slightly from the background */
+    -fx-transition: all 0.2s ease-in-out; /* Smooth transition for effects */
+}
+
+/* Hover effect for floating effect */
+.signInButton:hover {
+    /* Intensify the shadow and lift on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12), /* Stronger shadow */
+                innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2); /* Stronger inner shadow */
+    -fx-translate-y: -6; /* Increase lift on hover */
+}
+
+.main-pane {
+    -fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);
+}
+
+.header {
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-border-color: #1F4A67;
+    -fx-border-width: 0 0 2 0;
+}
+
+.transparent-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.title-text {
+    -fx-font-size: 50;
+    -fx-font-family: 'Satisfy';
+    -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);
+    -fx-stroke: #000000;
+    -fx-stroke-width: 1.0;
+}
+
+
+.log-out-button {
+    -fx-padding: 10px;
+}
+
+.main-content .field-label {
+    -fx-font-size: 18;
+    -fx-fill: #1F4A67;
+}
+
 .input-field {
-    -fx-background-radius: 15;
-    -fx-border-radius: 15;
-    -fx-background-color: white; /* White Background for Input Fields */
-    -fx-prompt-text-fill: #b3b3b3;
-    -fx-padding: 10;
-    -fx-font-family: "Agdasima";
+    -fx-font-size: 16;
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-background-radius: 10;
+    -fx-border-color: #B0BEC5;
+    -fx-border-width: 1;
+    -fx-padding: 8 12;
 }
 
-/* Login Button */
-.login-button {
-    -fx-background-color: linear-gradient(to bottom, #2E7D32, #1B5E20); /* Dark Green Gradient */
-    -fx-text-fill: white;
-    -fx-font-family: "Limelight";
-    -fx-font-size: 18px;
-    -fx-background-radius: 15;
-    -fx-padding: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);
+.photo-box {
+    -fx-border-width: 1;
+    -fx-border-color: black;
+    -fx-border-style: dotted;
+    -fx-background-color: C6E7FF;
 }
 
-/* Or Text */
-.or-text {
-    -fx-font-size: 14px;
-    -fx-font-family: "MontaguSlab";
-    -fx-text-fill: #A40000; /* Red Accent */
+.additional-photo-box {
+    -fx-border-color: black;
+    -fx-background-color: C6E7FF;
+    -fx-border-style: dotted;
+    -fx-border-radius: 5;
 }
 
-/* Google Button */
-.google-button {
-    -fx-background-color: white;
-    -fx-border-radius: 50;
-    -fx-border-color: #cccccc;
-    -fx-padding: 5;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);
+.upload-button {
+    -fx-font-size: 18;
+    -fx-padding: 10px;
 }

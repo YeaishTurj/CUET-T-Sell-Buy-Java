@@ -1,55 +1,39 @@
 package com.example.app;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Region;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class WelcomeScreenController {
-    @FXML
-    private Button buyerButton;
 
     @FXML
-    private Region reg1;
+    public Button buyerButton;
 
     @FXML
-    private Button sellerButton;
+    public Button sellerButton;
 
     @FXML
-    private Text slogan;
-    @FXML
-    void onClickBuyerButton(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/log_in_screen.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println(e);
-        }
+    private void handleBuyerButtonClick() throws IOException {
+        loadFXML("buyer_signin_screen.fxml");
     }
 
     @FXML
-    void onClickSellerButton(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/log_in_screen.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println(e);
-        }
+    private void handleSellerButtonClick() throws IOException {
+        loadFXML("seller_signin_screen.fxml"); // Replace with your other FXML file
+    }
+
+    private void loadFXML(String fxmlFile) throws IOException {
+        // Load the new FXML file
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
+        Parent root = fxmlLoader.load();
+
+        // Get the current stage from any component
+        Stage stage = (Stage) buyerButton.getScene().getWindow(); // assuming `buyerButton` is in the current scene
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }
