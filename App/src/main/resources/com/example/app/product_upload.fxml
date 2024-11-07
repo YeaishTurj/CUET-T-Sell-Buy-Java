@@ -21,17 +21,18 @@
             <effect>
                 <Glow />
             </effect>
+            <!-- Product information-->
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67;" text="Product Title:" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab';" text="Product  Title :" />
                 <TextField alignment="TOP_LEFT" prefHeight="58.0" prefWidth="534.0" promptText="Enter a title for your product" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
 
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67;" text="No. of Stock:" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab'; -fx-tab-size: 20;" text="No.  of  Stock :" />
                 <TextField alignment="TOP_LEFT" promptText="Enter the quantity of your product" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
 
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67;" text="Price:" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab';" text="Price :" />
                 <TextField alignment="TOP_LEFT" promptText="Enter your asking price" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
 
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67;" text="Description:" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab';" text="Description :" textAlignment="JUSTIFY" />
                 <TextField alignment="TOP_LEFT" prefHeight="150.0" prefWidth="534.0" promptText="Write a description of your item" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
             </children>
         </VBox>

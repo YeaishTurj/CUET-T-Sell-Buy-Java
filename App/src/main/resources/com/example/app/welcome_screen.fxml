@@ -68,7 +68,7 @@
       <VBox alignment="CENTER" layoutY="343.0" prefHeight="425.0" prefWidth="512.0">
          <children>
             <Button fx:id="buyerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleBuyerButtonClick" prefHeight="75.0" prefWidth="200.0" stylesheets="@../../../css/styles.css" text="Buyer" textAlignment="CENTER" />
-<!--                    style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #-->
+
 
          </children>
       </VBox>
@@ -77,11 +77,7 @@
       <VBox alignment="CENTER" layoutX="512.0" layoutY="343.0" prefHeight="425.0" prefWidth="512.0">
          <children>
             <Button fx:id="sellerButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleSellerButtonClick" prefHeight="75.0" prefWidth="200.0" stylesheets="@../../../css/styles.css" text="Seller" />
-<!--                    style="-fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F);-->
-<!--                           -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';-->
-<!--                           -fx-font-weight: bold; -fx-font-size: 24;-->
-<!--                           -fx-padding: 15 30; -fx-background-radius: 10;-->
-<!--                           -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);"-->
+
 
          </children>
       </VBox>
