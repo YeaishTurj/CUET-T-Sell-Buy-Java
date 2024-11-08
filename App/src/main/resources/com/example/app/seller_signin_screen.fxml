@@ -5,7 +5,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.SellerSignInScreenController">
+<AnchorPane fx:id="mainPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.SellerSignInScreenController">
     <children>
         <!-- Background Panel with Glow Effect -->
         <VBox alignment="CENTER" layoutX="231.5" layoutY="264.0" prefHeight="425.0" prefWidth="561.0" style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 25;">
@@ -30,10 +33,21 @@
         <VBox alignment="CENTER" layoutX="312.0" layoutY="314.0" prefWidth="400.0" spacing="25.0">
             <children>
                 <!-- Username Field with 3D Effect -->
-                <TextField fx:id="usernameField" promptText="Enter your CUET mail address" style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" />
+                <TextField fx:id="usernameField" promptText="Enter your CUET mail address" style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3); -fx-border-radius: 15;" />
+
 
                 <!-- Password Field with 3D Effect -->
-                <PasswordField fx:id="passwordField" promptText="Enter your password" style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" />
+                <PasswordField fx:id="passwordField" promptText="Enter your password" style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3); -fx-border-radius: 15;">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></PasswordField>
 
                 <!-- Login Button with 3D and Gradient Effect -->
                 <Button fx:id="signInButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#handleSignInButtonClick" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32);                -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';                -fx-font-weight: bold; -fx-font-size: 24;                -fx-background-radius: 15; -fx-padding: 10 30;                -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0, 3, 3);" text="Sign In" />

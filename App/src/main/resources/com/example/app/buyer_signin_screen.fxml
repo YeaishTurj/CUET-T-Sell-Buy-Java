@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerSignInScreenController">
+<AnchorPane fx:id="mainPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerSignInScreenController">
 
     <children>
         <!-- Background Panel with Glow Effect -->
