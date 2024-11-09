@@ -1,13 +1,10 @@
 package com.example.app;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,18 +19,6 @@ public class SellerPageController {
     private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
     private static final double SCREEN_WIDTH = 1024;                                   // Width for new scenes
     private static final double SCREEN_HEIGHT = 768;                                   // Height for new scenes
-
-    @FXML
-    private Button backButton;
-    @FXML
-    private void handleBackButtonClick() throws IOException {
-        // Load the welcome screen using the specified FXML path
-        Parent root = loadFXML(WELCOME_SCREEN_FXML);
-
-        // Get the current stage and set the new scene with the specified dimensions
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        setScene(stage, root);
-    }
 
     @FXML
     private Button manageProductsButton;

@@ -127,7 +127,7 @@ public class BuyerSignInScreenController implements Initializable {
     }
 
     @FXML
-    public void handleSignInButtonClick(ActionEvent actionEvent) throws IOException {
+    public void handleSignInButtonClick() throws IOException {
         // Load the welcome screen using the specified FXML path
         Parent root = loadFXML(ALL_ITEM_SHOW_SCREEN);
 
