@@ -15,6 +15,8 @@ public class DatabaseConnection {
             connection = DriverManager.getConnection(url, user, password);
             if (connection != null) {
                 System.out.println("Connected to the database!");
+            }else{
+                System.out.println("Database connection failed!");
             }
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Database connection failed: " + e.getMessage());

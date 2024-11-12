@@ -3,93 +3,200 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.SellerPageController">
     <children>
 
 
-        <!-- Company Name -->
-        <Text layoutX="62.0" layoutY="170.0" style="-fx-font-size: 20; -fx-fill: #333; -fx-font-weight: bold;" text="Company Name: Deikkha Lon, Baichcha Lon" />
-
-        <!-- Email -->
-        <Text layoutX="62.0" layoutY="210.0" style="-fx-font-size: 18; -fx-fill: #555;" text="Email: u210422@student.cuet.ac.bd" />
-
-        <!-- Phone Number -->
-        <Text layoutX="62.0" layoutY="240.0" style="-fx-font-size: 18; -fx-fill: #555;" text="Phone Number: 01537151211 (edit)" />
-
-        <!-- WhatsApp -->
-        <Text layoutX="62.0" layoutY="270.0" style="-fx-font-size: 18; -fx-fill: #555;" text="WhatsApp: 01537151211 (edit)" />
-
-        <!-- Facebook Link -->
-        <Text layoutX="62.0" layoutY="300.0" style="-fx-font-size: 18; -fx-fill: #1A237E; -fx-underline: true; -fx-cursor: hand;" text="Facebook: facebook link" />
-
-
         <!-- Separator -->
-        <Separator layoutX="62.0" layoutY="330.0" prefWidth="900.0" />
+        <Separator layoutX="62.0" layoutY="562.0" prefWidth="900.0" />
+        <Button fx:id="uploadProductButton" alignment="CENTER" layoutX="547.0" layoutY="590.0" mnemonicParsing="false" onMouseClicked="#handleUploadProduct" prefHeight="85.0" prefWidth="380.0" stylesheets="@../../../css/styles.css" text="Upload Your Products" />
+
+        <Button fx:id="manageProductsButton" alignment="CENTER" layoutX="93.0" layoutY="590.0" mnemonicParsing="false" onMouseClicked="#handleManageProducts" prefHeight="85.0" prefWidth="380.0" stylesheets="@../../../css/styles.css" text="Manage Your Products" />
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);">
+            <children>
+                <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0" />
+                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="695.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 70; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Seller Dashboard" textAlignment="CENTER" wrappingWidth="646.2941656112671">
+                            <effect>
+                                <Glow level="0.3" />
+                            </effect>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="324.0">
+                    <children>
+                        <Button fx:id="signOutButton" contentDisplay="TOP" onAction="#handleSignOut" prefHeight="68.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);" text="Sign Out">
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                            <graphic>
+                                <ImageView blendMode="OVERLAY" fitHeight="43.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../assets/sign_out.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                    <padding>
+                        <Insets right="50.0" />
+                    </padding>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" top="10.0" />
+            </padding>
+        </HBox>
+        <AnchorPane layoutX="93.0" layoutY="139.0" prefHeight="406.0" prefWidth="827.0">
+            <children>
+                <AnchorPane layoutY="-1.0" prefHeight="406.0" prefWidth="194.0">
+                    <children>
 
 
-        <!-- Button Box for Better Layout -->
-        <VBox layoutX="62.0" layoutY="380.0" spacing="20">
-            <!-- Manage Products Button -->
-            <VBox alignment="CENTER" />
+                        <!-- Company Name -->
+                        <Text layoutY="57.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text="Company Name " />
 
-            <!-- Upload Product Button -->
-            <VBox alignment="CENTER" />
-        </VBox>
-        <Button fx:id="uploadProductButton" alignment="CENTER" layoutX="547.0" layoutY="502.0" mnemonicParsing="false" onMouseClicked="#handleUploadProduct" prefHeight="85.0" prefWidth="380.0" stylesheets="@../../../css/styles.css" text="Upload Your Products" />
+                        <!-- Email -->
+                        <Text layoutY="126.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text="Email " />
 
-        <Button fx:id="manageProductsButton" alignment="CENTER" layoutX="93.0" layoutY="502.0" mnemonicParsing="false" onMouseClicked="#handleManageProducts" prefHeight="85.0" prefWidth="380.0" stylesheets="@../../../css/styles.css" text="Manage Your Products" />
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);">
-         <children>
-            <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0" />
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="695.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 70; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Seller Dashboard" textAlignment="CENTER" wrappingWidth="646.2941656112671">
-                     <effect>
-                        <Glow level="0.3" />
-                     </effect>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="324.0">
-               <children>
-                  <Button fx:id="signOutButton" contentDisplay="TOP" onAction="#handleSignOut" prefHeight="68.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);" text="Sign Out">
-                     <padding>
-                        <Insets left="10.0" right="10.0" />
-                     </padding>
-                     <graphic>
-                        <ImageView blendMode="OVERLAY" fitHeight="43.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../assets/sign_out.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets right="50.0" />
-               </padding>
-            </HBox>
-         </children>
-         <padding>
-            <Insets bottom="10.0" top="10.0" />
-         </padding>
-      </HBox>
+                        <!-- Phone Number -->
+                        <Text layoutY="201.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text="Phone Number " />
 
+                        <!-- WhatsApp -->
+                        <Text layoutY="276.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text="WhatsApp" />
 
+                        <!-- Facebook Link -->
+                        <Text layoutY="356.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text="Facebook Link " />
+                        <AnchorPane layoutX="170.0" prefHeight="406.0" prefWidth="30.0">
+                            <children>
+                                <Text layoutX="21.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text=":" />
+                                <Text layoutX="21.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text=":" />
+                                <Text layoutX="21.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text=":" />
+                                <Text layoutX="21.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text=":" />
+                                <Text layoutX="21.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text=":" />
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="219.0" layoutY="-1.0" prefHeight="406.0" prefWidth="535.0">
+                    <children>
+                        <TextField fx:id="newCompanyName" layoutX="-1.0" layoutY="25.0" prefHeight="54.0" prefWidth="536.0" promptText="Enter New Company Name" style="-fx-font-size: 22; -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-border-radius: 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" visible="false" />
+                        <Text layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 25;" text="u2104022@student.cuet.ac.bd" />
+                        <Text fx:id="phoneNum" layoutY="205.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 25;" text="01537151211 " />
+                        <Text fx:id="waNum" layoutY="276.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 25;" text="01537151211 " />
+                        <Text fx:id="fbLink" layoutY="360.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 25;" text="https://www.facebook.com/yj.Turj/" />
+                        <Text fx:id="companyName" layoutY="51.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 25;" text="CUET T-Shirt Hub" textOrigin="CENTER" />
+                        <TextField fx:id="newPhoneNum" layoutX="-2.0" layoutY="168.0" prefHeight="54.0" prefWidth="536.0" promptText="Enter New Phone Number" style="-fx-font-size: 22; -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-border-radius: 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" visible="false">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </TextField>
+                        <TextField fx:id="newWANum" layoutY="244.0" prefHeight="54.0" prefWidth="536.0" promptText="Enter New WhatsApp Number" style="-fx-font-size: 22; -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-border-radius: 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" visible="false">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </TextField>
+                        <TextField fx:id="newFBLink" layoutY="322.0" prefHeight="54.0" prefWidth="536.0" promptText="Enter New Facebook Link" style="-fx-font-size: 22; -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-border-radius: 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" visible="false">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </TextField>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="696.0" layoutY="-1.0" minWidth="-Infinity" prefHeight="406.0" prefWidth="136.0">
+                    <children>
+                        <Button fx:id="editCompanyButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="82.0" layoutY="31.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleEditCompany" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, #f5f5dc, #f0e68c); -fx-font-family: 'Limelight'; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2); -fx-background-radius: 10;">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../assets/edit_icon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="saveCompanyButton" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="31.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleSaveCompany" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, #f5f5dc, #f0e68c); -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);" visible="false">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../assets/save_icon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+
+                        <Button fx:id="editPhoneButton" contentDisplay="CENTER" layoutX="82.0" layoutY="173.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleEditPhone" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, #f5f5dc, #f0e68c); -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2); -fx-background-radius: 10;">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../assets/edit_icon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="savePhoneButton" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="173.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleSavePhone" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, #f5f5dc, #f0e68c); -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);" visible="false">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../assets/save_icon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="editWAButton" contentDisplay="CENTER" layoutX="82.0" layoutY="250.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleEditWA" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, #f5f5dc, #f0e68c); -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2); -fx-background-radius: 10;">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../assets/edit_icon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="saveWAButton" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="250.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleSaveWA" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, #f5f5dc, #f0e68c); -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2); -fx-background-radius: 10;" visible="false">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../assets/save_icon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="editFBButton" layoutX="82.0" layoutY="328.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleEditFB" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, #f5f5dc, #f0e68c); -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2); -fx-background-radius: 10;">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../assets/edit_icon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="saveFBButton" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="328.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleSaveFB" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: linear-gradient(to bottom, #f5f5dc, #f0e68c); -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2); -fx-background-radius: 10;" visible="false">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../assets/save_icon.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
 
     </children>
 </AnchorPane>
