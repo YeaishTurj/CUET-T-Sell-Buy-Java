@@ -118,4 +118,9 @@ public class ItemScreenController {
         Desktop.getDesktop().browse(new URI("https://www.google.com"));
     }
 
+    public void handleBackButtonClick(ActionEvent actionEvent) {
+    }
+
+    public void handleSignOut(ActionEvent actionEvent) {
+    }
 }

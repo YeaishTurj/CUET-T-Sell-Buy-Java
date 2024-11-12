@@ -11,32 +11,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ProductUpdateController">
+<AnchorPane fx:id="mainPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ProductUpdateController">
 
     <children>
-
-
         <!-- Main Content Area -->
-        <VBox layoutX="477.0" layoutY="190.0" prefHeight="538.0" prefWidth="502.0" spacing="20.0">
+        <VBox layoutX="477.0" layoutY="154.0" prefHeight="538.0" prefWidth="502.0" spacing="20.0">
             <effect>
                 <Glow />
             </effect>
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67;" text="Product Title:" />
-                <TextField alignment="TOP_LEFT" prefHeight="58.0" prefWidth="534.0" promptText="Enter a title for your product" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 18; -fx-fill: #1F4A67;" text="Product Title :" />
+                <TextField alignment="TOP_LEFT" prefHeight="58.0" prefWidth="534.0" promptText="Enter a title for your product" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12; -fx-border-radius: 15;" />
 
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67;" text="No. of Stock:" />
-                <TextField alignment="TOP_LEFT" promptText="Enter the quantity of your product" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab';" text="No.  of  Stock :" />
+                <TextField alignment="TOP_LEFT" promptText="Enter the quantity of your product" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12; -fx-border-radius: 15;" />
 
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67;" text="Price:" />
-                <TextField alignment="TOP_LEFT" promptText="Enter your asking price" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab';" text="Price :" />
+                <TextField alignment="TOP_LEFT" promptText="Enter your asking price" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
 
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67;" text="Description:" />
-                <TextField alignment="TOP_LEFT" prefHeight="150.0" prefWidth="534.0" promptText="Write a description of your item" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab';" text="Description :" />
+                <TextField alignment="TOP_LEFT" prefHeight="150.0" prefWidth="534.0" promptText="Write a description of your item" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
             </children>
         </VBox>
 
-        <VBox alignment="CENTER" layoutX="28.0" layoutY="154.0" prefHeight="600.0" prefWidth="424.0" spacing="30.0">
+        <VBox alignment="CENTER" layoutX="28.0" layoutY="128.0" prefHeight="600.0" prefWidth="424.0" spacing="30.0">
             <children>
                 <VBox layoutX="10.0" layoutY="244.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="250.0" style="-fx-border-width: 1; -fx-border-color: black; -fx-border-radius: 10; -fx-border-style: dotted; -fx-background-radius: 10; -fx-background-color: C6E7FF;">
                     <children>
@@ -119,12 +117,12 @@
                 </VBox>
                 <VBox alignment="CENTER" prefHeight="57.0" prefWidth="424.0">
                     <children>
-                        <Button fx:id="updateProductButton" mnemonicParsing="false" onMouseClicked="#handleUpdateProduct" text="Update you product" />
+                        <Button fx:id="updateButton" mnemonicParsing="false" onMouseClicked="#handleUpdateProduct" text="Update" />
                     </children>
                 </VBox>
             </children>
         </VBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0;">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);" stylesheets="@../../../css/styles.css">
          <children>
             <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0">
                <children>
@@ -156,10 +154,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="324.0">
                <children>
-                  <Button
-                          fx:id="signOutButton"
-                          onAction="#handleSignOut"
-                          contentDisplay="TOP" prefHeight="68.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);" text="Sign Out">
+                  <Button fx:id="signOutButton" contentDisplay="TOP" onAction="#handleSignOut" prefHeight="68.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);" text="Sign Out">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>

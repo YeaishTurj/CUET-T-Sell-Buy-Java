@@ -1,19 +1,24 @@
 package com.example.app;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class BuyerSignInScreenController {
+public class BuyerSignInScreenController implements Initializable {
 
     // Constants for FXML file paths, CSS path, and dimensions
     private static final String WELCOME_SCREEN_FXML = "welcome_screen.fxml";           // Path to the welcome screen FXML file
@@ -22,6 +27,18 @@ public class BuyerSignInScreenController {
     private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
     private static final double SCREEN_WIDTH = 1024;                                   // Width for new scenes
     private static final double SCREEN_HEIGHT = 768;                                   // Height for new scenes
+
+    @FXML
+    private AnchorPane mainPane;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        mainPane.requestFocus();
+
+        // Apply a delayed request to ensure focus is not on any text field
+        Platform.runLater(() -> mainPane.requestFocus());
+    }
+
 
     @FXML
     private Button backButton;
@@ -110,7 +127,7 @@ public class BuyerSignInScreenController {
     }
 
     @FXML
-    public void handleSignInButtonClick(ActionEvent actionEvent) throws IOException {
+    public void handleSignInButtonClick() throws IOException {
         // Load the welcome screen using the specified FXML path
         Parent root = loadFXML(ALL_ITEM_SHOW_SCREEN);
 
@@ -118,4 +135,5 @@ public class BuyerSignInScreenController {
         Stage stage = (Stage) backButton.getScene().getWindow();
         setScene(stage, root);
     }
+
 }

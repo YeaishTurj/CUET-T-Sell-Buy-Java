@@ -1,19 +1,24 @@
 package com.example.app;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class ProductUpdateController {
+public class ProductUpdateController implements Initializable {
 
     // Constants for FXML file paths, CSS path, and dimensions
     private static final String PRODUCT_MANAGEMENT_FXML = "product_management.fxml";            // Path to the seller page screen FXML file
@@ -21,6 +26,18 @@ public class ProductUpdateController {
     private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
     private static final double SCREEN_WIDTH = 1024;                                   // Width for new scenes
     private static final double SCREEN_HEIGHT = 768;                                   // Height for new scenes
+
+    @FXML
+    private AnchorPane mainPane;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        mainPane.requestFocus();
+
+        // Apply a delayed request to ensure focus is not on any text field
+        Platform.runLater(() -> mainPane.requestFocus());
+    }
+
 
     @FXML
     private Button backButton;
@@ -38,11 +55,11 @@ public class ProductUpdateController {
 
 
     @FXML
-    private Button updateProductButton;
+    private Button updateButton;
     @FXML
     public void handleUpdateProduct() throws IOException {
         Parent root = loadFXML(PRODUCT_MANAGEMENT_FXML);
-        Stage stage = (Stage) updateProductButton.getScene().getWindow();
+        Stage stage = (Stage) updateButton.getScene().getWindow();
         setScene(stage, root);
     }
 

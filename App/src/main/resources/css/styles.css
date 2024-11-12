@@ -1,98 +1,111 @@
-/* General styles for both buttons */
-#sellerButton, #buyerButton {
-    -fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F); /* default color for both */
+/* General Button Styles */
+#sellerButton, #buyerButton, #uploadProductButton, #manageProductsButton, #uploadButton, #updateButton, #updateProductButton, #deleteProductButton {
+    -fx-background-radius: 10;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Limelight';
+    -fx-font-weight: bold;
+    -fx-padding: 15 30;
+    -fx-translate-y: -2;
+    -fx-transition: all 0.2s ease-in-out;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);
+}
+
+/* Individual Background Colors */
+#sellerButton {
+    -fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F);
+    -fx-font-size: 25;
+}
+#buyerButton {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);
+    -fx-font-size: 25;
+}
+#signOutButton {
+    -fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575);
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: 'Limelight';
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 5px 5px; /* Original size */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);
+}
+#uploadProductButton {
+    -fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2);
+    -fx-font-size: 24;
+}
+#uploadButton {
+    -fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2);
+    -fx-font-size: 20;
+}
+#updateProductButton{
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);
+    -fx-font-size: 20;
+    -fx-background-radius: 20;
+}
+
+#manageProductsButton {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);
+    -fx-font-size: 24;
+}
+
+#updateButton {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);
+    -fx-font-size: 20;
+}
+
+#deleteProductButton{
+    -fx-background-color: linear-gradient(to bottom, #D32F2F, #C62828);
+    -fx-font-size: 20;
+    -fx-background-radius: 20;
+}
+
+/* Hover Effects */
+#deleteProductButton:hover, #updateProductButton:hover, #sellerButton:hover, #buyerButton:hover, #signOutButton:hover, #uploadProductButton:hover, #manageProductsButton:hover, #uploadButton:hover, #updateButton:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12), innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2);
+    -fx-translate-y: -6;
+}
+
+/* Back Button Styles */
+.backButton, .transparent-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-translate-y: -2;
+    -fx-transition: all 0.2s ease-in-out;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);
+}
+.backButton:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12), innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2);
+    -fx-translate-y: -6;
+}
+
+/* Sign In Button */
+.signInButton {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32);
     -fx-text-fill: #FFFFFF;
     -fx-font-family: 'Limelight';
     -fx-font-weight: bold;
     -fx-font-size: 24;
-    -fx-padding: 15 30;
-    -fx-background-radius: 10;
-
-    /* 3D Effect: Permanent deep shadow with slight inner shadow */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8),
-                innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);
-    -fx-translate-y: -2; /* Lift the button slightly from the background */
+    -fx-background-radius: 15;
+    -fx-padding: 10 30;
+    -fx-translate-y: -2;
     -fx-transition: all 0.2s ease-in-out;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);
 }
-
-#sellerButton:hover, #buyerButton:hover {
-    /* Intensify the shadow and lift on hover for a floating effect */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12),
-                innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2);
-    -fx-translate-y: -6; /* Increase lift on hover */
-}
-
-/* Specific background colors for each button */
-#sellerButton {
-    -fx-background-color: linear-gradient(to bottom, #3F51B5, #303F9F);
-}
-
-#buyerButton {
-    -fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);
-}
-
-/* General styles for the back button */
-.backButton {
-    -fx-background-color: transparent; /* Make background transparent for the image */
-    -fx-padding: 0; /* Remove padding */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2); /* Initial shadow effect */
-    -fx-translate-y: -2; /* Lift the button slightly from the background */
-    -fx-transition: all 0.2s ease-in-out; /* Smooth transition for effects */
-}
-
-/* 3D Effect: Permanent deep shadow with slight inner shadow */
-.backButton {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8),
-                innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);
-}
-
-/* Hover effect to intensify the shadow and lift on hover */
-.backButton:hover {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12),
-                innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2);
-    -fx-translate-y: -6; /* Increase lift on hover */
-}
-
-/* General styles for the Sign In button */
-.signInButton {
-    -fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32); /* Gradient background */
-    -fx-text-fill: #FFFFFF; /* Text color */
-    -fx-font-family: 'Limelight'; /* Font family */
-    -fx-font-weight: bold; /* Font weight */
-    -fx-font-size: 24; /* Font size */
-    -fx-background-radius: 15; /* Rounded corners */
-    -fx-padding: 10 30; /* Padding for the button */
-
-    /* 3D Effect: Shadow and lifting */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), /* Permanent shadow */
-                innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2); /* Inner shadow for depth */
-    -fx-translate-y: -2; /* Lift the button slightly from the background */
-    -fx-transition: all 0.2s ease-in-out; /* Smooth transition for effects */
-}
-
-/* Hover effect for floating effect */
 .signInButton:hover {
-    /* Intensify the shadow and lift on hover */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12), /* Stronger shadow */
-                innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2); /* Stronger inner shadow */
-    -fx-translate-y: -6; /* Increase lift on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 25, 0.35, 0, 12), innershadow(gaussian, rgba(255, 255, 255, 0.3), 6, 0.1, 0, -2);
+    -fx-translate-y: -6;
 }
 
+/* Pane and Header Styles */
 .main-pane {
     -fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);
 }
-
 .header {
     -fx-background-color: rgba(255, 255, 255, 0.8);
     -fx-border-color: #1F4A67;
     -fx-border-width: 0 0 2 0;
 }
 
-.transparent-button {
-    -fx-background-color: transparent;
-    -fx-padding: 0;
-}
-
+/* Title and Text Styles */
 .title-text {
     -fx-font-size: 50;
     -fx-font-family: 'Satisfy';
@@ -100,17 +113,10 @@
     -fx-stroke: #000000;
     -fx-stroke-width: 1.0;
 }
-
-
-.log-out-button {
-    -fx-padding: 10px;
-}
-
 .main-content .field-label {
     -fx-font-size: 18;
     -fx-fill: #1F4A67;
 }
-
 .input-field {
     -fx-font-size: 16;
     -fx-background-color: rgba(255, 255, 255, 0.8);
@@ -120,47 +126,19 @@
     -fx-padding: 8 12;
 }
 
-.photo-box {
+/* Image Box Styles */
+.photo-box, .additional-photo-box {
     -fx-border-width: 1;
     -fx-border-color: black;
     -fx-border-style: dotted;
     -fx-background-color: C6E7FF;
 }
-
 .additional-photo-box {
-    -fx-border-color: black;
-    -fx-background-color: C6E7FF;
-    -fx-border-style: dotted;
     -fx-border-radius: 5;
 }
 
+/* Upload Button Style */
 .upload-button {
     -fx-font-size: 18;
     -fx-padding: 10px;
-}
-
-/* Style for Sign Out Button */
-#signOutButton {
-    -fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575);
-    -fx-text-fill: #FFFFFF;
-    -fx-font-family: 'Limelight';
-    -fx-font-size: 18;
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);
-    -fx-transition: all 0.2s ease-in-out;
-}
-
-#signOutButton {
-    -fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575);
-    -fx-text-fill: #FFFFFF;
-    -fx-font-family: 'Limelight';
-    -fx-font-size: 18;
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);
-}
-
-#signOutButton:hover {
-    -fx-background-color: linear-gradient(to bottom, #757575, #BDBDBD);
-    -fx-text-fill: #FFFF00; /* Change to a different color on hover if desired */
-    -fx-effect: dropshadow(gaussian, rgba(255, 215, 0, 0.5), 8, 0, 2, 2); /* Optional: change effect on hover */
 }
