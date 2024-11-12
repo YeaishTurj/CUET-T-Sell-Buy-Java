@@ -104,7 +104,7 @@ public class SellerRegScreenController {
     }
     public void backToLogin(MouseEvent mouseEvent) throws IOException {
         //====== back to log in or registration screen ========//
-        String logInPageFileName="";
+        String logInPageFileName="seller_signin_screen";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(logInPageFileName));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
@@ -133,9 +133,9 @@ public class SellerRegScreenController {
                     con = DatabaseConnection.connect();
                     if (con != null) {
                         ps = con.prepareStatement("INSERT INTO seller (name, email,password,contact,w_app,facebook_link) VALUES (?,?,?,?,?,?)");
-                        ps.setString(1,email );
-                        ps.setString(2, pass);
-                        ps.setString(3, name);
+                        ps.setString(1,name );
+                        ps.setString(2, email);
+                        ps.setString(3, pass);
                         ps.setString(4,phone);
                         ps.setString(5, wApp);
                         ps.setString(6, fbLink);

@@ -26,6 +26,7 @@ import java.util.Objects;
 
 public class ItemScreenController {
     @FXML
+    private Button signOutButton;
     private Text wAppNumber;
     @FXML
     private ImageView backBtn;
@@ -66,7 +67,7 @@ public class ItemScreenController {
         productQuantity.setText("Quantity:11");
         productDescription.setText("1.1000 gsm \n 2.Color guaranty \n 3. blah \n4.blah");
         ownerName.setText("HashCode");
-        wAppNumber.setText("01813635343");
+       // wAppNumber.setText("01813635343");
         contactNo.setText("01815505922");
     }
     //======== item details get  from buyer_show_screen ==========/
@@ -74,6 +75,7 @@ public class ItemScreenController {
         //====== set images in the image list ======//
 
         //====== set product details ( name,price,quantity,detail ) =====//
+
         productDescription.setText(item.getDescription());
         productName.setText(item.getTitle());
         productPrice.setText(Integer.toString(item.getPrice()));
@@ -81,28 +83,12 @@ public class ItemScreenController {
         //====== set owner details ( name, w.app no, contact no, fb link ) ======//
         ownerName.setText(owner.getName());
         contactNo.setText(owner.getPhoneNumber());
-        wAppNumber.setText(owner.getWAppNumber());
+       // wAppNumber.setText(owner.getWAppNumber());
         facebookLink.setOnAction(event -> {
             try {Desktop.getDesktop().browse(new URI(owner.getFbLink()));}
             catch (Exception e) {System.out.println(e);}
         });
         emailId.setText(owner.getEmailId());
-    }
-    public void logOutUser(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("login_screen.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void gotoItemShowScreen(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("all_item_show_screen.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
     public void showLeftImage(MouseEvent mouseEvent) {
         index=Math.abs(index-1+size);
@@ -118,9 +104,23 @@ public class ItemScreenController {
         Desktop.getDesktop().browse(new URI("https://www.google.com"));
     }
 
-    public void handleBackButtonClick(ActionEvent actionEvent) {
+    public void handleBackButtonClick(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("all_item_show_screen.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void handleSignOut(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/welcome_screen.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setHeight(768);
+        stage.setWidth(1024);
+        stage.show();
     }
 
-    public void handleSignOut(ActionEvent actionEvent) {
-    }
 }

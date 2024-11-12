@@ -45,7 +45,6 @@ public class CustomItemController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //more1.setOnMouseClicked(this::seeDetails1);
     }
     //------- here we receive the data of item and owner to show in the custom design ------//
     public void setData1(Item item,Owner owner){
@@ -67,13 +66,16 @@ public class CustomItemController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/item_screen.fxml"));
             Parent root = loader.load();
             ItemScreenController itemScreenController = loader.getController();
-            itemScreenController.getDetails(itemOwner2,singleItem2);
+            itemScreenController.getDetails(itemOwner2, singleItem2);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setHeight(768);
+            stage.setWidth(1024);
             stage.show();
+
         } catch (IOException e) {
-            System.out.println(e);
+            System.out.println("Error");
         }
     }
     public void seeDetails1(ActionEvent actionEvent) {
@@ -81,13 +83,15 @@ public class CustomItemController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/item_screen.fxml"));
             Parent root = loader.load();
             ItemScreenController itemScreenController = loader.getController();
-            itemScreenController.getDetails(itemOwner1,singleItem1);
+            itemScreenController.getDetails(itemOwner1, singleItem1);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setHeight(768);
+            stage.setWidth(1024);
             stage.show();
         } catch (IOException e) {
-            System.out.println(e);
+            System.out.println("Error");
         }
     }
 }

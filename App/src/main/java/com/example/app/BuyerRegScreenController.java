@@ -52,7 +52,7 @@ public class BuyerRegScreenController {
             toast.setStyle("-fx-text-fill: red;");
             toast.setText("Please enter your password");
         }
-        else if (checkMail(userEmail)||true) {
+        else if (checkMail(userEmail)) {
             //====== if mail is perfect ====//
             if(!password.getText().isEmpty()) perfect =1;
         }
@@ -67,7 +67,6 @@ public class BuyerRegScreenController {
             //====== after complete =======//
             toast.setText("Successfully Registered!");
             toast.setStyle("-fx-text-fill: green;");
-            Thread.sleep(3000);
             //====== navigation from BuyerRegScreen to ItemShowScreen ======//
             FXMLLoader loader = new FXMLLoader(getClass().getResource("all_item_show_screen.fxml"));
             Parent root = loader.load();
@@ -76,6 +75,10 @@ public class BuyerRegScreenController {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+        }
+        else{
+            toast.setText("Failed to Registered!");
+            toast.setStyle("-fx-text-fill: red;");
         }
     }
     private void storeDataInDB(String userName, String userEmail, String userPass) {
@@ -120,7 +123,7 @@ public class BuyerRegScreenController {
     }
     public void backToLogin(MouseEvent mouseEvent) throws IOException {
         //====== back to log in or registration screen ========//
-        String logInPageFileName="";
+        String logInPageFileName="buyer_signin_screen";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(logInPageFileName));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();

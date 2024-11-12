@@ -59,8 +59,6 @@ public class HelloApplication extends Application {
                     Objects.requireNonNull(getClass().getResource(FONT_PATH + fontFile)).toExternalForm(),
                     64 // Size of the font
             );
-            if(font==null) System.out.println("Font not loaded");
-            else System.out.println("Font loaded");
         }
     }
 
