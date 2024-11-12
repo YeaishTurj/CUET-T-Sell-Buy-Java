@@ -129,8 +129,8 @@ public class BuyerSignInScreenController implements Initializable {
     @FXML
     public void handleSignInButtonClick() throws IOException {
         // Load the welcome screen using the specified FXML path
-        Parent root = loadFXML(ALL_ITEM_SHOW_SCREEN);
-
+        //Parent root = loadFXML(ALL_ITEM_SHOW_SCREEN);
+        Parent root=loadFXML("buyer_page.fxml");
         // Get the current stage and set the new scene with the specified dimensions
         Stage stage = (Stage) backButton.getScene().getWindow();
         setScene(stage, root);

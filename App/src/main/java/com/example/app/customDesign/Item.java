@@ -32,6 +32,10 @@ public class Item {
     public  String  getDescription(){
         return  description;
     }
-    public void setOwnerEmail(String ownerEmail) {this.ownerEmail = ownerEmail;}
-    public String getOwnerEmail() {return ownerEmail;}
+    public void setOwnerEmail(String ownerEmail) {
+        this.ownerEmail = ownerEmail;
+    }
+    public String getOwnerEmail() {
+        return ownerEmail;
+    }
 }
