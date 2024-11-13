@@ -94,6 +94,27 @@ private List<Item> itemList(){
 
     return ls;
 }
+    private void loadDataInListView(List<Item> myItem){
+        holder.getChildren().clear();
+        Owner owner=new Owner();
+        owner.setOwner("Zia","01813635343","01813635343","www.facebook.com/zia002","u2104025@student.cuet.ac.bd");
+        for (int i=0;i<myItem.size();i+=2) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/com/example/app/custom_item.fxml"));
+            try {
+                HBox hBox = fxmlLoader.load();
+                CustomItemController customItemController = fxmlLoader.getController();
+                customItemController.setData1(myItem.get(i),owner);
+                if(i+1<myItem.size()) {
+                    customItemController.setData2(myItem.get(i+1),owner);
+                }
+                holder.getChildren().add(hBox);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
 
     //--------- later if we need to use the buyer information then get data from previous screen ------//
     public static void passedData(String userName, String userEmail, String userPass) {}
@@ -161,27 +182,7 @@ private List<Item> itemList(){
             loadDataInListView(listOfItem);
         }
     }
-    private void loadDataInListView(List<Item> myItem){
-        holder.getChildren().clear();
-        Owner owner=new Owner();
-        owner.setOwner("Zia","01813635343","01813635343","www.facebook.com/zia002","u2104025@student.cuet.ac.bd");
-        for (int i=0;i<myItem.size();i+=2) {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/com/example/app/custom_item.fxml"));
-            try {
-                HBox hBox = fxmlLoader.load();
-                CustomItemController customItemController = fxmlLoader.getController();
-                customItemController.setData1(myItem.get(i),owner);
-                if(i+1<myItem.size()) {
-                    customItemController.setData2(myItem.get(i+1),owner);
-                }
-                holder.getChildren().add(hBox);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
 
-    }
     public void startSearchItem(MouseEvent event) {
         String search=searchBox.getText();
         if(search!=null){
@@ -218,3 +219,5 @@ private List<Item> itemList(){
         stage.show();
     }
 }
+
+

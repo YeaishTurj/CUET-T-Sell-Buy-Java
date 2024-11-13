@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" prefHeight="100.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.customDesign.CustomItemController">
+<HBox alignment="CENTER" prefHeight="100.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.customDesign.CustomItemController">
    <HBox alignment="CENTER" prefHeight="96.0" prefWidth="510.0" style="-fx-background-color: rgba(255, 255, 255, 0.2),           linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);           -fx-background-insets: 0, 1; -fx-border-color: rgba(255, 255, 255, 0.3);            -fx-border-width: 4px; -fx-border-radius: 8px; -fx-background-radius: 10px;            -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 10, 0.2, 0, 2),              innershadow(gaussian, rgba(255, 255, 255, 0.2), 4, 0.3, 0, 0);">
       <HBox.margin>
          <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
@@ -25,33 +25,29 @@
             <font>
                <Font name="Arial Hebrew" size="20.0" />
             </font></Text>
-         <HBox alignment="CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-               minWidth="-Infinity" prefHeight="35.0" prefWidth="135.0">
+         <HBox alignment="CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="135.0">
             <ImageView fitHeight="29.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets right="5.0"/>
+                  <Insets right="5.0" />
                </HBox.margin>
-               <Image url="@../../../assets/tag.png"/>
+               <Image url="@../../../assets/tag.png" />
             </ImageView>
-            <Text fx:id="itemPrice1" strokeType="OUTSIDE" strokeWidth="0.0" text="price"
-                  wrappingWidth="89.3057861328125">
+            <Text fx:id="itemPrice1" strokeType="OUTSIDE" strokeWidth="0.0" text="price" wrappingWidth="89.3057861328125">
                <font>
-                  <Font name="System Bold" size="18.0"/>
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Text>
          </HBox>
-         <HBox alignment="CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-               minWidth="-Infinity" prefHeight="35.0" prefWidth="135.0">
+         <HBox alignment="CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="135.0">
             <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets right="5.0"/>
+                  <Insets right="5.0" />
                </HBox.margin>
-               <Image url="@../../../assets/quantity.png"/>
+               <Image url="@../../../assets/quantity.png" />
             </ImageView>
-            <Text fx:id="itemQuantity1" strokeType="OUTSIDE" strokeWidth="0.0" text="quentity"
-                  wrappingWidth="89.3057861328125">
+            <Text fx:id="itemQuantity1" strokeType="OUTSIDE" strokeWidth="0.0" text="quentity" wrappingWidth="89.3057861328125">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Text>
          </HBox>
@@ -60,68 +56,60 @@
          <Button fx:id="more1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seeDetails2" prefHeight="38.0" prefWidth="36.0" style="-fx-background-radius: 50; -fx-background-color: rgba(255, 255, 255, 0.2),           linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);">
             <graphic>
                <ImageView fitHeight="35.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../../assets/next.png"/>
+                  <Image url="@../../../assets/next.png" />
                </ImageView>
             </graphic>
          </Button>
       </VBox>
    </HBox>
-   <HBox fx:id="lastItemHolder" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-         minWidth="-Infinity" prefHeight="142.0" prefWidth="496.0"
-         style="-fx-background-color: rgba(255, 255, 255, 0.2),           linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);           -fx-background-insets: 0, 1; -fx-border-color: rgba(255, 255, 255, 0.3);            -fx-border-width: 4px; -fx-border-radius: 8px; -fx-background-radius: 10px;            -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 10, 0.2, 0, 2),              innershadow(gaussian, rgba(255, 255, 255, 0.2), 4, 0.3, 0, 0);">
+   <HBox fx:id="lastItemHolder" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="142.0" prefWidth="496.0" style="-fx-background-color: rgba(255, 255, 255, 0.2),           linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);           -fx-background-insets: 0, 1; -fx-border-color: rgba(255, 255, 255, 0.3);            -fx-border-width: 4px; -fx-border-radius: 8px; -fx-background-radius: 10px;            -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 10, 0.2, 0, 2),              innershadow(gaussian, rgba(255, 255, 255, 0.2), 4, 0.3, 0, 0);">
       <HBox.margin>
-         <Insets bottom="10.0" left="10.0" right="20.0" top="10.0"/>
+         <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
       </HBox.margin>
       <ImageView fx:id="itemImage2" fitHeight="113.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
-            <Insets bottom="6.0" left="6.0" right="6.0" top="6.0"/>
+            <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
          </HBox.margin>
-         <Image url="@../../../assets/product_2.jpg"/>
+         <Image url="@../../../assets/product_2.jpg" />
       </ImageView>
       <VBox alignment="CENTER" prefHeight="89.0" prefWidth="264.0">
          <Text fx:id="itemTitle2" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER">
             <font>
-               <Font size="20.0"/>
+               <Font size="20.0" />
             </font>
          </Text>
-         <HBox alignment="CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-               minWidth="-Infinity" prefHeight="35.0" prefWidth="135.0">
+         <HBox alignment="CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="135.0">
             <ImageView fitHeight="29.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets right="5.0"/>
+                  <Insets right="5.0" />
                </HBox.margin>
-               <Image url="@../../../assets/tag.png"/>
+               <Image url="@../../../assets/tag.png" />
             </ImageView>
-            <Text fx:id="itemPrice2" strokeType="OUTSIDE" strokeWidth="0.0" text="price"
-                  wrappingWidth="89.3057861328125">
+            <Text fx:id="itemPrice2" strokeType="OUTSIDE" strokeWidth="0.0" text="price" wrappingWidth="89.3057861328125">
                <font>
-                  <Font name="System Bold" size="18.0"/>
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Text>
          </HBox>
-         <HBox alignment="CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-               minWidth="-Infinity" prefHeight="35.0" prefWidth="135.0">
+         <HBox alignment="CENTER" fillHeight="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="135.0">
             <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets right="5.0"/>
+                  <Insets right="5.0" />
                </HBox.margin>
-               <Image url="@../../../assets/quantity.png"/>
+               <Image url="@../../../assets/quantity.png" />
             </ImageView>
-            <Text fx:id="itemQuantity2" strokeType="OUTSIDE" strokeWidth="0.0" text="quentity"
-                  wrappingWidth="89.3057861328125">
+            <Text fx:id="itemQuantity2" strokeType="OUTSIDE" strokeWidth="0.0" text="quentity" wrappingWidth="89.3057861328125">
                <font>
-                  <Font name="Arial" size="18.0"/>
+                  <Font name="Arial" size="18.0" />
                </font>
             </Text>
          </HBox>
       </VBox>
       <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
-         <Button fx:id="more2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                 mnemonicParsing="false" onAction="#seeDetails2" prefHeight="43.0" prefWidth="41.0"
-                 style="-fx-background-radius: 50; -fx-background-color: rgba(255, 255, 255, 0.2),           linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);">
+         <Button fx:id="more2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seeDetails2" prefHeight="43.0" prefWidth="41.0" style="-fx-background-radius: 50; -fx-background-color: rgba(255, 255, 255, 0.2),           linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);">
             <graphic>
                <ImageView fitHeight="35.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../../assets/next.png"/>
+                  <Image url="@../../../assets/next.png" />
                </ImageView>
             </graphic>
          </Button>

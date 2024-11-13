@@ -62,7 +62,7 @@
             onAction="#gotoAllItemScreen" prefHeight="85.0" prefWidth="380.0" stylesheets="@../../../css/styles.css"
             text="Explore Products"/>
     <VBox alignment="CENTER" layoutX="53.0" layoutY="188.0" prefHeight="216.0" prefWidth="455.0"
-          style="-fx-background-color: rgba(255, 255, 255, 0.3),              linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);               -fx-background-insets: 0, 1;        -fx-border-color: rgba(255, 255, 255, 0.5);                  -fx-border-width: 2px;        -fx-border-radius: 10px;        -fx-background-radius: 10px;                        -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.2, 0, 0),                                          inner shadow(gaussian, rgba(255, 255, 255, 0.4), 5, 0.5, 0, 0);"><!-- Email -->
+          style="-fx-background-color: rgba(255, 255, 255, 0.3),              linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);               -fx-background-insets: 0, 1;        -fx-border-color: rgba(255, 255, 255, 0.5);                  -fx-border-width: 2px;        -fx-border-radius: 10px;        -fx-background-radius: 10px;                        "><!-- Email -->
         <Text style="-fx-font-size: 18; -fx-fill: #555;" text="Name: Md Zia Uddin">
             <font>
                 <Font name="System Bold" size="33.0"/>
@@ -93,6 +93,5 @@
                preserveRatio="true">
         <Image url="@../../../assets/one_t.png"/>
     </ImageView>
-
 
 </AnchorPane>
