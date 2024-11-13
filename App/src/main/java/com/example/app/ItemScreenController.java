@@ -26,8 +26,6 @@ import java.util.Objects;
 
 public class ItemScreenController {
     @FXML
-    private Button signOutButton;
-    @FXML
     private Text wAppNumber;
     @FXML
     private ImageView backBtn;
@@ -110,14 +108,17 @@ public class ItemScreenController {
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
+
     public void handleSignOut(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/welcome_screen.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
         stage.setScene(scene);
         stage.setHeight(768);
         stage.setWidth(1024);

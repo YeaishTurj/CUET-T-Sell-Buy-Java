@@ -53,7 +53,7 @@
          </HBox>
       </VBox>
       <VBox alignment="CENTER_RIGHT" prefHeight="134.0" prefWidth="109.0">
-         <Button fx:id="more1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seeDetails2" prefHeight="38.0" prefWidth="36.0" style="-fx-background-radius: 50; -fx-background-color: rgba(255, 255, 255, 0.2),           linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);">
+         <Button fx:id="more1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#seeDetails1" prefHeight="38.0" prefWidth="36.0" style="-fx-background-radius: 50; -fx-background-color: rgba(255, 255, 255, 0.2),           linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);">
             <graphic>
                <ImageView fitHeight="35.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../../../assets/next.png" />

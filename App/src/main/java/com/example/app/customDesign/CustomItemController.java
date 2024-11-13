@@ -15,6 +15,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CustomItemController implements Initializable {
@@ -69,6 +70,7 @@ public class CustomItemController implements Initializable {
             itemScreenController.getDetails(itemOwner2, singleItem2);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
             stage.setScene(scene);
             stage.setHeight(768);
             stage.setWidth(1024);
@@ -86,6 +88,7 @@ public class CustomItemController implements Initializable {
             itemScreenController.getDetails(itemOwner1, singleItem1);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
             stage.setScene(scene);
             stage.setHeight(768);
             stage.setWidth(1024);

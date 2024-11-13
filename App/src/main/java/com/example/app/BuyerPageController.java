@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class BuyerPageController {
     @FXML
@@ -24,6 +25,7 @@ public class BuyerPageController {
         stage.setScene(scene);
         stage.setHeight(768);
         stage.setWidth(1024);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
         stage.show();
     }
     @FXML
