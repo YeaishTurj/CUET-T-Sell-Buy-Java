@@ -49,22 +49,6 @@ public class AllItemsShowScreen implements Initializable {
         listOfItem=itemList();
         loadDataInListView(listOfItem);
     }
-//    private List<Item> itemList(){
-//        List<Item> ls=new ArrayList<>();
-//        Item item1 = new Item();
-//        item1.setItem("Title of T-shirt1", 1200, 3, "","description-1");
-//        ls.add(item1);
-//        Item item2 = new Item();
-//        item2.setItem("Title of T-shirt2", 500, 1, "","description-1");
-//        ls.add(item2);
-//        Item item3 = new Item();
-//        item3.setItem("Title of T-shirt3", 400, 3, "","description-1");
-//        ls.add(item3);
-//        Item item4 = new Item();
-//        item4.setItem("Title of T-shirt4", 600, 6, "","description-1");
-//        ls.add(item4);
-//        return ls;
-//    }
 private List<Item> itemList(){
     List<Item> ls = new ArrayList<>();
 
@@ -117,7 +101,6 @@ private List<Item> itemList(){
     void logOutUser(ActionEvent event) {}
     @FXML
     void searchItem(TouchEvent event) {
-
     }
     public void showDialog(MouseEvent events) {
         ComboBox<String> comboBox = new ComboBox<>();

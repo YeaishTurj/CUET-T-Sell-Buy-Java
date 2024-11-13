@@ -27,6 +27,7 @@ import java.util.Objects;
 public class ItemScreenController {
     @FXML
     private Button signOutButton;
+    @FXML
     private Text wAppNumber;
     @FXML
     private ImageView backBtn;

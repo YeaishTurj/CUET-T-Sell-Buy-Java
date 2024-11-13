@@ -128,7 +128,10 @@
             <padding>
                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
             </padding>
-            <Label fx:id="productDescription" alignment="TOP_LEFT" prefHeight="512.0" prefWidth="485.0" style="-fx-background-color: rgba(255, 255, 255, 0.25), linear-gradient(to bottom right, #EDE7F6, #E1F5FE, #E8F5E9);        -fx-background-insets: 0, 1;        -fx-border-color: rgba(255, 255, 255, 0.4);        -fx-border-width: 2px;        -fx-border-radius: 8px;        -fx-background-radius: 8px;        -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0.15, 0, 0),                    inner shadow(gaussian, rgba(255, 255, 255, 0.3), 3, 0.4, 0, 0);" text="details" textAlignment="CENTER" />
+            <Label fx:id="productDescription" alignment="TOP_LEFT" prefHeight="512.0" prefWidth="485.0" style="-fx-background-color: rgba(255, 255, 255, 0.25), linear-gradient(to bottom right, #EDE7F6, #E1F5FE, #E8F5E9);        -fx-background-insets: 0, 1;        -fx-border-color: rgba(255, 255, 255, 0.4);        -fx-border-width: 2px;        -fx-border-radius: 8px;        -fx-background-radius: 8px;        -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0.15, 0, 0),                    inner shadow(gaussian, rgba(255, 255, 255, 0.3), 3, 0.4, 0, 0);" text="details" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Baloo Paaji 2 Regular" size="19.0" />
+               </font></Label>
          </ScrollPane>
       </VBox>
       <VBox focusTraversable="true" layoutX="13.0" layoutY="396.0" prefHeight="202.0" prefWidth="447.0" style="-fx-border-radius: 10px; -fx-border-color: rgba(255, 255, 255, 0.5); -fx-border-width: 3px;">
