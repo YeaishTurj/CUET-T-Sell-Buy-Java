@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
 
 public class SellerRegScreenController {
     @FXML
-    private ImageView backBtn;
+    private Button backBtn;
     @FXML
     private TextField contactNo;
     @FXML
@@ -102,9 +102,9 @@ public class SellerRegScreenController {
         }
 
     }
-    public void backToLogin(MouseEvent mouseEvent) throws IOException {
+    public void backToLogin(ActionEvent mouseEvent) throws IOException {
         //====== back to log in or registration screen ========//
-        String logInPageFileName="seller_signin_screen";
+        String logInPageFileName="seller_signin_screen.fxml";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(logInPageFileName));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();

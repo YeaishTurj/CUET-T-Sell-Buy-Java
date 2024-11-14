@@ -121,12 +121,12 @@ public class BuyerRegScreenController {
 
         return false;
     }
-    public void backToLogin(MouseEvent mouseEvent) throws IOException {
+    public void backToLogin(ActionEvent e) throws IOException {
         //====== back to log in or registration screen ========//
-        String logInPageFileName="buyer_signin_screen";
+        String logInPageFileName="buyer_signin_screen.fxml";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(logInPageFileName));
         Parent root = loader.load();
-        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

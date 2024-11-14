@@ -13,10 +13,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="buyer_reg_screen_anchor" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerRegScreenController">
+<AnchorPane fx:id="buyer_reg_screen_anchor" prefHeight="768.0" prefWidth="1024.0"
+            style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);"
+            xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerRegScreenController">
     <children>
         <!-- Background Panel with Glow Effect -->
-        <VBox alignment="CENTER" layoutX="231.5" layoutY="150.0" prefHeight="500.0" prefWidth="561.0" style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 25;">
+        <VBox alignment="CENTER" layoutX="232.0" layoutY="265.0" prefHeight="402.0" prefWidth="561.0"
+              style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 25;"
+        >
             <effect>
                 <Glow>
                     <input>
@@ -27,10 +31,13 @@
         </VBox>
 
         <!-- VBox for Centered Registration Form with Shadow Effect -->
-        <VBox alignment="CENTER" layoutX="312.0" layoutY="200.0" prefWidth="400.0" spacing="25.0">
+        <VBox alignment="CENTER" layoutX="312.0" layoutY="315.0" prefWidth="400.0" spacing="25.0">
             <children>
                 <!-- Name Field with 3D Effect -->
-                <TextField fx:id="name" promptText="Enter your name" style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" />
+                <TextField fx:id="name" promptText="Enter your name"
+                           style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);"
+
+                />
 
                 <!-- Email Field with 3D Effect -->
                 <TextField fx:id="email" promptText="Enter your CUET mail address" style="-fx-font-size: 20; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3);" />
@@ -44,8 +51,8 @@
         </VBox>
 
         <!-- Status Labels -->
-        <Label fx:id="toast" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="700.0" prefHeight="17.0" prefWidth="1016.0" textFill="#d30000" style="-fx-font-size: 15; -fx-font-family: 'Serif Bold';" />
-        <Label fx:id="success" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="700.0" prefHeight="17.0" prefWidth="1016.0" text="Successfully Registered" textFill="#06bc2a" visible="false" style="-fx-font-size: 16; -fx-font-family: 'Serif Bold';" />
+        <Label fx:id="toast" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="700.0" prefHeight="17.0" prefWidth="1016.0" style="-fx-font-size: 15; -fx-font-family: 'Serif Bold';" textFill="#d30000" />
+        <Label fx:id="success" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="700.0" prefHeight="17.0" prefWidth="1016.0" style="-fx-font-size: 16; -fx-font-family: 'Serif Bold';" text="Successfully Registered" textFill="#06bc2a" visible="false" />
 
         <!-- Back Button with ImageView -->
         <Button fx:id="backButton" layoutX="20.0" layoutY="16.0" onAction="#backToLogin" style="-fx-background-color: transparent; -fx-padding: 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);">
@@ -57,5 +64,24 @@
                 </ImageView>
             </graphic>
         </Button>
+      <VBox alignment="TOP_CENTER" layoutX="231.0" prefHeight="238.0" prefWidth="562.0">
+         <children>
+            <Text style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744); -fx-stroke: #000000; -fx-stroke-width: 1.5;" text="Register" textAlignment="CENTER" wrappingWidth="561.5">
+               <effect>
+                  <DropShadow color="rgba(0, 0, 0, 0.7)" offsetX="4" offsetY="4" radius="15" />
+               </effect>
+            </Text>
+            <Text style="-fx-font-size: 50; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744); -fx-stroke: #000000; -fx-stroke-width: 1.5;" text="As" textAlignment="CENTER" wrappingWidth="561.5">
+               <effect>
+                  <DropShadow color="rgba(0, 0, 0, 0.7)" offsetX="4" offsetY="4" radius="15" />
+               </effect>
+            </Text>
+            <Text style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744); -fx-stroke: #000000; -fx-stroke-width: 1.5;" text="Buyer" textAlignment="CENTER" wrappingWidth="561.5">
+               <effect>
+                  <DropShadow color="rgba(0, 0, 0, 0.7)" offsetX="4" offsetY="4" radius="15" />
+               </effect>
+            </Text>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>
