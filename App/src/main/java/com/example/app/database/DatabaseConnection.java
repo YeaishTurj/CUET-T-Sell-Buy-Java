@@ -25,3 +25,8 @@ public class DatabaseConnection {
     }
 
 }
+
+
+// database name: CUET_T_SELL_DB
+// table buyer (name, email(primary_key), password)
+// table seller (name, email(primary_key), password, contact, w_app, facebook_link)

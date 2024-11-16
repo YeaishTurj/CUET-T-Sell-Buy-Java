@@ -9,6 +9,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -127,7 +129,19 @@ public class BuyerSignInScreenController implements Initializable {
     }
 
     @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
     public void handleSignInButtonClick() throws IOException {
+
+        String buyerEmail = usernameField.getText();
+        String buyerPassword = passwordField.getText();
+
+        System.out.println("Buyer Email: " + buyerEmail);
+        System.out.println("Buyer Password: " + buyerPassword);
+
         // Load the welcome screen using the specified FXML path
         //Parent root = loadFXML(ALL_ITEM_SHOW_SCREEN);
         Parent root=loadFXML("buyer_page.fxml");
