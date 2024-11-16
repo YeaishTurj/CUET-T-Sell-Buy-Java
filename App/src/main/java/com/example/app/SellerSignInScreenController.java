@@ -9,12 +9,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -27,6 +32,8 @@ public class SellerSignInScreenController implements Initializable {
     private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
     private static final double SCREEN_WIDTH = 1024;                                   // Width for new scenes
     private static final double SCREEN_HEIGHT = 768;                                   // Height for new scenes
+
+
     @FXML
     private AnchorPane mainPane;
 
@@ -36,7 +43,53 @@ public class SellerSignInScreenController implements Initializable {
 
         // Apply a delayed request to ensure focus is not on any text field
         Platform.runLater(() -> mainPane.requestFocus());
+
+        connectToDatabase();
     }
+
+    @FXML
+    private String findSellerId() {
+        String username = usernameField.getText(); // Get the email address from the username field
+
+        // Check if the email matches the pattern "u{sellerId}@student.cuet.ac.bd"
+        if (username.matches("u\\d+@student\\.cuet\\.ac\\.bd")) {
+            // Extract the sellerId from the email
+            return username.substring(1, username.indexOf('@')); // Remove 'u' and extract digits
+        }
+        return "invalid"; // Return "invalid" if the format doesn't match
+    }
+
+
+    private String sellerId;
+
+    @FXML
+    private void connectToDatabase(){
+        String url = "jdbc:mysql://localhost:3306/CUET_T_SELL_DB";
+        String user = "root";
+        String password = "";
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Driver loaded successfully!");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver not loaded!");
+        }
+
+        try{
+            // Database connection and seller ID
+            Connection connection = DriverManager.getConnection(url, user, password);
+            System.out.println("Database connected successfully!");
+
+
+
+        } catch (SQLException e) {
+            System.out.println("Database connection failed!");
+        }
+    };
+
+
+
+
 
 
     @FXML
@@ -62,7 +115,22 @@ public class SellerSignInScreenController implements Initializable {
 
     // Handle sign-in button click event
     @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
     private void handleSignInButtonClick() throws IOException {
+
+
+        sellerId = findSellerId();
+
+        if(sellerId=="invalid"){
+            System.out.println("Invalid Email Address");
+            return;
+        }
+
+
+        System.out.println("Seller ID: " + sellerId);
         // Load the seller page using the specified FXML path
         Parent root = loadFXML(SELLER_PAGE_FXML);
 
