@@ -26,7 +26,7 @@ public class SellerPageController {
 
     // Database connection and seller ID
     private Connection connection = null;
-    private String sellerId = "2104022";
+    private String sellerEmail;
 
     // FXML UI components
     @FXML
@@ -47,6 +47,7 @@ public class SellerPageController {
     // Initialization
     @FXML
     public void initialize() throws SQLException {
+        sellerEmail= SessionData.getSellerEmail();
         connectToDatabase();
         showSellerInfo();
     }
@@ -60,14 +61,12 @@ public class SellerPageController {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("Driver loaded successfully!");
         } catch (ClassNotFoundException e) {
             System.out.println("Driver not loaded!");
         }
 
         try {
             connection = DriverManager.getConnection(url, user, password);
-            System.out.println("Database connected successfully!");
         } catch (SQLException e) {
             System.out.println("Database connection failed!");
         }
@@ -77,19 +76,18 @@ public class SellerPageController {
     @FXML
     private void showSellerInfo() throws SQLException {
         if (connection != null) {
-            try {
-                Statement stmt = connection.createStatement();
-                String sellerEmail = "u" + sellerId + "@student.cuet.ac.bd";
-                String query = "SELECT * FROM seller WHERE email = '" + sellerEmail + "';";
+            String query = "SELECT * FROM seller WHERE email = ?";
 
-                ResultSet rs = stmt.executeQuery(query);
+            try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+                pstmt.setString(1, sellerEmail);
+                ResultSet rs = pstmt.executeQuery();
+
                 while (rs.next()) {
                     String name = rs.getString("name");
                     String contact = rs.getString("contact");
                     String wApp = rs.getString("w_app");
                     String f_bLink = rs.getString("facebook_link");
 
-                    System.out.println("Name: " + name + " Contact: " + contact + " WhatsApp: " + wApp + " Facebook: " + f_bLink);
                     companyName.setText(name);
                     sellerEmailField.setText(sellerEmail);
                     phoneNum.setText(contact);
@@ -218,16 +216,17 @@ public class SellerPageController {
     @FXML
     private void editSellerInfo(TextField newInfo, String infoType) {
         if (connection != null) {
-            try {
-                Statement stmt = connection.createStatement();
-                String sellerEmail = "u" + sellerId + "@student.cuet.ac.bd";
-                String query = "UPDATE seller SET " + infoType + " = '" + newInfo.getText() + "' WHERE email = '" + sellerEmail + "';";
-                stmt.executeUpdate(query);
+            String query = "UPDATE seller SET " + infoType + " = ? WHERE email = ?";
+
+            try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+                pstmt.setString(1, newInfo.getText());
+                pstmt.setString(2, sellerEmail);
+                pstmt.executeUpdate();
             } catch (SQLException e) {
                 System.err.println("Error: " + e.getMessage());
             }
         } else {
-            System.out.println("Database connection not established. Seller info not found.");
+            System.out.println("Database connection not established. Seller info not updated.");
         }
     }
 }
