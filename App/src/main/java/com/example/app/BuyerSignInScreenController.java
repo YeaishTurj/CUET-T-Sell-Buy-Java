@@ -1,3 +1,5 @@
+// completed
+
 package com.example.app;
 
 import javafx.application.Platform;
@@ -8,107 +10,129 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class BuyerSignInScreenController implements Initializable {
 
-    // Constants for FXML file paths, CSS path, and dimensions
-    private static final String WELCOME_SCREEN_FXML = "welcome_screen.fxml";           // Path to the welcome screen FXML file
-    private static final String BUYER_REG_SCREEN_FXML = "buyer_reg_screen.fxml";       // Path to the buyer registration screen FXML file
-    private static final String ALL_ITEM_SHOW_SCREEN = "all_item_show_screen.fxml";    // Path to the all item show screen FXML file
-    private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
-    private static final double SCREEN_WIDTH = 1024;                                   // Width for new scenes
-    private static final double SCREEN_HEIGHT = 768;                                   // Height for new scenes
+    private static final String WELCOME_SCREEN_FXML = "welcome_screen.fxml";
+    private static final String BUYER_REG_SCREEN_FXML = "buyer_reg_screen.fxml";
+    private static final String ALL_ITEM_SHOW_SCREEN = "all_item_show_screen.fxml";
+    private static final String CSS_PATH = "/css/styles.css";
+    private static final double SCREEN_WIDTH = 1024;
+    private static final double SCREEN_HEIGHT = 768;
 
     @FXML
     private AnchorPane mainPane;
+    @FXML
+    private Button backButton, signInButton;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
+    private Label singInFailed;
+
+    private Connection connection;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mainPane.requestFocus();
-
-        // Apply a delayed request to ensure focus is not on any text field
         Platform.runLater(() -> mainPane.requestFocus());
+        connectToDatabase();
     }
 
-
     @FXML
-    private Button backButton;
+    private void connectToDatabase() {
+        String url = "jdbc:mysql://localhost:3306/CUET_T_SELL_DB";
+        String user = "root";
+        String password = "";
 
-    /**
-     * Handles the back button click event and loads the welcome screen.
-     *
-     * @throws IOException if the welcome screen FXML file cannot be loaded
-     */
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver not loaded!");
+        }
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+        } catch (SQLException e) {
+            System.out.println("Database connection failed!");
+        }
+    }
+
     @FXML
     private void handleBackButtonClick() throws IOException {
-        // Load the welcome screen using the specified FXML path
         Parent root = loadFXML(WELCOME_SCREEN_FXML);
-
-        // Get the current stage and set the new scene with the specified dimensions
         Stage stage = (Stage) backButton.getScene().getWindow();
         setScene(stage, root);
     }
 
-    /**
-     * Handles the sign-up text click event and loads the buyer registration screen.
-     *
-     * @param event The mouse event triggering the sign-up action
-     */
     @FXML
-    private void handleSignUpClick(MouseEvent event) {
-        try {
-            // Load the buyer registration screen using the specified FXML path
-            Parent root = loadFXML(BUYER_REG_SCREEN_FXML);
+    public void handleSignInButtonClick() throws IOException {
+        if (!isBuyerRegistered()) {
+            singInFailed.setText("You are not a registered buyer!");
+            return;
+        }
 
-            // Get the current stage and set the new scene with specified dimensions
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            setScene(stage, root);
-        } catch (IOException e) {
-            e.printStackTrace(); // Log the exception stack trace
+        if (!isPasswordCorrect()) {
+            singInFailed.setText("Incorrect Password!");
+            return;
+        }
+
+        SessionData.setBuyerEmail(usernameField.getText());
+        Parent root = loadFXML("buyer_page.fxml");
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        setScene(stage, root);
+    }
+
+    private boolean isBuyerRegistered() {
+        try {
+            String query = "SELECT * FROM buyer WHERE email = ?";
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, usernameField.getText());
+            return pstmt.executeQuery().next();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 
-    /**
-     * Loads an FXML file and returns the root node of the layout.
-     *
-     * @param fxmlPath The relative path to the FXML file
-     * @return Parent - the root node of the loaded FXML layout
-     * @throws IOException if the FXML file cannot be loaded
-     */
-    private Parent loadFXML(String fxmlPath) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-        return loader.load();
-    }
-
-    /**
-     * Sets a new scene for the specified stage with the given root node, default dimensions, and applies the CSS stylesheet.
-     *
-     * @param stage The stage on which to set the new scene
-     * @param root  The root node of the new scene layout
-     */
-    private void setScene(Stage stage, Parent root) {
-        Scene scene = new Scene(root, SCREEN_WIDTH, SCREEN_HEIGHT);
-        // Load and apply the CSS stylesheet for the scene
-        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(CSS_PATH)).toExternalForm());
-        stage.setScene(scene);
-        stage.show();
+    private boolean isPasswordCorrect() {
+        try {
+            String query = "SELECT * FROM buyer WHERE email = ? AND password = ?";
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, usernameField.getText());
+            pstmt.setString(2, passwordField.getText());
+            return pstmt.executeQuery().next();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     @FXML
-    private Button signInButton;
+    private void handleSignUpClick(MouseEvent event) {
+        try {
+            Parent root = loadFXML(BUYER_REG_SCREEN_FXML);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            setScene(stage, root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    // Handle mouse entered event
     @FXML
     private void handleMouseEnter() {
         signInButton.setStyle("-fx-background-color: linear-gradient(to bottom, #4CAF50, #388E3C);"
@@ -118,7 +142,6 @@ public class BuyerSignInScreenController implements Initializable {
                 + "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);");
     }
 
-    // Handle mouse exited event
     @FXML
     private void handleMouseExit() {
         signInButton.setStyle("-fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32);"
@@ -128,26 +151,15 @@ public class BuyerSignInScreenController implements Initializable {
                 + "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0, 3, 3);");
     }
 
-    @FXML
-    private TextField usernameField;
-    @FXML
-    private PasswordField passwordField;
-
-    @FXML
-    public void handleSignInButtonClick() throws IOException {
-
-        String buyerEmail = usernameField.getText();
-        String buyerPassword = passwordField.getText();
-
-        System.out.println("Buyer Email: " + buyerEmail);
-        System.out.println("Buyer Password: " + buyerPassword);
-
-        // Load the welcome screen using the specified FXML path
-        //Parent root = loadFXML(ALL_ITEM_SHOW_SCREEN);
-        Parent root=loadFXML("buyer_page.fxml");
-        // Get the current stage and set the new scene with the specified dimensions
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        setScene(stage, root);
+    private Parent loadFXML(String fxmlPath) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        return loader.load();
     }
 
+    private void setScene(Stage stage, Parent root) {
+        Scene scene = new Scene(root, SCREEN_WIDTH, SCREEN_HEIGHT);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(CSS_PATH)).toExternalForm());
+        stage.setScene(scene);
+        stage.show();
+    }
 }

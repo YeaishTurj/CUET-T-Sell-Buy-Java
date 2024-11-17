@@ -1,3 +1,5 @@
+// completed
+
 package com.example.app;
 
 import javafx.application.Platform;
@@ -24,7 +26,6 @@ import java.util.ResourceBundle;
 
 public class SellerSignInScreenController implements Initializable {
 
-    // Constants for FXML file paths, CSS path, and dimensions
     private static final String WELCOME_SCREEN_FXML = "welcome_screen.fxml";
     private static final String SELLER_REG_SCREEN_FXML = "seller_reg_screen.fxml";
     private static final String SELLER_PAGE_FXML = "seller_page.fxml";
@@ -33,7 +34,6 @@ public class SellerSignInScreenController implements Initializable {
     private static final double SCREEN_HEIGHT = 768;
 
     private Connection connection;
-    private String sellerId;
 
     @FXML
     private AnchorPane mainPane;

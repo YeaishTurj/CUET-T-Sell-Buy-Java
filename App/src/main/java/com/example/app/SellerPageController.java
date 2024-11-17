@@ -1,3 +1,5 @@
+// completed
+
 package com.example.app;
 
 import javafx.event.ActionEvent;
@@ -16,7 +18,6 @@ import java.util.Objects;
 
 public class SellerPageController {
 
-    // Constants for FXML file paths, CSS path, and dimensions
     private static final String WELCOME_SCREEN_FXML = "welcome_screen.fxml";
     private static final String PRODUCT_MANAGEMENT_FMXL = "product_management.fxml";
     private static final String PRODUCT_UPLOAD_FXML = "product_upload.fxml";
@@ -24,11 +25,9 @@ public class SellerPageController {
     private static final double SCREEN_WIDTH = 1024;
     private static final double SCREEN_HEIGHT = 768;
 
-    // Database connection and seller ID
     private Connection connection = null;
     private String sellerEmail;
 
-    // FXML UI components
     @FXML
     private Text sellerEmailField, companyName, phoneNum, waNum, fbLink;
     @FXML
@@ -44,7 +43,6 @@ public class SellerPageController {
     @FXML
     private Button editFBButton, saveFBButton;
 
-    // Initialization
     @FXML
     public void initialize() throws SQLException {
         sellerEmail= SessionData.getSellerEmail();
@@ -52,7 +50,6 @@ public class SellerPageController {
         showSellerInfo();
     }
 
-    // Database connection
     @FXML
     private void connectToDatabase() {
         String url = "jdbc:mysql://localhost:3306/CUET_T_SELL_DB";
@@ -72,7 +69,6 @@ public class SellerPageController {
         }
     }
 
-    // Load seller information
     @FXML
     private void showSellerInfo() throws SQLException {
         if (connection != null) {
@@ -102,7 +98,6 @@ public class SellerPageController {
         }
     }
 
-    // Navigation Handlers
     @FXML
     public void handleManageProducts() throws IOException {
         Parent root = loadFXML(PRODUCT_MANAGEMENT_FMXL);
@@ -124,7 +119,6 @@ public class SellerPageController {
         setScene(stage, root);
     }
 
-    // Edit and Save Handlers for Company Name
     @FXML
     public void handleEditCompany(ActionEvent actionEvent) {
         editCompanyButton.setVisible(false);
@@ -143,7 +137,6 @@ public class SellerPageController {
         editSellerInfo(newCompanyName, "name");
     }
 
-    // Edit and Save Handlers for Phone Number
     @FXML
     public void handleEditPhone(ActionEvent actionEvent) {
         editPhoneButton.setVisible(false);
@@ -162,7 +155,6 @@ public class SellerPageController {
         editSellerInfo(newPhoneNum, "contact");
     }
 
-    // Edit and Save Handlers for WhatsApp Number
     @FXML
     public void handleEditWA(ActionEvent actionEvent) {
         editWAButton.setVisible(false);
@@ -181,7 +173,6 @@ public class SellerPageController {
         editSellerInfo(newWANum, "w_app");
     }
 
-    // Edit and Save Handlers for Facebook Link
     @FXML
     public void handleEditFB(ActionEvent actionEvent) {
         editFBButton.setVisible(false);
@@ -200,7 +191,6 @@ public class SellerPageController {
         editSellerInfo(newFBLink, "facebook_link");
     }
 
-    // Helper Methods
     private Parent loadFXML(String fxmlPath) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         return loader.load();
