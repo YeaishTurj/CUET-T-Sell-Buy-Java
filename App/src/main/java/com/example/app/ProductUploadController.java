@@ -184,53 +184,53 @@ public class ProductUploadController implements Initializable {
     // Mouse event handlers for image hover effects
     @FXML
     public void handleMouseEnteredUploadMain() {
-        uploadMain.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+        uploadMain.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, black, 50, 0, 0, 0); -fx-cursor: hand; ");
     }
 
     @FXML
     public void handleMouseEnteredUploadAdditional1() {
-        uploadAdditional1.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+        uploadAdditional1.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0); -fx-cursor: hand; ");
     }
 
     @FXML
     public void handleMouseEnteredUploadAdditional2() {
-        uploadAdditional2.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+        uploadAdditional2.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0); -fx-cursor: hand; ");
     }
 
     @FXML
     public void handleMouseEnteredUploadAdditional3() {
-        uploadAdditional3.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+        uploadAdditional3.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0); -fx-cursor: hand; ");
     }
 
     @FXML
     public void handleMouseEnteredUploadAdditional4() {
-        uploadAdditional4.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+        uploadAdditional4.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0); -fx-cursor: hand; ");
     }
 
     // Mouse exited event handlers for images
     @FXML
     public void handleMouseExitedUploadMain() {
-        uploadMain.setStyle("-fx-border-width: 1; -fx-border-color: black; -fx-border-radius: 25; -fx-border-style: dotted; -fx-background-radius: 25; -fx-background-color: C6E7FF;");
+        uploadMain.setStyle("-fx-border-radius: 25; -fx-background-radius: 25; -fx-background-color: C6E7FF; -fx-effect: dropshadow(gaussian, black, 25, 0, 0, 0);");
     }
 
     @FXML
     public void handleMouseExitedUploadAdditional1() {
-        uploadAdditional1.setStyle("-fx-border-color: black; -fx-background-radius: 25 0 0 0; -fx-background-color: C6E7FF; -fx-border-style: dotted; -fx-border-radius: 25 0 0 0;");
+        uploadAdditional1.setStyle("-fx-background-radius: 25 0 0 0; -fx-background-color: C6E7FF; -fx-border-radius: 25 0 0 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);");
     }
 
     @FXML
     public void handleMouseExitedUploadAdditional2() {
-        uploadAdditional2.setStyle("-fx-border-color: black; -fx-background-radius: 0 25 0 0; -fx-background-color: C6E7FF; -fx-border-style: dotted; -fx-border-radius: 0 25 0 0;");
+        uploadAdditional2.setStyle("-fx-background-radius: 0 25 0 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 25 0 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);");
     }
 
     @FXML
     public void handleMouseExitedUploadAdditional3() {
-        uploadAdditional3.setStyle("-fx-border-color: black; -fx-background-radius: 0 0 0 25; -fx-background-color: C6E7FF; -fx-border-style: dotted; -fx-border-radius: 0 0 0 25;");
+        uploadAdditional3.setStyle("-fx-background-radius: 0 0 0 25; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 0 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);");
     }
 
     @FXML
     public void handleMouseExitedUploadAdditional4() {
-        uploadAdditional4.setStyle("-fx-border-color: black; -fx-background-radius: 0 0 25 0; -fx-background-color: C6E7FF; -fx-border-style: dotted; -fx-border-radius: 0 0 25 0;");
+        uploadAdditional4.setStyle("-fx-background-radius: 0 0 25 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 25 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);");
     }
 
     // Utility method for file selection

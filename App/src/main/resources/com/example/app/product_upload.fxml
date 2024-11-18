@@ -24,22 +24,22 @@
             <!-- Product information-->
             <children>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab';" text="Product  Title :" />
-                <TextField fx:id="prductTitleField" alignment="TOP_LEFT" prefHeight="58.0" prefWidth="534.0" promptText="Enter a title for your product" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
+                <TextField fx:id="prductTitleField" alignment="TOP_LEFT" prefHeight="58.0" prefWidth="534.0" promptText="Enter a title for your product" style="-fx-font-size: 16; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 0);" />
 
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab'; -fx-tab-size: 20;" text="No.  of  Stock :" />
-                <TextField fx:id="productQuantityField" alignment="TOP_LEFT" promptText="Enter the quantity of your product" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
+                <TextField fx:id="productQuantityField" alignment="TOP_LEFT" promptText="Enter the quantity of your product" style="-fx-font-size: 16; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 0);" />
 
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab';" text="Price :" />
-                <TextField fx:id="productPriceField" alignment="TOP_LEFT" promptText="Enter your asking price" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
+                <TextField fx:id="productPriceField" alignment="TOP_LEFT" promptText="Enter your asking price" style="-fx-font-size: 16; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 0);" />
 
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab';" text="Description :" textAlignment="JUSTIFY" />
-                <TextField fx:id="productDescriptionField" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="534.0" promptText="Write a description of your item" style="-fx-font-size: 16; -fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12;" />
+                <TextField fx:id="productDescriptionField" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="534.0" promptText="Write a description of your item" style="-fx-font-size: 16; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 0);" />
             </children>
         </VBox>
 
         <VBox alignment="CENTER" layoutX="28.0" layoutY="128.0" prefHeight="572.0" prefWidth="424.0" spacing="30.0">
             <children>
-                <VBox fx:id="uploadMain" alignment="CENTER" layoutX="10.0" layoutY="244.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleUploadMainClick" onMouseEntered="#handleMouseEnteredUploadMain" onMouseExited="#handleMouseExitedUploadMain" prefHeight="191.0" prefWidth="250.0" style="-fx-border-width: 1; -fx-border-color: black; -fx-border-radius: 25; -fx-border-style: dotted; -fx-background-radius: 25; -fx-background-color: C6E7FF;">
+                <VBox fx:id="uploadMain" alignment="CENTER" layoutX="10.0" layoutY="244.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleUploadMainClick" onMouseEntered="#handleMouseEnteredUploadMain" onMouseExited="#handleMouseExitedUploadMain" prefHeight="191.0" prefWidth="250.0" style="-fx-border-radius: 25; -fx-background-radius: 25; -fx-background-color: C6E7FF; -fx-effect: dropshadow(gaussian, black, 25, 0, 0, 0);">
                     <children>
                         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="250.0">
                             <children>
@@ -70,7 +70,7 @@
                     <children>
                         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="250.0">
                             <children>
-                                <HBox fx:id="uploadAdditional1" alignment="CENTER" onMouseClicked="#handleUploadAdditional1Click" onMouseEntered="#handleMouseEnteredUploadAdditional1" onMouseExited="#handleMouseExitedUploadAdditional1" prefHeight="78.0" prefWidth="78.0" style="-fx-border-color: black; -fx-background-radius: 25 0 0 0; -fx-background-color: C6E7FF; -fx-border-style: dotted; -fx-border-radius: 25 0 0 0;">
+                                <HBox fx:id="uploadAdditional1" alignment="CENTER" onMouseClicked="#handleUploadAdditional1Click" onMouseEntered="#handleMouseEnteredUploadAdditional1" onMouseExited="#handleMouseExitedUploadAdditional1" prefHeight="78.0" prefWidth="78.0" style="-fx-background-radius: 25 0 0 0; -fx-background-color: C6E7FF; -fx-border-radius: 25 0 0 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
                                     <children>
                                         <ImageView fx:id="additionalImageView1" fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -82,7 +82,7 @@
                                         <Insets />
                                     </HBox.margin>
                                 </HBox>
-                                <HBox fx:id="uploadAdditional2" alignment="CENTER" onMouseClicked="#handleUploadAdditional2Click" onMouseEntered="#handleMouseEnteredUploadAdditional2" onMouseExited="#handleMouseExitedUploadAdditional2" prefHeight="78.0" prefWidth="78.0" style="-fx-border-color: black; -fx-background-radius: 0 25 0 0; -fx-background-color: C6E7FF; -fx-border-style: dotted; -fx-border-radius: 0 25 0 0;">
+                                <HBox fx:id="uploadAdditional2" alignment="CENTER" onMouseClicked="#handleUploadAdditional2Click" onMouseEntered="#handleMouseEnteredUploadAdditional2" onMouseExited="#handleMouseExitedUploadAdditional2" prefHeight="78.0" prefWidth="78.0" style="-fx-background-radius: 0 25 0 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 25 0 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
                                     <children>
                                         <ImageView fx:id="additionalImageView2" fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -95,7 +95,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="78.0" prefWidth="250.0">
                             <children>
-                                <HBox fx:id="uploadAdditional3" alignment="CENTER" onMouseClicked="#handleUploadAdditional3Click" onMouseEntered="#handleMouseEnteredUploadAdditional3" onMouseExited="#handleMouseExitedUploadAdditional3" prefHeight="78.0" prefWidth="78.0" style="-fx-border-color: black; -fx-background-radius: 0 0 0 25; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 0 25; -fx-border-style: dotted;">
+                                <HBox fx:id="uploadAdditional3" alignment="CENTER" onMouseClicked="#handleUploadAdditional3Click" onMouseEntered="#handleMouseEnteredUploadAdditional3" onMouseExited="#handleMouseExitedUploadAdditional3" prefHeight="78.0" prefWidth="78.0" style="-fx-background-radius: 0 0 0 25; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 0 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
                                     <children>
                                         <ImageView fx:id="additionalImageView3" fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -104,7 +104,7 @@
                                         </ImageView>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="uploadAdditional4" alignment="CENTER" onMouseClicked="#handleUploadAdditional4Click" onMouseEntered="#handleMouseEnteredUploadAdditional4" onMouseExited="#handleMouseExitedUploadAdditional4" prefHeight="78.0" prefWidth="78.0" style="-fx-border-style: dotted; -fx-background-radius: 0 0 25 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 25 0;">
+                                <HBox fx:id="uploadAdditional4" alignment="CENTER" onMouseClicked="#handleUploadAdditional4Click" onMouseEntered="#handleMouseEnteredUploadAdditional4" onMouseExited="#handleMouseExitedUploadAdditional4" prefHeight="78.0" prefWidth="78.0" style="-fx-background-radius: 0 0 25 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 25 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
                                     <children>
                                         <ImageView fx:id="additionalImageView4" fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -139,9 +139,9 @@
             <children>
                 <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0">
                     <children>
-                        <Button fx:id="backButton" onAction="#handleBackButtonClick" style="-fx-background-color: transparent;                        -fx-padding: 0;                        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);">
+                        <Button fx:id="backButton" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">
                             <graphic>
-                                <ImageView fitHeight="55.0" fitWidth="60.0">
+                                <ImageView fitHeight="55.0" fitWidth="60.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
                                     <image>
                                         <Image url="@../../../assets/back_button.png" />
                                     </image>

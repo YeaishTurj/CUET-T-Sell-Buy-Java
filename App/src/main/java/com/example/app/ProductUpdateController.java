@@ -202,7 +202,7 @@
 //    }
 //
 //    public void handleMouseEnteredUpdateMain(MouseEvent mouseEvent) {
-//        updateMain.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+//        updateMain.setStyle("-fx-border-width: 5; -fx-border-color: #FFFFFF; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
 //    }
 //
 //    public void handleUpdateAdditional1Click(MouseEvent mouseEvent) {
@@ -223,23 +223,23 @@
 //    @FXML
 //    private HBox updateAdditional1;
 //    public void handleMouseEnteredUpdateAdditional1(MouseEvent mouseEvent) {
-//        updateAdditional1.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+//        updateAdditional1.setStyle("-fx-border-width: 5; -fx-border-color: #FFFFFF; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
 //    }
 //    @FXML
 //    private HBox updateAdditional2;
 //    public void handleMouseEnteredUpdateAdditional2(MouseEvent mouseEvent) {
 //
-//        updateAdditional2.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+//        updateAdditional2.setStyle("-fx-border-width: 5; -fx-border-color: #FFFFFF; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
 //    }
 //    @FXML
 //    private HBox updateAdditional3;
 //    public void handleMouseEnteredUpdateAdditional3(MouseEvent mouseEvent) {
-//        updateAdditional3.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+//        updateAdditional3.setStyle("-fx-border-width: 5; -fx-border-color: #FFFFFF; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
 //    }
 //    @FXML
 //    private HBox updateAdditional4;
 //    public void handleMouseEnteredUpdateAdditional4(MouseEvent mouseEvent) {
-//        updateAdditional4.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+//        updateAdditional4.setStyle("-fx-border-width: 5; -fx-border-color: #FFFFFF; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
 //    }
 //
 //    public void handleMouseExitedUpdateAdditional4(MouseEvent mouseEvent) {
@@ -280,11 +280,9 @@
 package com.example.app;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -403,9 +401,32 @@ public class ProductUpdateController implements Initializable {
     // Handle Update Product Button Click
     @FXML
     public void handleUpdateProduct() throws IOException {
+
+        updateProductDetails();
+
         Parent root = loadFXML(PRODUCT_MANAGEMENT_FXML);
         Stage stage = (Stage) updateButton.getScene().getWindow();
         setScene(stage, root);
+    }
+
+    private void updateProductDetails() {
+        String productTitle = prductTitleField.getText();
+        int productQuantity = Integer.parseInt(productQuantityField.getText());
+        double productPrice = Double.parseDouble(productPriceField.getText());
+        String productDescription = productDescriptionField.getText();
+
+        String query = "UPDATE product SET product_title = ?, quantity = ?, price = ?, description = ? WHERE product_id = ?";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setString(1, productTitle);
+            pstmt.setInt(2, productQuantity);
+            pstmt.setDouble(3, productPrice);
+            pstmt.setString(4, productDescription);
+            pstmt.setInt(5, productId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // Load FXML and Set Scene
@@ -455,11 +476,11 @@ public class ProductUpdateController implements Initializable {
 
     // Handle Mouse Hover Events for Update Main
     public void handleMouseEnteredUpdateMain(MouseEvent mouseEvent) {
-        updateMain.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+        updateMain.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, black, 50, 0, 0, 0); -fx-cursor: hand; ");
     }
 
     public void handleMouseExitedUpdateMain(MouseEvent mouseEvent) {
-        updateMain.setStyle("-fx-border-width: 1; -fx-border-color: black; -fx-border-radius: 25; -fx-border-style: dotted; -fx-background-radius: 25; -fx-background-color: C6E7FF;");
+        updateMain.setStyle("-fx-border-radius: 25; -fx-background-radius: 25; -fx-background-color: C6E7FF; -fx-effect: dropshadow(gaussian, black, 25, 0, 0, 0);");
     }
 
     // Handle Update Additional Image Clicks
@@ -497,34 +518,38 @@ public class ProductUpdateController implements Initializable {
 
     // Handle Mouse Hover Events for Additional Images
     public void handleMouseEnteredUpdateAdditional1(MouseEvent mouseEvent) {
-        updateAdditional1.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
-    }
-
-    public void handleMouseEnteredUpdateAdditional2(MouseEvent mouseEvent) {
-        updateAdditional2.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
-    }
-
-    public void handleMouseEnteredUpdateAdditional3(MouseEvent mouseEvent) {
-        updateAdditional3.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
-    }
-
-    public void handleMouseEnteredUpdateAdditional4(MouseEvent mouseEvent) {
-        updateAdditional4.setStyle("-fx-border-width: 2; -fx-border-color: #42A5F5; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #C6E7FF; -fx-cursor: hand;");
+        updateAdditional1.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0); -fx-cursor: hand; ");
     }
 
     public void handleMouseExitedUpdateAdditional1(MouseEvent mouseEvent) {
-        updateAdditional1.setStyle("-fx-border-width: 1; -fx-border-color: black; -fx-border-radius: 25; -fx-border-style: dotted; -fx-background-radius: 25; -fx-background-color: C6E7FF;");
+        updateAdditional1.setStyle("-fx-background-radius: 25 0 0 0; -fx-background-color: C6E7FF; -fx-border-radius: 25 0 0 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);");
     }
 
-    public void handleMouseExitedUpdateAdditional2(MouseEvent mouseEvent) {
-        updateAdditional2.setStyle("-fx-border-width: 1; -fx-border-color: black; -fx-border-radius: 25; -fx-border-style: dotted; -fx-background-radius: 25; -fx-background-color: C6E7FF;");
+    public void handleMouseEnteredUpdateAdditional2(MouseEvent mouseEvent) {
+        updateAdditional2.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0); -fx-cursor: hand; ");
     }
 
-    public void handleMouseExitedUpdateAdditional3(MouseEvent mouseEvent) {
-        updateAdditional3.setStyle("-fx-border-width: 1; -fx-border-color: black; -fx-border-radius: 25; -fx-border-style: dotted; -fx-background-radius: 25; -fx-background-color: C6E7FF;");
+    public void handleMouseEnteredUpdateAdditional3(MouseEvent mouseEvent) {
+        updateAdditional3.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0); -fx-cursor: hand; ");
+    }
+
+    public void handleMouseEnteredUpdateAdditional4(MouseEvent mouseEvent) {
+        updateAdditional4.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0); -fx-cursor: hand; ");
     }
 
     public void handleMouseExitedUpdateAdditional4(MouseEvent mouseEvent) {
-        updateAdditional4.setStyle("-fx-border-width: 1; -fx-border-color: black; -fx-border-radius: 25; -fx-border-style: dotted; -fx-background-radius: 25; -fx-background-color: C6E7FF;");
+        updateAdditional4.setStyle("-fx-background-radius: 0 0 25 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 25 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);");
     }
+
+
+
+    public void handleMouseExitedUpdateAdditional2(MouseEvent mouseEvent) {
+        updateAdditional2.setStyle("-fx-background-radius: 0 25 0 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 25 0 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);");
+    }
+
+    public void handleMouseExitedUpdateAdditional3(MouseEvent mouseEvent) {
+        updateAdditional3.setStyle("-fx-background-radius: 0 0 0 25; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 0 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);");
+    }
+
+
 }

@@ -15,15 +15,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.customDesign.AllItemsShowScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.customDesign.AllItemsShowScreen">
     <HBox alignment="CENTER" layoutX="-1.0" layoutY="-4.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="1024.0" style="-fx-border-color: #1F4A67; -fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-width: 0 0 2 0;">
         <padding>
             <Insets bottom="10.0" top="10.0" />
         </padding>
         <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0">
-            <Button fx:id="backButton" onAction="#handleBackButtonClick" style="-fx-background-color: transparent;                        -fx-padding: 0;                        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 2);">
+            <Button fx:id="backButton" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">
                 <graphic>
-                    <ImageView fitHeight="55.0" fitWidth="60.0">
+                    <ImageView fitHeight="55.0" fitWidth="60.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
                         <Image url="@../../../assets/back_button.png" />
                     </ImageView>
                 </graphic>
@@ -46,7 +46,7 @@
             <padding>
                 <Insets right="50.0" />
             </padding>
-            <Button fx:id="signOutButton" contentDisplay="TOP" onAction="#handleSignOut" prefHeight="68.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0, 2, 2);" text="Sign Out">
+            <Button fx:id="signOutButton" contentDisplay="TOP" onAction="#handleSignOut" prefHeight="68.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);" text="Sign Out">
                 <padding>
                     <Insets left="10.0" right="10.0" />
                 </padding>
@@ -62,27 +62,30 @@
         <VBox fx:id="holder" prefHeight="458.0" prefWidth="992.0" style="-fx-background-color: linear-gradient(to right, #B3E5FC, #C8E6C9);;" />
     </ScrollPane>
     <HBox alignment="CENTER" layoutX="86.0" layoutY="134.0" prefHeight="92.0" prefWidth="787.0">
-        <TextField id="searchbar" fx:id="searchBox" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="65.0" prefWidth="688.0" promptText="Search " style="-fx-background-radius: 15; -fx-border-radius: 15;">
-            <font>
-                <Font size="21.0" />
-            </font>
-            <effect>
-                <DropShadow height="12.16" radius="5.58" width="12.16" />
-            </effect>
-        </TextField>
-        <ImageView id="search" fitHeight="76.0" fitWidth="96.0" onMouseClicked="#startSearchItem" pickOnBounds="true" preserveRatio="true">
-            <effect>
-                <DropShadow>
-                    <color>
-                        <Color red="0.0941176488995552" green="0.8156862854957581" blue="0.8666666746139526" />
-                    </color>
-                </DropShadow>
-            </effect>
-            <Image url="@../../../assets/search.jpg" />
-            <HBox.margin>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </HBox.margin>
-        </ImageView>
+      <children>
+         <AnchorPane prefHeight="92.0" prefWidth="787.0">
+            <children>
+                 <TextField id="searchbar" fx:id="searchBox" layoutX="11.0" layoutY="13.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="65.0" prefWidth="688.0" promptText="Search " style="-fx-background-radius: 15; -fx-border-radius: 15;">
+                     <font>
+                         <Font size="21.0" />
+                     </font>
+                     <effect>
+                         <DropShadow height="12.16" radius="5.58" width="12.16" />
+                     </effect>
+                 </TextField>
+                 <ImageView id="search" fitHeight="76.0" fitWidth="96.0" layoutX="712.0" layoutY="12.0" onMouseClicked="#startSearchItem" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                         <DropShadow>
+                             <color>
+                                 <Color red="0.0941176488995552" green="0.8156862854957581" blue="0.8666666746139526" />
+                             </color>
+                         </DropShadow>
+                     </effect>
+                     <Image url="@../../../assets/search.jpg" />
+                 </ImageView>
+            </children>
+         </AnchorPane>
+      </children>
     </HBox>
     <HBox layoutX="730.0" layoutY="230.0" prefHeight="30.0" prefWidth="195.0" style="-fx-background-color: rgba(255, 255, 255, 0.3),linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9); -fx-border-color: rgba(255, 255, 255, 0.3),linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9); -fx-border-width: 3px; -fx-border-radius: 10px; -fx-background-radius: 10px;">
         <Text fx:id="sortTypeText" strokeType="OUTSIDE" strokeWidth="0.0" text="All" textAlignment="RIGHT" wrappingWidth="188.21630859375">
