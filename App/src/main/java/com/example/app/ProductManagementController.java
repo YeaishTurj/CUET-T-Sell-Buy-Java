@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 import java.util.Objects;
 
 public class ProductManagementController {
@@ -22,6 +23,10 @@ public class ProductManagementController {
     private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
     private static final double SCREEN_WIDTH = 1024;                                   // Width for new scenes
     private static final double SCREEN_HEIGHT = 768;                                   // Height for new scenes
+
+    private Connection connection = null;
+    private String sellerEmail=SessionData.getSellerEmail();
+    private int productId;
 
     @FXML
     private Button backButton;
@@ -36,9 +41,57 @@ public class ProductManagementController {
     }
 
     @FXML
+    public void initialize() throws SQLException {
+        connectToDatabase();
+        showSellerProducts();
+    }
+
+
+    private void connectToDatabase() {
+        String url = "jdbc:mysql://localhost:3306/CUET_T_SELL_DB";
+        String user = "root";
+        String password = "";
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver not loaded!");
+        }
+
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+        }catch (SQLException e){
+            System.out.println("Connection failed!");
+        }
+    }
+
+
+    private void showSellerProducts() throws SQLException {
+        String query="SELECT * FROM product WHERE seller_email = ?";
+
+        try(PreparedStatement pstmt = connection.prepareStatement(query);) {
+           pstmt.setString(1,sellerEmail);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()){
+                productId = rs.getInt("product_id");
+                String product_title = rs.getString("product_title");
+                int quantity = rs.getInt("quantity");
+                double price = rs.getDouble("price");
+                String description = rs.getString("description");
+
+                System.out.println(product_title+"|"+quantity+"|"+price+"|"+description);
+                System.out.println("======================================================");
+            }
+        }
+    }
+
+    @FXML
     private Button updateProductButton;
     @FXML
     public void handleUpdateProductButtonClick() throws IOException {
+
+        SessionData.setProductId(productId);
+
         Parent root = loadFXML(PRODUCT_UPDATE_FXML);
         Stage stage = (Stage) updateProductButton.getScene().getWindow();
         setScene(stage, root);
