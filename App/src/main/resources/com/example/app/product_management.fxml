@@ -73,24 +73,25 @@
 
 
         <!-- Manage Products Table -->
-        <TableView layoutX="62.0" layoutY="180.0" prefHeight="400.0" prefWidth="900.0">
+        <TableView fx:id="productTable" layoutX="62.0" layoutY="180.0" prefHeight="400.0" prefWidth="900.0">
             <columns>
-                <TableColumn prefWidth="100.0" text="Product ID">
+            <TableColumn fx:id="serialNumberColumn" prefWidth="75.0" text="Serial No" />
+                <TableColumn fx:id="productIdColumn" prefWidth="100.0" text="Product ID" visible="false">
                     <cellValueFactory>
                         <PropertyValueFactory property="productId" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="200.0" text="Product Title">
+                <TableColumn fx:id="productTitleColumn" prefWidth="200.0" text="Product Title">
                     <cellValueFactory>
                         <PropertyValueFactory property="productName" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="100.0" text="Quantiy">
+                <TableColumn fx:id="quantityColumn" prefWidth="100.0" text="Quantiy">
                     <cellValueFactory>
                         <PropertyValueFactory property="price" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="100.0" text="Price">
+                <TableColumn fx:id="priceColumn" prefWidth="100.0" text="Price">
                     <cellValueFactory>
                         <PropertyValueFactory property="quantity" />
                     </cellValueFactory>

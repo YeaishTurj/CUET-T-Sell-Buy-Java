@@ -125,6 +125,7 @@ public class SellerPageController {
         saveCompanyButton.setVisible(true);
         companyName.setVisible(false);
         newCompanyName.setVisible(true);
+        newCompanyName.setText(companyName.getText());
     }
 
     @FXML
@@ -143,6 +144,7 @@ public class SellerPageController {
         savePhoneButton.setVisible(true);
         phoneNum.setVisible(false);
         newPhoneNum.setVisible(true);
+        newPhoneNum.setText(phoneNum.getText());
     }
 
     @FXML
@@ -161,6 +163,7 @@ public class SellerPageController {
         saveWAButton.setVisible(true);
         waNum.setVisible(false);
         newWANum.setVisible(true);
+        newWANum.setText(waNum.getText());
     }
 
     @FXML
@@ -179,6 +182,7 @@ public class SellerPageController {
         saveFBButton.setVisible(true);
         fbLink.setVisible(false);
         newFBLink.setVisible(true);
+        newFBLink.setText(fbLink.getText());
     }
 
     @FXML
