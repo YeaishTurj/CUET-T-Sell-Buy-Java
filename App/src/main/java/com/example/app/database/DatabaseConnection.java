@@ -30,4 +30,4 @@ public class DatabaseConnection {
 // database name: CUET_T_SELL_DB
 // table buyer (name, email(primary_key), password)
 // table seller (name, email(primary_key), password, contact, w_app, facebook_link)
-// table product (product_idc(primary_key), seller_email, product_title, quantity, price, description)
+// table product (product_id(primary_key, auto increment), seller_email (foreign key), product_title, quantity, price, description)
