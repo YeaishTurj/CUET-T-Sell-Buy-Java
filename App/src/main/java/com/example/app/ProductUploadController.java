@@ -8,12 +8,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -97,32 +99,84 @@ public class ProductUploadController implements Initializable {
     }
 
     // Product upload methods
+// Product upload methods
     @FXML
-    private void uploadProductDetails() {
+    private boolean uploadProductDetails() {
         if (connection != null) {
             String query = "INSERT INTO product (seller_email, product_title, quantity, price, description) VALUES (?, ?, ?, ?, ?)";
 
             try (PreparedStatement pstmt = connection.prepareStatement(query)) {
                 pstmt.setString(1, sellerEmail);
+                if(prductTitleField.getText().isEmpty() || productQuantityField.getText().isEmpty() || productPriceField.getText().isEmpty() || productDescriptionField.getText().isEmpty()) {
+                    showErrorDialog("Empty Fields", "Please fill in all the fields.");
+                    return false;
+                }
                 pstmt.setString(2, prductTitleField.getText());
                 pstmt.setInt(3, Integer.parseInt(productQuantityField.getText()));
                 pstmt.setDouble(4, Double.parseDouble(productPriceField.getText()));
                 pstmt.setString(5, productDescriptionField.getText());
 
                 pstmt.executeUpdate();
+                return true; // Upload was successful
+            } catch (NumberFormatException e) {
+                showErrorDialog("Invalid Input", "Please ensure that Quantity and Price are numbers.");
             } catch (SQLException e) {
-                System.err.println("Error: " + e.getMessage());
+                showErrorDialog("Database Error", "An error occurred while connecting to the database. Please try again.");
+            } catch (Exception e) {
+                showErrorDialog("Unexpected Error", "An unexpected error occurred: " + e.getMessage());
             }
+        } else {
+            showErrorDialog("Database Connection", "No active database connection. Please check your setup.");
+        }
+        return false; // Upload failed
+    }
+
+
+    // Utility method to show error dialogs
+    private void showErrorDialog(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold;");
+
+        dialogPane.lookup(".content").setStyle("-fx-text-fill: #d9534f; -fx-font-weight: bold;"); // Red text for content
+
+        alert.setGraphic(null); // Remove default graphic
+        alert.showAndWait();
+    }
+
+
+    // Handle upload product button click
+// Handle upload product button click
+    public void handleUploadProductButtonClick() throws IOException {
+        boolean isUploaded = uploadProductDetails(); // Returns true if the upload is successful
+
+        if (isUploaded) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success!");
+            alert.setHeaderText("Product Uploaded Successfully!");
+            alert.setContentText("You're one step closer to success! Your product is now live—let the sales begin!");
+
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold;");
+
+            dialogPane.lookup(".header-panel").setStyle("-fx-text-fill: #28a745; -fx-font-weight: bold;"); // Green and bold header
+            dialogPane.lookup(".content").setStyle("-fx-text-fill: #28a745; -fx-font-weight: bold;");    // Green and bold content
+
+            alert.setGraphic(null); // Remove default graphic
+
+            alert.showAndWait();
+
+            // Navigate to the next page only after success
+            Parent root = loadFXML(SELLER_PAGE_FXML);
+            Stage stage = (Stage) uploadButton.getScene().getWindow();
+            setScene(stage, root);
         }
     }
 
-    // Handle upload product button click
-    public void handleUploadProductButtonClick() throws IOException {
-        uploadProductDetails();
-        Parent root = loadFXML(SELLER_PAGE_FXML);
-        Stage stage = (Stage) uploadButton.getScene().getWindow();
-        setScene(stage, root);
-    }
 
     // Sign out method
     @FXML

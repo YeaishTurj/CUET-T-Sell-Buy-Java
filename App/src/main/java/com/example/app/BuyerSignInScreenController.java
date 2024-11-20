@@ -81,13 +81,19 @@ public class BuyerSignInScreenController implements Initializable {
 
     @FXML
     public void handleSignInButtonClick() throws IOException {
+
+        if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty()){
+            showErrorPopup("Please fill up all the fields!");
+            return;
+        }
+
         if (!isBuyerRegistered()) {
-            singInFailed.setText("You are not a registered buyer!");
+            showErrorPopup("You are not a registered buyer!");
             return;
         }
 
         if (!isPasswordCorrect()) {
-            singInFailed.setText("Incorrect Password!");
+            showErrorPopup("Incorrect Password!");
             return;
         }
 
@@ -95,6 +101,23 @@ public class BuyerSignInScreenController implements Initializable {
         Parent root = loadFXML("buyer_page.fxml");
         Stage stage = (Stage) backButton.getScene().getWindow();
         setScene(stage, root);
+    }
+
+    private void showErrorPopup(String message) {
+        // Create a custom alert with ERROR type
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Sign In Error");
+        alert.setHeaderText(null); // No header
+
+        // Set the message with bold and red text style
+        Label label = new Label(message);
+        label.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+
+        // Set the content of the alert with the label
+        alert.getDialogPane().setContent(label);
+
+        // Show the alert
+        alert.showAndWait();
     }
 
     private boolean isBuyerRegistered() {

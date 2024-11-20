@@ -7,7 +7,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -130,12 +132,34 @@ public class SellerPageController {
 
     @FXML
     public void handleSaveCompany(ActionEvent actionEvent) {
-        editCompanyButton.setVisible(true);
-        saveCompanyButton.setVisible(false);
-        companyName.setVisible(true);
-        newCompanyName.setVisible(false);
-        companyName.setText(newCompanyName.getText());
-        editSellerInfo(newCompanyName, "name");
+        if(newCompanyName.getText().isEmpty()){
+            showErrorPopup("Company name cannot be empty!");
+        }else{
+            editCompanyButton.setVisible(true);
+            saveCompanyButton.setVisible(false);
+            companyName.setVisible(true);
+            newCompanyName.setVisible(false);
+            companyName.setText(newCompanyName.getText());
+            editSellerInfo(newCompanyName, "name");
+        }
+
+    }
+
+    private void showErrorPopup(String message) {
+        // Create a custom alert with ERROR type
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Sign In Error");
+        alert.setHeaderText(null); // No header
+
+        // Set the message with bold and red text style
+        Label label = new Label(message);
+        label.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+
+        // Set the content of the alert with the label
+        alert.getDialogPane().setContent(label);
+
+        // Show the alert
+        alert.showAndWait();
     }
 
     @FXML
@@ -149,12 +173,16 @@ public class SellerPageController {
 
     @FXML
     public void handleSavePhone(ActionEvent actionEvent) {
-        editPhoneButton.setVisible(true);
-        savePhoneButton.setVisible(false);
-        phoneNum.setVisible(true);
-        newPhoneNum.setVisible(false);
-        phoneNum.setText(newPhoneNum.getText());
-        editSellerInfo(newPhoneNum, "contact");
+        if(newPhoneNum.getText().isEmpty()){
+            showErrorPopup("Phone number cannot be empty!");
+        }else {
+            editPhoneButton.setVisible(true);
+            savePhoneButton.setVisible(false);
+            phoneNum.setVisible(true);
+            newPhoneNum.setVisible(false);
+            phoneNum.setText(newPhoneNum.getText());
+            editSellerInfo(newPhoneNum, "contact");
+        };
     }
 
     @FXML
@@ -168,12 +196,16 @@ public class SellerPageController {
 
     @FXML
     public void handleSaveWA(ActionEvent actionEvent) {
-        editWAButton.setVisible(true);
-        saveWAButton.setVisible(false);
-        waNum.setVisible(true);
-        newWANum.setVisible(false);
-        waNum.setText(newWANum.getText());
-        editSellerInfo(newWANum, "w_app");
+        if(newWANum.getText().isEmpty()){
+            showErrorPopup("WhatsApp number cannot be empty!");
+        }else {
+            editWAButton.setVisible(true);
+            saveWAButton.setVisible(false);
+            waNum.setVisible(true);
+            newWANum.setVisible(false);
+            waNum.setText(newWANum.getText());
+            editSellerInfo(newWANum, "w_app");
+        };
     }
 
     @FXML
@@ -187,12 +219,16 @@ public class SellerPageController {
 
     @FXML
     public void handleSaveFB(ActionEvent actionEvent) {
-        editFBButton.setVisible(true);
-        saveFBButton.setVisible(false);
-        fbLink.setVisible(true);
-        newFBLink.setVisible(false);
-        fbLink.setText(newFBLink.getText());
-        editSellerInfo(newFBLink, "facebook_link");
+        if(newFBLink.getText().isEmpty()){
+            showErrorPopup("Facebook link cannot be empty!");
+        }else {
+            editFBButton.setVisible(true);
+            saveFBButton.setVisible(false);
+            fbLink.setVisible(true);
+            newFBLink.setVisible(false);
+            fbLink.setText(newFBLink.getText());
+            editSellerInfo(newFBLink, "facebook_link");
+        };
     }
 
     private Parent loadFXML(String fxmlPath) throws IOException {

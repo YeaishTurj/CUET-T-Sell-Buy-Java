@@ -1,8 +1,8 @@
 package com.example.app;
 
 public class SessionData {
-    private static String sellerEmail;
-    private static String buyerEmail;
+    private static String sellerEmail="u2104022@student.cuet.ac.bd";
+    private static String buyerEmail="u2104022@student.cuet.ac.bd";
     private static int productId;
     public static String getSellerEmail() {
 

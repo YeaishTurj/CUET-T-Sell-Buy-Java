@@ -86,13 +86,18 @@ public class SellerSignInScreenController implements Initializable {
     @FXML
     private void handleSignInButtonClick() throws IOException, SQLException {
 
+        if (usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+            showErrorPopup("Please fill in all the fields!");
+            return;
+        }
+
         if (!isSellerRegistered()) {
-            singInFailed.setText("You are not a registered seller!");
+            showErrorPopup("You are not a registered seller!");
             return;
         }
 
         if (!isPasswordCorrect()) {
-            singInFailed.setText("Incorrect Password!");
+            showErrorPopup("Incorrect Password!");
             return;
         }
 
@@ -102,6 +107,24 @@ public class SellerSignInScreenController implements Initializable {
         Stage stage = (Stage) signInButton.getScene().getWindow();
         setScene(stage, root);
     }
+
+    private void showErrorPopup(String message) {
+        // Create a custom alert with ERROR type
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Sign In Error");
+        alert.setHeaderText(null); // No header
+
+        // Set the message with bold and red text style
+        Label label = new Label(message);
+        label.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+
+        // Set the content of the alert with the label
+        alert.getDialogPane().setContent(label);
+
+        // Show the alert
+        alert.showAndWait();
+    }
+
 
     private boolean isSellerRegistered() {
         try {
