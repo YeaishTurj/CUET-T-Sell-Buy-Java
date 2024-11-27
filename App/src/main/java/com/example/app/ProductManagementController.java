@@ -135,6 +135,15 @@ public class ProductManagementController {
             setScene(stage, root);
         } else {
             System.out.println("No product selected!");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("No product selected!");
+            alert.setContentText("Please select a product to update.");
+
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold;");
+
+            alert.showAndWait();
         }
     }
 
@@ -147,6 +156,9 @@ public class ProductManagementController {
             confirmationAlert.setTitle("Confirm Deletion");
             confirmationAlert.setHeaderText("Are you sure you want to delete this product?");
             confirmationAlert.setContentText("Product Title: " + selectedProduct.getProductTitle());
+
+            DialogPane dialogPane = confirmationAlert.getDialogPane();
+            dialogPane.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold;");
 
             // Wait for user response
             Optional<ButtonType> result = confirmationAlert.showAndWait();
@@ -171,7 +183,15 @@ public class ProductManagementController {
                 System.out.println("Product deletion canceled.");
             }
         } else {
-            System.out.println("No product selected!");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("No product selected!");
+            alert.setContentText("Please select a product to delete.");
+
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold;");
+
+            alert.showAndWait();
         }
     }
 
@@ -181,8 +201,6 @@ public class ProductManagementController {
             product.setSerialNumber(serialNumber++);
         }
     }
-
-
 
     @FXML
     public void handleSignOut() throws IOException {

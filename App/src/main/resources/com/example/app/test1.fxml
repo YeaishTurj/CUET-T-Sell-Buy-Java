@@ -1,47 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.WelcomeScreenController">
+<AnchorPane fx:id="mainPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerSignInScreenController">
    <children>
-      <AnchorPane layoutX="73.0" layoutY="40.0" prefHeight="630.0" prefWidth="878.0" style="-fx-background-radius: 50; -fx-background-color: e0ffff; -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 1), 25, 0.3, 0, 0);">
+      <VBox alignment="CENTER" layoutX="232.0" layoutY="250.0" prefHeight="400.0" prefWidth="561.0" style="-fx-background-color: rgba(255, 255, 255, 0.2); -fx-background-radius: 25;">
+         <effect>
+            <Glow>
+               <input>
+                  <Reflection />
+               </input>
+            </Glow>
+         </effect>
+      </VBox>
+      <!-- Background Panel with Glow Effect -->
+      <VBox alignment="CENTER" layoutX="232.0" layoutY="250.0" prefHeight="400.0" prefWidth="561.0">
          <children>
-            <ImageView fitHeight="172.0" fitWidth="152.0" layoutX="164.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../assets/tshirt_logo.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="312.0" layoutY="238.0" style="-fx-font-size: 60; -fx-font-family: 'Montagu Slab'; -fx-fill: #1F4A67;                    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 2);" text="Cuet T-Sell &amp; Buy" />
-            <Text fx:id="slogan" layoutX="400.0" layoutY="297.0" style="-fx-font-size: 30; -fx-font-style: italic; -fx-font-family: 'Agdasima';                    -fx-fill: #6D6D6D; -fx-letter-spacing: 5px;" text="A T-shirt buying and selling platform for CUET" underline="true" />
-            <Text layoutX="43.0" layoutY="105.0" style="-fx-font-size: 80; -fx-font-family: 'Limelight'; -fx-fill: #1A3A60;                    -fx-font-weight: bold;" text="WELCOME TO," textAlignment="JUSTIFY">
-               <font>
-                  <Font size="76.0" />
-               </font>
-               <effect>
-                  <DropShadow color="rgba(0, 0, 0, 0.7)" offsetX="0" offsetY="2" radius="10" />
-                  <Glow level="0.8" />
-               </effect>
+            <!-- Username Field with 3D Effect -->
+            <TextField fx:id="usernameField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="400.0" promptText="Enter your CUET mail address" style="-fx-font-size: 22; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 20; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3); -fx-border-radius: 20;">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </TextField>
+
+
+            <!-- Password Field with 3D Effect -->
+            <PasswordField fx:id="passwordField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="400.0" promptText="Enter your password" style="-fx-font-size: 22; -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E3F2FD); -fx-background-radius: 20; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 10 15; -fx-effect: dropshadow(two-pass-box, rgba(0, 0, 0, 0.15), 5, 0, 3, 3); -fx-border-radius: 20;">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </PasswordField>
+
+            <!-- Login Button with 3D and Gradient Effect -->
+            <Button fx:id="signInButton" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleSignInButtonClick" onMouseEntered="#handleMouseEnter" onMouseExited="#handleMouseExit" prefHeight="59.0" prefWidth="147.0" style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32);                -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight';                -fx-font-weight: bold; -fx-font-size: 24;                -fx-background-radius: 15; -fx-padding: 10 30;                -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0, 3, 3);" text="Sign In">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+
+            <!-- Forgot Password Link with Hover Effect -->
+            <Text fx:id="forgotPasswordText" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Forgot Password?">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
             </Text>
-            <Button fx:id="buyerButton" alignment="CENTER" contentDisplay="CENTER" layoutY="483.0" mnemonicParsing="false" onAction="#handleBuyerButtonClick" prefHeight="75.0" prefWidth="200.0" stylesheets="@../../../css/styles.css" text="Buyer" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" />
-            <Button fx:id="sellerButton" alignment="CENTER" layoutX="678.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleSellerButtonClick" prefHeight="75.0" prefWidth="200.0" stylesheets="@../../../css/styles.css" text="Seller" AnchorPane.rightAnchor="100.0" />
-            <Text layoutX="305.0" layoutY="412.0" style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: #1A237E;                          -fx-stroke: #1A237E; -fx-stroke-width: 1;" text="Continue As">
-               <effect>
-                  <Glow level="0.75" />
-               </effect>
-            </Text>
-            <Text layoutX="422.0" layoutY="522.0" style="-fx-font-size: 30; -fx-font-family: 'Satisfy'; -fx-fill: #D32F2F;                          -fx-stroke: #000000; -fx-stroke-width: 1;" text="OR" AnchorPane.leftAnchor="422.0" AnchorPane.rightAnchor="422.162109375">
-               <effect>
-                  <Glow level="0.5" />
-               </effect>
+
+
+            <Text fx:id="signUpText" onMouseClicked="#handleSignUpClick" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Don't have an account? Sign Up">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
             </Text>
          </children>
-      </AnchorPane>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="242.0" prefWidth="1024.0">
+         <children>
+            <!-- VBox to stack each line of text vertically -->
+            <VBox alignment="TOP_CENTER" prefHeight="238.0" prefWidth="562.0">
+               <children>
+                  <!-- "Sign In" text with DropShadow effect -->
+                  <Text style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744); -fx-stroke: #000000; -fx-stroke-width: 1.5;" text="Sign In" textAlignment="CENTER" wrappingWidth="561.5">
+                     <effect>
+                        <DropShadow color="rgba(0, 0, 0, 0.7)" offsetX="4" offsetY="4" radius="15" />
+                     </effect>
+                  </Text>
+
+                  <!-- "As" text with DropShadow effect -->
+                  <Text style="-fx-font-size: 50; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744); -fx-stroke: #000000; -fx-stroke-width: 1.5;" text="As" textAlignment="CENTER" wrappingWidth="561.5">
+                     <effect>
+                        <DropShadow color="rgba(0, 0, 0, 0.7)" offsetX="4" offsetY="4" radius="15" />
+                     </effect>
+                  </Text>
+
+                  <!-- "Buyer" text with DropShadow effect -->
+                  <Text style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744); -fx-stroke: #000000; -fx-stroke-width: 1.5;" text="Buyer" textAlignment="CENTER" wrappingWidth="561.5">
+                     <effect>
+                        <DropShadow color="rgba(0, 0, 0, 0.7)" offsetX="4" offsetY="4" radius="15" />
+                     </effect>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+
+      <!-- Back Button with ImageView -->
+      <Button fx:id="backButton" layoutX="20.0" layoutY="16.0" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="60.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
+               <image>
+                  <Image url="@../../../assets/back_button.png" /> <!-- Update this path to your image location -->
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+
    </children>
 </AnchorPane>
