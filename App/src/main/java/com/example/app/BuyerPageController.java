@@ -38,4 +38,5 @@ public class BuyerPageController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("welcome_screen.fxml"));
         return loader.load();
     }
+
 }

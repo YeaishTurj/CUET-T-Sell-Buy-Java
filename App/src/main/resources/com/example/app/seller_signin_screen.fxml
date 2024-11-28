@@ -68,7 +68,7 @@
         <HBox alignment="CENTER" prefHeight="242.0" prefWidth="1024.0">
             <children>
                 <!-- VBox to stack each line of text vertically -->
-                <VBox alignment="TOP_CENTER" prefHeight="238.0" prefWidth="562.0">
+                <VBox alignment="TOP_CENTER" disable="true" prefHeight="238.0" prefWidth="562.0">
                     <children>
                         <!-- "Sign In" text with DropShadow effect -->
                         <Text style="-fx-font-size: 60; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744); -fx-stroke: #000000; -fx-stroke-width: 1.5;" text="Sign In" textAlignment="CENTER" wrappingWidth="561.5">
@@ -94,17 +94,15 @@
                 </VBox>
             </children>
         </HBox>
-
-        <!-- Back Button with ImageView -->
-        <Button fx:id="backButton" layoutX="20.0" layoutY="16.0" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">
-            <graphic>
-                <ImageView fitHeight="55.0" fitWidth="60.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
-                    <image>
-                        <Image url="@../../../assets/back_button.png" /> <!-- Update this path to your image location -->
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
+      <Button fx:id="backButton" layoutX="30.0" layoutY="30.0" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="40.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
+               <image>
+                  <Image url="@../../../assets/back_button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
 
     </children>
 </AnchorPane>

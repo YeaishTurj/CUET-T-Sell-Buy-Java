@@ -94,17 +94,15 @@
                 </VBox>
             </children>
         </HBox>
-
-        <!-- Back Button with ImageView -->
-        <Button fx:id="backButton" layoutX="20.0" layoutY="16.0" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">
-            <graphic>
-                <ImageView fitHeight="55.0" fitWidth="60.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
-                    <image>
-                        <Image url="@../../../assets/back_button.png" /> <!-- Update this path to your image location -->
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
+      <Button fx:id="backButton" layoutX="30.0" layoutY="30.0" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="40.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
+               <image>
+                  <Image url="@../../../assets/back_button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
 
     </children>
 </AnchorPane>

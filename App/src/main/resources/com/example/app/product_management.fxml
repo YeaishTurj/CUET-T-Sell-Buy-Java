@@ -37,7 +37,7 @@
             </HBox>
             <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="695.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 70; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Product Management" textAlignment="CENTER" wrappingWidth="646.2941656112671">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 80; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Product Management" textAlignment="CENTER" wrappingWidth="646.2941656112671">
                      <effect>
                         <Glow level="0.3" />
                      </effect>
@@ -76,7 +76,6 @@
             <Insets bottom="10.0" top="10.0" />
          </padding>
       </HBox>
-
 
         <!-- Manage Products Table -->
         <TableView fx:id="productTable" layoutX="62.0" layoutY="180.0" prefHeight="400.0" prefWidth="900.0">

@@ -70,8 +70,7 @@
                     <children>
                         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="250.0">
                             <children>
-                                <HBox fx:id="updateAdditional1" alignment="CENTER" onMouseClicked="#handleUpdateAdditional1Click" onMouseEntered="#handleMouseEnteredUpdateAdditional1" onMouseExited="#handleMouseExitedUpdateAdditional1" prefHeight="78.0" prefWidth="78.0"
-                                      style="-fx-background-radius: 25 0 0 0; -fx-background-color: C6E7FF; -fx-border-radius: 25 0 0 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
+                                <HBox fx:id="updateAdditional1" alignment="CENTER" onMouseClicked="#handleUpdateAdditional1Click" onMouseEntered="#handleMouseEnteredUpdateAdditional1" onMouseExited="#handleMouseExitedUpdateAdditional1" prefHeight="78.0" prefWidth="78.0" style="-fx-background-radius: 25 0 0 0; -fx-background-color: C6E7FF; -fx-border-radius: 25 0 0 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
                                     <children>
                                         <ImageView fx:id="additionalImageView1" fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -83,8 +82,7 @@
                                         <Insets />
                                     </HBox.margin>
                                 </HBox>
-                                <HBox fx:id="updateAdditional2" alignment="CENTER" onMouseClicked="#handleUpdateAdditional2Click" onMouseEntered="#handleMouseEnteredUpdateAdditional2" onMouseExited="#handleMouseExitedUpdateAdditional2" prefHeight="78.0" prefWidth="78.0"
-                                      style="-fx-background-radius: 0 25 0 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 25 0 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
+                                <HBox fx:id="updateAdditional2" alignment="CENTER" onMouseClicked="#handleUpdateAdditional2Click" onMouseEntered="#handleMouseEnteredUpdateAdditional2" onMouseExited="#handleMouseExitedUpdateAdditional2" prefHeight="78.0" prefWidth="78.0" style="-fx-background-radius: 0 25 0 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 25 0 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
                                     <children>
                                         <ImageView fx:id="additionalImageView2" fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -97,8 +95,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="78.0" prefWidth="250.0">
                             <children>
-                                <HBox fx:id="updateAdditional3" alignment="CENTER" onMouseClicked="#handleUpdateAdditional3Click" onMouseEntered="#handleMouseEnteredUpdateAdditional3" onMouseExited="#handleMouseExitedUpdateAdditional3" prefHeight="78.0" prefWidth="78.0"
-                                      style="-fx-background-radius: 0 0 0 25; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 0 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
+                                <HBox fx:id="updateAdditional3" alignment="CENTER" onMouseClicked="#handleUpdateAdditional3Click" onMouseEntered="#handleMouseEnteredUpdateAdditional3" onMouseExited="#handleMouseExitedUpdateAdditional3" prefHeight="78.0" prefWidth="78.0" style="-fx-background-radius: 0 0 0 25; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 0 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
                                     <children>
                                         <ImageView fx:id="additionalImageView3" fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -107,8 +104,7 @@
                                         </ImageView>
                                     </children>
                                 </HBox>
-                                <HBox fx:id="updateAdditional4" alignment="CENTER" onMouseClicked="#handleUpdateAdditional4Click" onMouseEntered="#handleMouseEnteredUpdateAdditional4" onMouseExited="#handleMouseExitedUpdateAdditional4" prefHeight="78.0" prefWidth="78.0"
-                                      style="-fx-background-radius: 0 0 25 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 25 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
+                                <HBox fx:id="updateAdditional4" alignment="CENTER" onMouseClicked="#handleUpdateAdditional4Click" onMouseEntered="#handleMouseEnteredUpdateAdditional4" onMouseExited="#handleMouseExitedUpdateAdditional4" prefHeight="78.0" prefWidth="78.0" style="-fx-background-radius: 0 0 25 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 25 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);">
                                     <children>
                                         <ImageView fx:id="additionalImageView4" fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -139,59 +135,64 @@
                 </VBox>
             </children>
         </VBox>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);">
-            <children>
-                <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0">
-                    <children>
-                        <Button fx:id="backButton" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">
-                            <graphic>
-                                <ImageView fitHeight="55.0" fitWidth="60.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
-                                    <image>
-                                        <Image url="@../../../assets/back_button.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </Button>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="695.0">
-                    <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 70; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Product Update" textAlignment="CENTER" wrappingWidth="646.2941656112671">
-                            <effect>
-                                <Glow level="0.3" />
-                            </effect>
-                        </Text>
-                    </children>
-                    <padding>
-                        <Insets right="10.0" />
-                    </padding>
-                    <HBox.margin>
-                        <Insets />
-                    </HBox.margin>
-                </HBox>
-                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="324.0">
-                    <children>
-                        <Button fx:id="signOutButton" contentDisplay="TOP" onAction="#handleSignOutButtonClick" prefHeight="68.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);" text="Sign Out">
-                            <padding>
-                                <Insets left="10.0" right="10.0" />
-                            </padding>
-                            <graphic>
-                                <ImageView blendMode="OVERLAY" fitHeight="43.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../assets/sign_out.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </Button>
-                    </children>
-                    <padding>
-                        <Insets right="50.0" />
-                    </padding>
-                </HBox>
-            </children>
-            <padding>
-                <Insets bottom="10.0" top="10.0" />
-            </padding>
-        </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);">
+         <children>
+            <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0">
+               <children>
+                  <Button fx:id="backButton" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="40.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
+                           <image>
+                              <Image url="@../../../assets/back_button.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="695.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 80; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Product Update" textAlignment="CENTER" wrappingWidth="646.2941656112671">
+                     <effect>
+                        <Glow level="0.3" />
+                     </effect>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="324.0">
+               <children>
+                  <Button fx:id="signOutButton" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleSignOutButtonClick" prefHeight="50.0" prefWidth="70.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);">
+                     <graphic>
+                        <ImageView blendMode="OVERLAY" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../../../assets/sign_out.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Limelight'; -fx-font-size: 18;" text="Sign Out">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+      </HBox>
     </children>
 </AnchorPane>
