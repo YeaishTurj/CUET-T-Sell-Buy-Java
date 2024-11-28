@@ -10,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ProductManagementController">
@@ -17,17 +18,20 @@
     <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);">
          <children>
-            <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0">
+            <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0">
                <children>
                       <!-- Back Button with ImageView -->
                       <Button fx:id="backButton" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">
                      <graphic>
-                              <ImageView fitHeight="55.0" fitWidth="60.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
+                              <ImageView fitHeight="35.0" fitWidth="40.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">
                                   <image>
                                       <Image url="@../../../assets/back_button.png" /> <!-- Update this path to your image location -->
                                   </image>
                               </ImageView>
                      </graphic>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
                       </Button>
                </children>
             </HBox>
@@ -46,25 +50,27 @@
                   <Insets />
                </HBox.margin>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="324.0">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="324.0">
                <children>
-                  <Button fx:id="signOutButton" contentDisplay="TOP" onAction="#handleSignOut" prefHeight="68.0" prefWidth="112.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);" text="Sign Out">
-                     <padding>
-                        <Insets left="10.0" right="10.0" />
-                     </padding>
+                  <Button fx:id="signOutButton" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleSignOut" prefHeight="50.0" prefWidth="70.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);">
                      <graphic>
-                        <ImageView blendMode="OVERLAY" fitHeight="43.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView blendMode="OVERLAY" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
                            <image>
                               <Image url="@../../../assets/sign_out.png" />
                            </image>
                         </ImageView>
                      </graphic>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Limelight'; -fx-font-size: 18;" text="Sign Out">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Text>
                </children>
-               <padding>
-                  <Insets right="50.0" />
-               </padding>
-            </HBox>
+            </VBox>
          </children>
          <padding>
             <Insets bottom="10.0" top="10.0" />
