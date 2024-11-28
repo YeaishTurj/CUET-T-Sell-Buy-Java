@@ -41,5 +41,10 @@ public class DatabaseConnection {
 //          quantity INT NOT NULL,
 //          price DECIMAL(10, 2) NOT NULL,
 //          description TEXT,
+//          mainImg LONGBLOB NOT NULL,
+//          addImg1 LONGBLOB,
+//          addImg2 LONGBLOB,
+//          addImg3 LONGBLOB,
+//          addImg4 LONGBLOB,
 //          FOREIGN KEY (seller_email) REFERENCES seller(email) ON DELETE CASCADE
 //      );
