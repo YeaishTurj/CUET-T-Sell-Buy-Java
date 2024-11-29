@@ -20,7 +20,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -98,23 +100,35 @@ public class ProductUploadController implements Initializable {
         }
     }
 
-    // Product upload methods
-// Product upload methods
     @FXML
     private boolean uploadProductDetails() {
         if (connection != null) {
-            String query = "INSERT INTO product (seller_email, product_title, quantity, price, description) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO product (seller_email, product_title, quantity, price, description, mainImg, addImg1, addImg2, addImg3, addImg4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             try (PreparedStatement pstmt = connection.prepareStatement(query)) {
                 pstmt.setString(1, sellerEmail);
-                if(prductTitleField.getText().isEmpty() || productQuantityField.getText().isEmpty() || productPriceField.getText().isEmpty() || productDescriptionField.getText().isEmpty()) {
-                    showErrorDialog("Empty Fields", "Please fill in all the fields.");
+                if(prductTitleField.getText().isEmpty() || productQuantityField.getText().isEmpty() || productPriceField.getText().isEmpty() || productDescriptionField.getText().isEmpty() || selectedMainFile == null) {
+                    showErrorDialog("Empty Fields", "Please fill in all the fields and main image (if not selected).");
                     return false;
                 }
                 pstmt.setString(2, prductTitleField.getText());
                 pstmt.setInt(3, Integer.parseInt(productQuantityField.getText()));
                 pstmt.setDouble(4, Double.parseDouble(productPriceField.getText()));
                 pstmt.setString(5, productDescriptionField.getText());
+
+                byte[] mainImg = fileToByteArray(selectedMainFile);
+                pstmt.setBytes(6, mainImg);
+
+                byte[] addImg1=null, addImg2=null, addImg3=null, addImg4=null;
+                addImg1=fileToByteArray(selectedAdditionalFile1);
+                addImg2=fileToByteArray(selectedAdditionalFile2);
+                addImg3=fileToByteArray(selectedAdditionalFile3);
+                addImg4=fileToByteArray(selectedAdditionalFile4);
+
+                pstmt.setBytes(7,addImg1);
+                pstmt.setBytes(8,addImg2);
+                pstmt.setBytes(9,addImg3);
+                pstmt.setBytes(10,addImg4);
 
                 pstmt.executeUpdate();
                 return true; // Upload was successful
@@ -131,8 +145,6 @@ public class ProductUploadController implements Initializable {
         return false; // Upload failed
     }
 
-
-    // Utility method to show error dialogs
     private void showErrorDialog(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -148,11 +160,8 @@ public class ProductUploadController implements Initializable {
         alert.showAndWait();
     }
 
-
-    // Handle upload product button click
-// Handle upload product button click
     public void handleUploadProductButtonClick() throws IOException {
-        boolean isUploaded = uploadProductDetails(); // Returns true if the upload is successful
+        boolean isUploaded = uploadProductDetails();
 
         if (isUploaded) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -163,10 +172,10 @@ public class ProductUploadController implements Initializable {
             DialogPane dialogPane = alert.getDialogPane();
             dialogPane.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold;");
 
-            dialogPane.lookup(".header-panel").setStyle("-fx-text-fill: #28a745; -fx-font-weight: bold;"); // Green and bold header
-            dialogPane.lookup(".content").setStyle("-fx-text-fill: #28a745; -fx-font-weight: bold;");    // Green and bold content
+            dialogPane.lookup(".header-panel").setStyle("-fx-text-fill: #28a745; -fx-font-weight: bold;");
+            dialogPane.lookup(".content").setStyle("-fx-text-fill: #28a745; -fx-font-weight: bold;");
 
-            alert.setGraphic(null); // Remove default graphic
+            alert.setGraphic(null);
 
             alert.showAndWait();
 
@@ -294,6 +303,25 @@ public class ProductUploadController implements Initializable {
         fileChooser.setTitle(title);
         return fileChooser.showOpenDialog(imageView.getScene().getWindow());
     }
+
+    private byte[] fileToByteArray(File file) throws IOException {
+        if (file == null) return null; // Return null if no file is selected
+
+        try (FileInputStream fis = new FileInputStream(file);
+             ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+
+            // Read file into buffer and write to ByteArrayOutputStream
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+
+            return bos.toByteArray(); // Return the byte array
+        }
+    }
+
 
     // Method to display selected image in ImageView
     private void displaySelectedImage(File file, ImageView imageView) {
