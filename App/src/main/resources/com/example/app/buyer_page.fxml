@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerPageController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.BuyerPageController">
     <children>
 
 
@@ -20,13 +20,15 @@
         <Separator layoutX="62.0" layoutY="522.0" prefWidth="900.0" />
         <VBox alignment="CENTER" layoutX="56.0" layoutY="240.0" prefHeight="216.0" prefWidth="455.0" style="-fx-background-color: rgba(255, 255, 255, 0.3),              linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);               -fx-background-insets: 0, 1;        -fx-border-color: rgba(255, 255, 255, 0.5);                  -fx-border-width: 2px;        -fx-border-radius: 10px;        -fx-background-radius: 10px;                        ">
             <children>
-                <Text style="-fx-font-size: 18; -fx-fill: #555;" text="Name: Md Zia Uddin">
+                <Text fx:id="name" style="-fx-font-size: 18; -fx-fill: #555;" text="Name: Md Zia Uddin">
                     <font>
                         <Font name="System Bold" size="33.0" />
                     </font>
                 </Text>
-                <Text style="-fx-font-size: 18; -fx-fill: #555;" text="Email: u210425@student.cuet.ac.bd" />
-                <Text style="-fx-font-size: 18; -fx-fill: #555;" text="Phone Number: 01813635343" />
+                <Text fx:id="email" style="-fx-font-size: 18; -fx-fill: #555;" text="Email: u210425@student.cuet.ac.bd">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font></Text>
             </children>
         </VBox>
         <Button fx:id="manageProductsButton" alignment="CENTER" layoutX="94.0" layoutY="594.0" mnemonicParsing="false" onAction="#gotoAllItemScreen" prefHeight="85.0" prefWidth="380.0" stylesheets="@../../../css/styles.css" text="Explore Products" />
@@ -64,50 +66,50 @@
                 </ImageView>
             </children>
         </AnchorPane>
-      <HBox alignment="CENTER" layoutX="-1.0" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);">
-         <children>
-            <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0" />
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="695.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 80; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Buyer Dashboard" textAlignment="CENTER" wrappingWidth="646.2941656112671">
-                     <effect>
-                        <Glow level="0.3" />
-                     </effect>
-                  </Text>
-               </children>
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </HBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="324.0">
-               <children>
-                  <Button fx:id="signOutButton" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#signOutBuyer" prefHeight="50.0" prefWidth="70.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);">
-                     <graphic>
-                        <ImageView blendMode="OVERLAY" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
-                           <image>
-                              <Image url="@../../../assets/sign_out.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Limelight'; -fx-font-size: 18;" text="Sign Out">
-                     <VBox.margin>
-                        <Insets top="15.0" />
-                     </VBox.margin>
-                  </Text>
-               </children>
-            </VBox>
-         </children>
-         <padding>
-            <Insets bottom="10.0" top="10.0" />
-         </padding>
-      </HBox>
+        <HBox alignment="CENTER" layoutX="-1.0" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);">
+            <children>
+                <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0" />
+                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="695.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 80; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="Buyer Dashboard" textAlignment="CENTER" wrappingWidth="646.2941656112671">
+                            <effect>
+                                <Glow level="0.3" />
+                            </effect>
+                        </Text>
+                    </children>
+                    <padding>
+                        <Insets right="10.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </HBox>
+                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="324.0">
+                    <children>
+                        <Button fx:id="signOutButton" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#signOutBuyer" prefHeight="50.0" prefWidth="70.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);">
+                            <graphic>
+                                <ImageView blendMode="OVERLAY" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">
+                                    <image>
+                                        <Image url="@../../../assets/sign_out.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Button>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Limelight'; -fx-font-size: 18;" text="Sign Out">
+                            <VBox.margin>
+                                <Insets top="15.0" />
+                            </VBox.margin>
+                        </Text>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" top="10.0" />
+            </padding>
+        </HBox>
 
     </children>
 </AnchorPane>

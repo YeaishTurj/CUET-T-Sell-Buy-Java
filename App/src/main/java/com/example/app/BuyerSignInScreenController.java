@@ -2,8 +2,9 @@
 
 package com.example.app;
 
+import com.example.app.customDesign.BuyerData;
+import com.example.app.database.DatabaseConnection;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,10 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -96,13 +94,40 @@ public class BuyerSignInScreenController implements Initializable {
             showErrorPopup("Incorrect Password!");
             return;
         }
+        //======== before goto buyer  page , we first retrieve the user data then load the buyer page  ========//
+        try {
+            BuyerData buyerData = getBuyerData(usernameField.getText());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("buyer_page.fxml"));
+            Parent root = loader.load();
+            BuyerPageController controller = loader.getController();
+            controller.setBuyerData(buyerData);
+            Stage stage = (Stage) backButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        SessionData.setBuyerEmail(usernameField.getText());
-        Parent root = loadFXML("buyer_page.fxml");
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        setScene(stage, root);
+
+
+
     }
-
+    private BuyerData getBuyerData(String email){
+        Connection connection = DatabaseConnection.connect();
+        BuyerData buyer = null;
+        String sql = "SELECT email, name FROM buyer WHERE email = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            ResultSet resultSet = stmt.executeQuery();
+            if (resultSet.next()) {
+                String name = resultSet.getString("name");
+                buyer = new BuyerData(email, name);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return buyer;
+    }
     private void showErrorPopup(String message) {
         // Create a custom alert with ERROR type
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -119,7 +144,6 @@ public class BuyerSignInScreenController implements Initializable {
         // Show the alert
         alert.showAndWait();
     }
-
     private boolean isBuyerRegistered() {
         try {
             String query = "SELECT * FROM buyer WHERE email = ?";
@@ -131,7 +155,6 @@ public class BuyerSignInScreenController implements Initializable {
             return false;
         }
     }
-
     private boolean isPasswordCorrect() {
         try {
             String query = "SELECT * FROM buyer WHERE email = ? AND password = ?";
@@ -144,7 +167,6 @@ public class BuyerSignInScreenController implements Initializable {
             return false;
         }
     }
-
     @FXML
     private void handleSignUpClick(MouseEvent event) {
         try {

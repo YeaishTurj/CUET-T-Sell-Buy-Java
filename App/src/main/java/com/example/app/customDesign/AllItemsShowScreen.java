@@ -42,58 +42,63 @@ public class AllItemsShowScreen implements Initializable {
         //-------- data need to fetch to each item:
         //-------- we will store it in the in a global list , which will be later modified by dialog option
         /*
-           *Owner: Name , wApp , phone , email , fbLink
-           *Item: Title , price , quantity , description , imageLink
-        */
+         *Owner: Name , wApp , phone , email , fbLink
+         *Item: Title , price , quantity , description , imageLink
+         */
         //------- call the function to load data ----------//
         listOfItem=itemList();
         loadDataInListView(listOfItem);
+
+        //==== here get data from server =====//
+
+
+
     }
-private List<Item> itemList(){
-    List<Item> ls = new ArrayList<>();
+    private List<Item> itemList(){
+        List<Item> ls = new ArrayList<>();
 
-    Item item1 = new Item();
-    item1.setItem("Classic Red Graphic T-shirt", 1200, 3, "", "This vibrant red T-shirt is made from soft, breathable cotton, offering a comfortable fit all day. Perfect for casual outings or sporty activities, its bold graphic design stands out. Pair it with jeans or shorts for a relaxed, stylish look.");
-    ls.add(item1);
+        Item item1 = new Item();
+        item1.setItem("Classic Red Graphic T-shirt", 1200, 3, "", "This vibrant red T-shirt is made from soft, breathable cotton, offering a comfortable fit all day. Perfect for casual outings or sporty activities, its bold graphic design stands out. Pair it with jeans or shorts for a relaxed, stylish look.");
+        ls.add(item1);
 
-    Item item2 = new Item();
-    item2.setItem("Casual Blue Cotton T-shirt", 800, 5, "", "This cool blue T-shirt features a minimalist design, ideal for a laid-back style. Crafted from high-quality cotton, it ensures comfort and durability. Wear it for daily errands or as a casual weekend outfit, combining well with any jeans or joggers.");
-    ls.add(item2);
+        Item item2 = new Item();
+        item2.setItem("Casual Blue Cotton T-shirt", 800, 5, "", "This cool blue T-shirt features a minimalist design, ideal for a laid-back style. Crafted from high-quality cotton, it ensures comfort and durability. Wear it for daily errands or as a casual weekend outfit, combining well with any jeans or joggers.");
+        ls.add(item2);
 
-    Item item3 = new Item();
-    item3.setItem("Essential Black Cotton T-shirt", 1000, 7, "", "A classic black T-shirt that every wardrobe needs. Designed with a modern fit, it’s perfect for layering under jackets or wearing solo. The soft fabric keeps you comfortable, and its sleek, neutral color goes with everything, from casual jeans to stylish chinos.");
-    ls.add(item3);
+        Item item3 = new Item();
+        item3.setItem("Essential Black Cotton T-shirt", 1000, 7, "", "A classic black T-shirt that every wardrobe needs. Designed with a modern fit, it’s perfect for layering under jackets or wearing solo. The soft fabric keeps you comfortable, and its sleek, neutral color goes with everything, from casual jeans to stylish chinos.");
+        ls.add(item3);
 
-    Item item4 = new Item();
-    item4.setItem("Green Activewear T-shirt", 600, 2, "", "This comfortable green T-shirt is perfect for outdoor activities,\n especially during workouts. The breathable cotton fabric ensures a cool, fresh feel even in hot weather.\n Whether you're hitting the gym or running errands, this tee adds a vibrant touch to your wardrobe.");
-    ls.add(item4);
+        Item item4 = new Item();
+        item4.setItem("Green Activewear T-shirt", 600, 2, "", "This comfortable green T-shirt is perfect for outdoor activities,\n especially during workouts. The breathable cotton fabric ensures a cool, fresh feel even in hot weather.\n Whether you're hitting the gym or running errands, this tee adds a vibrant touch to your wardrobe.");
+        ls.add(item4);
 
-    Item item5 = new Item();
-    item5.setItem("Bright Yellow Casual T-shirt", 950, 4, "", "Make a bold statement with this eye-catching yellow T-shirt. Made from lightweight, moisture-wicking fabric,\n it’s perfect for a day of outdoor adventures or a sunny day out with friends. \nIts bright color and soft feel make it a wardrobe staple for the warm months.");
-    ls.add(item5);
+        Item item5 = new Item();
+        item5.setItem("Bright Yellow Casual T-shirt", 950, 4, "", "Make a bold statement with this eye-catching yellow T-shirt. Made from lightweight, moisture-wicking fabric,\n it’s perfect for a day of outdoor adventures or a sunny day out with friends. \nIts bright color and soft feel make it a wardrobe staple for the warm months.");
+        ls.add(item5);
 
-    Item item6 = new Item();
-    item6.setItem("Premium White Cotton T-shirt", 700, 10, "", "This simple white T-shirt is a must-have in any wardrobe. Versatile and timeless, \nit’s crafted from ultra-soft cotton for maximum comfort. It’s the perfect base for layering or wearing on its own. Dress it up or down, it’s your go-to T-shirt for any occasion.");
-    ls.add(item6);
+        Item item6 = new Item();
+        item6.setItem("Premium White Cotton T-shirt", 700, 10, "", "This simple white T-shirt is a must-have in any wardrobe. Versatile and timeless, \nit’s crafted from ultra-soft cotton for maximum comfort. It’s the perfect base for layering or wearing on its own. Dress it up or down, it’s your go-to T-shirt for any occasion.");
+        ls.add(item6);
 
-    Item item7 = new Item();
-    item7.setItem("Modern Grey Cotton T-shirt", 850, 3, "", "A stylish grey T-shirt that works for any casual occasion. Made from a smooth cotton blend, \nit offers a soft, comfortable feel with a sleek, minimalist design. \nPair it with jeans, chinos, or shorts for a smart yet relaxed look that's always in style.");
-    ls.add(item7);
+        Item item7 = new Item();
+        item7.setItem("Modern Grey Cotton T-shirt", 850, 3, "", "A stylish grey T-shirt that works for any casual occasion. Made from a smooth cotton blend, \nit offers a soft, comfortable feel with a sleek, minimalist design. \nPair it with jeans, chinos, or shorts for a smart yet relaxed look that's always in style.");
+        ls.add(item7);
 
-    Item item8 = new Item();
-    item8.setItem("Bold Orange Sports T-shirt", 900, 6, "", "This bold orange T-shirt adds a pop of color to your wardrobe. Made with soft, breathable fabric, \nit’s perfect for both active and casual wear. Whether you’re working out, going for a run, or hanging out, this T-shirt will keep you comfortable and looking fresh.");
-    ls.add(item8);
+        Item item8 = new Item();
+        item8.setItem("Bold Orange Sports T-shirt", 900, 6, "", "This bold orange T-shirt adds a pop of color to your wardrobe. Made with soft, breathable fabric, \nit’s perfect for both active and casual wear. Whether you’re working out, going for a run, or hanging out, this T-shirt will keep you comfortable and looking fresh.");
+        ls.add(item8);
 
-    Item item9 = new Item();
-    item9.setItem("Trendy Pink Fashion T-shirt", 1100, 8, "", "This trendy pink T-shirt combines fashion and comfort. Crafted from premium cotton, it’s soft to the touch and perfect for layering or wearing solo. Its stylish hue is perfect for those looking to make a bold fashion statement while staying comfortable all day.");
-    ls.add(item9);
+        Item item9 = new Item();
+        item9.setItem("Trendy Pink Fashion T-shirt", 1100, 8, "", "This trendy pink T-shirt combines fashion and comfort. Crafted from premium cotton, it’s soft to the touch and perfect for layering or wearing solo. Its stylish hue is perfect for those looking to make a bold fashion statement while staying comfortable all day.");
+        ls.add(item9);
 
-    Item item10 = new Item();
-    item10.setItem("Classic Polo Cotton T-shirt", 950, 4, "", "A timeless classic, this polo T-shirt is designed for both comfort and style. Made from breathable, high-quality cotton, it’s perfect for a smart-casual look. Whether you're wearing it for a round of golf, a brunch date, or a casual outing, this polo will elevate your style with ease.");
-    ls.add(item10);
+        Item item10 = new Item();
+        item10.setItem("Classic Polo Cotton T-shirt", 950, 4, "", "A timeless classic, this polo T-shirt is designed for both comfort and style. Made from breathable, high-quality cotton, it’s perfect for a smart-casual look. Whether you're wearing it for a round of golf, a brunch date, or a casual outing, this polo will elevate your style with ease.");
+        ls.add(item10);
 
-    return ls;
-}
+        return ls;
+    }
     private void loadDataInListView(List<Item> myItem){
         holder.getChildren().clear();
         Owner owner=new Owner();
@@ -182,7 +187,6 @@ private List<Item> itemList(){
             loadDataInListView(listOfItem);
         }
     }
-
     public void startSearchItem(MouseEvent event) {
         String search=searchBox.getText();
         if(search!=null){
@@ -190,7 +194,6 @@ private List<Item> itemList(){
             loadDataInListView(searchItems);
         }
     }
-
     //========== here we filter the item based n user search, searching will be in the title and description ===============//
     public static List<Item> searchItems(List<Item> listOfItems, String searchTerm) {
         String lowerCaseSearchTerm = searchTerm.toLowerCase();
@@ -220,6 +223,7 @@ private List<Item> itemList(){
         stage.setWidth(1024);
         stage.show();
     }
+
 }
 
 

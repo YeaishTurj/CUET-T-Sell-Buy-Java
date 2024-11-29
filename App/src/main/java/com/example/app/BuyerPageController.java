@@ -1,5 +1,6 @@
 package com.example.app;
 
+import com.example.app.customDesign.BuyerData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,12 +8,19 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class BuyerPageController {
+    @FXML
+    private Text name;
+
+    @FXML
+    private Text email;
+
     @FXML
     private Button signOutButton;
 
@@ -37,6 +45,10 @@ public class BuyerPageController {
     private Parent loadFXML() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("welcome_screen.fxml"));
         return loader.load();
+    }
+    public void setBuyerData(BuyerData buyerData) {
+        name.setText("Name:"+buyerData.name);
+        email.setText("Email:"+buyerData.email);
     }
 
 }
