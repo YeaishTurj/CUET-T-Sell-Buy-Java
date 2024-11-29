@@ -2,6 +2,7 @@ package com.example.app;
 
 import com.example.app.customDesign.Item;
 import com.example.app.customDesign.Owner;
+import com.example.app.customDesign.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,53 +57,43 @@ public class ItemScreenController {
     //======== testing ========//
     @FXML
     public void initialize() {
-        imageList.add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/product_1.png"))));
-        imageList.add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/product_2.jpg"))));
-        imageList.add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/product_3.png"))));
-        size=imageList.size();
-        itemImage.setImage(imageList.get(index));
-        productName.setText("So elegant T-Shirt");
-        productPrice.setText("Price:2777 tk");
-        productQuantity.setText("Quantity:11");
-        productDescription.setText("1.1000 gsm \n 2.Color guaranty \n 3. blah \n4.blah");
-        ownerName.setText("HashCode");
-       // wAppNumber.setText("01813635343");
-        contactNo.setText("01815505922");
     }
     //======== item details get  from buyer_show_screen ==========/
-    public void getDetails(Owner owner, Item item){
+    public void getDetails(Owner owner, Product item,List<Image> imageLists){
         //====== set images in the image list ======//
-
+        this.imageList=imageLists;
         //====== set product details ( name,price,quantity,detail ) =====//
-
         productDescription.setText(item.getDescription());
-        productName.setText(item.getTitle());
-        productPrice.setText(Integer.toString(item.getPrice()));
+        productName.setText(item.getProductTitle());
+        productPrice.setText(Double.toString(item.getPrice()));
         productQuantity.setText(Integer.toString(item.getQuantity()));
         //====== set owner details ( name, w.app no, contact no, fb link ) ======//
         ownerName.setText(owner.getName());
         contactNo.setText(owner.getPhoneNumber());
-       // wAppNumber.setText(owner.getWAppNumber());
+        wAppNumber.setText(owner.getWAppNumber());
         facebookLink.setOnAction(event -> {
             try {Desktop.getDesktop().browse(new URI(owner.getFbLink()));}
             catch (Exception e) {System.out.println(e);}
         });
         emailId.setText(owner.getEmailId());
+        itemImage.setImage(imageLists.getFirst());
+        size=imageLists.size();
     }
     public void showLeftImage(MouseEvent mouseEvent) {
         index=Math.abs(index-1+size);
         index=(index%size);
         itemImage.setImage(imageList.get(index));
+        System.out.println("Index:"+index);
     }
     public void showRightImage(MouseEvent mouseEvent) {
         index=index+1;
         index=(index%size);
         itemImage.setImage(imageList.get(index));
+        System.out.println("Index:"+index);
     }
     public void navigateToLink(ActionEvent actionEvent) throws URISyntaxException, IOException {
         Desktop.getDesktop().browse(new URI("https://www.google.com"));
     }
-
     public void handleBackButtonClick(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("all_item_show_screen.fxml"));
         Parent root = loader.load();
@@ -112,7 +103,6 @@ public class ItemScreenController {
         stage.setScene(scene);
         stage.show();
     }
-
     public void handleSignOut(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/welcome_screen.fxml"));
         Parent root = loader.load();

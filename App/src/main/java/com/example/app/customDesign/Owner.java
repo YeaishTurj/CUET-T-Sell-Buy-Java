@@ -6,7 +6,7 @@ public class Owner {
     private String phoneNumber;
     private String fbLink;
     private String emailId;
-    public void setOwner(String name,String wAppNumber,String phoneNumber,String fbLink,String emailId){
+    public Owner(String name,String wAppNumber,String phoneNumber,String fbLink,String emailId){
         this.name=name;
         this.wAppNumber=wAppNumber;
         this.phoneNumber=phoneNumber;

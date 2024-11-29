@@ -14,15 +14,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ItemScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ItemScreenController">
    <AnchorPane id="productAP" layoutY="91.0" minHeight="0.0" minWidth="0.0" prefHeight="677.0" prefWidth="1024.0">
       <HBox alignment="CENTER" layoutX="16.0" layoutY="42.0" prefHeight="339.0" prefWidth="447.0" style="-fx-background-color: rgba(255, 255, 255, 0.2),                linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);                 -fx-background-insets: 0, 1; -fx-border-color: rgba(255, 255, 255, 0.3);                  -fx-border-width: 4px; -fx-border-radius: 8px; -fx-background-radius: 10px;                   -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 10, 0.2, 0, 2),                   innershadow(gaussian, rgba(255, 255, 255, 0.2), 4, 0.3, 0, 0);">
          <ImageView fx:id="leftImage" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#showLeftImage" pickOnBounds="true" preserveRatio="true" rotate="180.0">
             <Image url="@../../../assets/arrow.png" />
          </ImageView>
-         <ImageView fx:id="itemImage" fitHeight="331.0" fitWidth="388.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../assets/product_1.png" />
-         </ImageView>
+         <ImageView fx:id="itemImage" fitHeight="311.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true" />
          <ImageView fx:id="rightImage" fitHeight="28.0" fitWidth="35.0" onMouseClicked="#showRightImage" pickOnBounds="true" preserveRatio="true">
             <Image url="@../../../assets/arrow.png" />
          </ImageView>
@@ -57,7 +55,7 @@
          <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="524.0">
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" underline="true">
                <font>
-                  <Font name="Thonburi Bold" size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Text>
             <Text fx:id="productQuantity" strokeType="OUTSIDE" strokeWidth="0.0" text="1000">
