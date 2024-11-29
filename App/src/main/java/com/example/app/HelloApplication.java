@@ -55,7 +55,6 @@ public class HelloApplication extends Application {
 
     private Scene createScene(AnchorPane root) {
         Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
-
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(CSS_PATH)).toExternalForm());
         return scene;
     }

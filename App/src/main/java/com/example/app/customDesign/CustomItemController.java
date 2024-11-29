@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -22,6 +23,10 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CustomItemController implements Initializable {
+    @FXML
+    private HBox itemBox1;
+    @FXML
+    private HBox itemBox2;
     @FXML
     private ImageView itemImage1;
     @FXML
@@ -63,6 +68,7 @@ public class CustomItemController implements Initializable {
         itemOwner1=owner;
         product1ImageList=item.getImageList();
         itemImage1.setImage(product1ImageList.getFirst());
+        itemBox1.setVisible(true);
     }
     public void setData2(Product item,Owner owner){
         itemTitle2.setText(item.getProductTitle());
@@ -72,6 +78,7 @@ public class CustomItemController implements Initializable {
         itemOwner2=owner;
         product2ImageList=item.getImageList();
         itemImage2.setImage(product2ImageList.getFirst());
+        itemBox2.setVisible(true);
     }
     public void seeDetails2(ActionEvent actionEvent) {
         try {
