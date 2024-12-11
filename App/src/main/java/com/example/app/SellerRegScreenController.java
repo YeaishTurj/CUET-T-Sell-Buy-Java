@@ -12,6 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -85,42 +89,10 @@ public class SellerRegScreenController {
         if (perfect == 1) {
             //====== store the data in database =======//
             storeDataInDB(email,pass,name,phone,wApp,fbLink);
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Success");
-            alert.setHeaderText("Congratulation!");
-            alert.setContentText("You Have Successfully Register as A Seller.");
-            DialogPane dialogPane = alert.getDialogPane();
-            dialogPane.setStyle(
-                    "-fx-font-family: 'Arial'; " +
-                            "-fx-font-size: 14px; " +
-                            "-fx-font-weight: bold; " +
-                            "-fx-text-fill: green;"
-            );
-
-            dialogPane.lookup(".title").setStyle("-fx-text-fill: red; -fx-font-size: 16px;");
-            dialogPane.lookup(".header").setStyle("-fx-text-fill: blue; -fx-font-size: 14px;");
-            dialogPane.lookup(".content").setStyle("-fx-text-fill: green; -fx-font-size: 15px;");
-
-            ButtonType closeButton = new ButtonType("Close");
-            alert.getButtonTypes().setAll(closeButton);
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get() == closeButton) {
-                openNewScreen();
-            }
+            controlRegisterAndLogin(actionEvent);
         }
     }
-    private void openNewScreen() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("seller_signin_screen.fxml"));
-            Parent root = loader.load();
-            Stage newStage = new Stage();
-            newStage.setTitle("New Screen");
-            newStage.setScene(new Scene(root, 1024, 768));
-            newStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
     public void backToLogin(ActionEvent mouseEvent) throws IOException {
         //====== back to log in or registration screen ========//
         String logInPageFileName="seller_signin_screen.fxml";
@@ -187,5 +159,32 @@ public class SellerRegScreenController {
             }
         };
         new Thread(task).start();
+    }
+    private void controlRegisterAndLogin(ActionEvent actionEvent){
+        Alert alert = new Alert(Alert.AlertType.NONE); // Create a custom dialog
+        alert.getDialogPane().getButtonTypes().add(ButtonType.OK); // Add OK button
+        Text content = new Text("Successfully registered!");
+        content.setFont(Font.font("System", FontWeight.BOLD, 14));
+        content.setStyle("-fx-fill: green;"); // Green color
+        VBox container = new VBox(content);
+        container.setStyle("-fx-alignment: center; -fx-padding: 10;"); // Center alignment and padding
+        alert.getDialogPane().setContent(container);
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                try {
+                    performTask(actionEvent);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+    }
+    private void  performTask(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("seller_signin_screen.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

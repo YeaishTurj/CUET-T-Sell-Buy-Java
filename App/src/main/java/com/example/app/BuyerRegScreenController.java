@@ -10,11 +10,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
@@ -64,17 +66,8 @@ public class BuyerRegScreenController {
         if (perfect == 1) {
             //====== store the data in database =======//
             storeDataInDB(userName,userEmail,userPass);
-            //====== after complete =======//
-            toast.setText("Successfully Registered!");
-            toast.setStyle("-fx-text-fill: green;");
             //====== navigation from BuyerRegScreen to ItemShowScreen ======//
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("all_item_show_screen.fxml"));
-            Parent root = loader.load();
-            AllItemsShowScreen.passedData(userName, userEmail, userPass);
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            controlRegisterAndLogin(actionEvent);
         }
         else{
             toast.setText("Failed to Registered!");
@@ -118,8 +111,16 @@ public class BuyerRegScreenController {
     }
     private boolean checkUserExist(String comp) {
         //======== check here user already exist or not ========//
-
-        return false;
+        try {
+            Connection connection=DatabaseConnection.connect();
+            String query = "SELECT * FROM buyer WHERE email = ?";
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, comp);
+            return pstmt.executeQuery().next();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
     public void backToLogin(ActionEvent e) throws IOException {
         //====== back to log in or registration screen ========//
@@ -136,5 +137,32 @@ public class BuyerRegScreenController {
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(mail);
             return matcher.matches();
+    }
+    private void controlRegisterAndLogin(ActionEvent actionEvent){
+        Alert alert = new Alert(Alert.AlertType.NONE); // Create a custom dialog
+        alert.getDialogPane().getButtonTypes().add(ButtonType.OK); // Add OK button
+        Text content = new Text("Successfully registered!");
+        content.setFont(Font.font("System", FontWeight.BOLD, 14));
+        content.setStyle("-fx-fill: green;"); // Green color
+        VBox container = new VBox(content);
+        container.setStyle("-fx-alignment: center; -fx-padding: 10;"); // Center alignment and padding
+        alert.getDialogPane().setContent(container);
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                try {
+                    performTask(actionEvent);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+    }
+    private void  performTask(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("buyer_signin_screen.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
