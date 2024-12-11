@@ -70,10 +70,6 @@ public class SellerRegScreenController {
             toast.setStyle("-fx-text-fill: red;");
             toast.setText("Please enter your 11 digit Contact No");
         }
-        else if (checkUserExist(email)) { // check here already registered or not
-            toast.setStyle("-fx-text-fill: red;");
-            toast.setText("User Already Exists");
-        }
         else if (checkMail(email)) {
             //====== if mail is perfect ====//
             if(!pass.isEmpty() && !name.isEmpty() && !phone.isEmpty() && !wApp.isEmpty() && !fbLink.isEmpty()) perfect =1;
@@ -82,14 +78,22 @@ public class SellerRegScreenController {
                 toast.setText("Try Again");
             }
         }
+        if (perfect == 1) {
+            boolean ok=checkUserExist(email);
+            if(ok){
+                toast.setVisible(true);
+                toast.setStyle("-fx-text-fill: red;");
+                toast.setText("User Already Exists");
+            }
+            else {
+                //====== store the data in database =======//
+                storeDataInDB(email, pass, name, phone, wApp, fbLink);
+                controlRegisterAndLogin(actionEvent);
+            }
+        }
         else {
             toast.setStyle("-fx-text-fill: red;");
             toast.setText("Try Again");
-        }
-        if (perfect == 1) {
-            //====== store the data in database =======//
-            storeDataInDB(email,pass,name,phone,wApp,fbLink);
-            controlRegisterAndLogin(actionEvent);
         }
     }
 
@@ -110,14 +114,12 @@ public class SellerRegScreenController {
         return matcher.matches();
     }
     private boolean checkUserExist(String email) {
-        try {
-            Connection connection=DatabaseConnection.connect();
-            String query = "SELECT * FROM buyer WHERE email = ?";
-            PreparedStatement pstmt = connection.prepareStatement(query);
+        try (Connection connection = DatabaseConnection.connect();
+             PreparedStatement pstmt = connection.prepareStatement("SELECT 1 FROM seller WHERE LOWER(email) = LOWER(?) LIMIT 1")) {
             pstmt.setString(1, email);
             return pstmt.executeQuery().next();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error checking user existence: " + e.getMessage());
             return false;
         }
         //======== check here user already exist or not ========//

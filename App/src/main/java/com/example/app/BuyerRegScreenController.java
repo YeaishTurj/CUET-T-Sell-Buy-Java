@@ -58,16 +58,19 @@ public class BuyerRegScreenController {
             //====== if mail is perfect ====//
             if(!password.getText().isEmpty()) perfect =1;
         }
-        else if (checkUserExist(userEmail)) { // check here already registered or not
-            toast.setVisible(true);
-            toast.setStyle("-fx-text-fill: red;");
-            toast.setText("User Already Exists");
-        }
         if (perfect == 1) {
-            //====== store the data in database =======//
-            storeDataInDB(userName,userEmail,userPass);
-            //====== navigation from BuyerRegScreen to ItemShowScreen ======//
-            controlRegisterAndLogin(actionEvent);
+            boolean ok=checkUserExist(userEmail);
+            if(ok){
+                toast.setVisible(true);
+                toast.setStyle("-fx-text-fill: red;");
+                toast.setText("User Already Exists");
+            }
+            else {
+                //====== store the data in database =======//
+                storeDataInDB(userName, userEmail, userPass);
+                //====== navigation from BuyerRegScreen to ItemShowScreen ======//
+                controlRegisterAndLogin(actionEvent);
+            }
         }
         else{
             toast.setText("Failed to Registered!");
@@ -110,15 +113,12 @@ public class BuyerRegScreenController {
         new Thread(task).start();
     }
     private boolean checkUserExist(String comp) {
-        //======== check here user already exist or not ========//
-        try {
-            Connection connection=DatabaseConnection.connect();
-            String query = "SELECT * FROM buyer WHERE email = ?";
-            PreparedStatement pstmt = connection.prepareStatement(query);
+        try (Connection connection = DatabaseConnection.connect();
+             PreparedStatement pstmt = connection.prepareStatement("SELECT 1 FROM buyer WHERE LOWER(email) = LOWER(?) LIMIT 1")) {
             pstmt.setString(1, comp);
             return pstmt.executeQuery().next();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error checking user existence: " + e.getMessage());
             return false;
         }
     }
