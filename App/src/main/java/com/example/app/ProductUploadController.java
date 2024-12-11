@@ -34,18 +34,15 @@ import java.util.ResourceBundle;
 
 public class ProductUploadController implements Initializable {
 
-    // Constants
     private static final String WELCOME_SCREEN_FXML = "welcome_screen.fxml";
     private static final String SELLER_PAGE_FXML = "seller_page.fxml";
     private static final String CSS_PATH = "/css/styles.css";
     private static final double SCREEN_WIDTH = 1024;
     private static final double SCREEN_HEIGHT = 768;
 
-    // Database connection
     private Connection connection = null;
     private String sellerEmail = SessionData.getSellerEmail();
 
-    // FXML UI components
     public HBox uploadAdditional4;
     public HBox uploadAdditional3;
     public HBox uploadAdditional2;
@@ -65,14 +62,12 @@ public class ProductUploadController implements Initializable {
     @FXML private TextField productPriceField;
     @FXML private TextField productDescriptionField;
 
-    // File variables for selected images
     private File selectedMainFile;
     private File selectedAdditionalFile1;
     private File selectedAdditionalFile2;
     private File selectedAdditionalFile3;
     private File selectedAdditionalFile4;
 
-    // Initialize method
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
         mainPane.requestFocus();
@@ -80,7 +75,6 @@ public class ProductUploadController implements Initializable {
         connectionToDatabase();
     }
 
-    // Database connection
     @FXML
     private void connectionToDatabase() {
         String url = "jdbc:mysql://localhost:3306/CUET_T_SELL_DB";
@@ -322,20 +316,16 @@ public class ProductUploadController implements Initializable {
         }
     }
 
-
-    // Method to display selected image in ImageView
     private void displaySelectedImage(File file, ImageView imageView) {
         Image image = new Image(file.toURI().toString());
         imageView.setImage(image);
     }
 
-    // Utility method to load FXML files
     private Parent loadFXML(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         return loader.load();
     }
 
-    // Utility method to set the scene for stage
     private void setScene(Stage stage, Parent root) {
         Scene scene = new Scene(root, SCREEN_WIDTH, SCREEN_HEIGHT);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(CSS_PATH)).toExternalForm());
