@@ -73,4 +73,3 @@ public class DatabaseConnection {
 //        2. Run the following SQL command:
 //              SHOW VARIABLES LIKE 'max_allowed_packet';
 //        3. Ensure the value has been updated (e.g., `16777216` for 16 MB).
-//

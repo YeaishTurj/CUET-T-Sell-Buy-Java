@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
@@ -33,7 +34,7 @@
                 <TextField fx:id="productPriceField" alignment="TOP_LEFT" promptText="Enter your asking price" style="-fx-font-size: 16; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 0);" />
 
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 18; -fx-fill: #1F4A67; -fx-font-family: 'Montagu Slab';" text="Description :" textAlignment="JUSTIFY" />
-                <TextField fx:id="productDescriptionField" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="534.0" promptText="Write a description of your item" style="-fx-font-size: 16; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-padding: 8 12; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 0);" />
+                <TextArea fx:id="productDescriptionField" prefHeight="150.0" prefWidth="534.0" promptText="Write a description of your item" style="-fx-font-size: 16; -fx-border-color: #B0BEC5; -fx-border-width: 1; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 10, 0, 0, 0);" />
             </children>
         </VBox>
 
