@@ -34,20 +34,20 @@ public class DatabaseConnection {
 // table seller (name, email(primary_key), password, contact, w_app, facebook_link)
 
 // table product (product_id(primary_key, auto increment), seller_email (foreign key), product_title, quantity, price, description)
-//      CREATE TABLE product (
-//          product_id INT AUTO_INCREMENT PRIMARY KEY,
-//          seller_email VARCHAR(255),
-//          product_title VARCHAR(255) NOT NULL,
-//          quantity INT NOT NULL,
-//          price DECIMAL(10, 2) NOT NULL,
-//          description TEXT,
-//          mainImg LONGBLOB NOT NULL,
-//          addImg1 LONGBLOB,
-//          addImg2 LONGBLOB,
-//          addImg3 LONGBLOB,
-//          addImg4 LONGBLOB,
-//          FOREIGN KEY (seller_email) REFERENCES seller(email) ON DELETE CASCADE
-//      );
+//CREATE TABLE product (
+//  product_id INT AUTO_INCREMENT PRIMARY KEY,
+//  seller_email VARCHAR(255),
+//  product_title VARCHAR(255) NOT NULL,
+//  quantity INT NOT NULL,
+//  price DECIMAL(10, 2) NOT NULL,
+//  description TEXT,
+//  mainImg LONGBLOB NOT NULL,
+//  addImg1 LONGBLOB,
+//  addImg2 LONGBLOB,
+//  addImg3 LONGBLOB,
+//  addImg4 LONGBLOB,
+//  FOREIGN KEY (seller_email) REFERENCES seller(email) ON DELETE CASCADE
+//);
 
 //If you are using XAMPP, you need to increase the `max_allowed_packet` value in the MySQL configuration file bundled with XAMPP. Here are the steps:
 //
