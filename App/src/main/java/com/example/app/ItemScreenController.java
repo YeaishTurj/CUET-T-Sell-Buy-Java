@@ -35,7 +35,7 @@ public class ItemScreenController {
     @FXML
     private Text emailId;
     @FXML
-    private Hyperlink facebookLink;
+    private Text facebookLink;
     @FXML
     private ImageView itemImage;
     @FXML
@@ -71,10 +71,11 @@ public class ItemScreenController {
         ownerName.setText(owner.getName());
         contactNo.setText(owner.getPhoneNumber());
         wAppNumber.setText(owner.getWAppNumber());
-        facebookLink.setOnAction(event -> {
-            try {Desktop.getDesktop().browse(new URI(owner.getFbLink()));}
-            catch (Exception e) {System.out.println(e);}
-        });
+//        facebookLink.setOnAction(event -> {
+//            try {Desktop.getDesktop().browse(new URI(owner.getFbLink()));}
+//            catch (Exception e) {System.out.println(e);}
+//        });
+        facebookLink.setText(owner.getFbLink());
         emailId.setText(owner.getEmailId());
         itemImage.setImage(imageLists.getFirst());
         size=imageLists.size();
