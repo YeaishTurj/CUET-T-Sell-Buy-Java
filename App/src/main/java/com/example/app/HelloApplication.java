@@ -37,7 +37,7 @@ public class HelloApplication extends Application {
 
     private void loadFonts() {
         String[] fontFiles = {
-                "Limelight.ttf", "MontaguSlab.ttf", "Agdasima.ttf", "Satisfy-Regular.ttf"
+                "Limelight.ttf", "MontaguSlab.ttf", "Agdasima.ttf", "Satisfy-Regular.ttf", "Roboto-Regular.ttf", "Roboto-Bold.ttf"
         };
 
         for (String fontFile : fontFiles) {

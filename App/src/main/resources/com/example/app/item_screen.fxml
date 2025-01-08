@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,154 +14,436 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ItemScreenController">
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<?import javafx.geometry.Insets?>-->
+<!--<?import javafx.scene.control.Button?>-->
+<!--<?import javafx.scene.control.Hyperlink?>-->
+<!--<?import javafx.scene.control.Label?>-->
+<!--<?import javafx.scene.control.ScrollPane?>-->
+<!--<?import javafx.scene.effect.Glow?>-->
+<!--<?import javafx.scene.image.Image?>-->
+<!--<?import javafx.scene.image.ImageView?>-->
+<!--<?import javafx.scene.layout.AnchorPane?>-->
+<!--<?import javafx.scene.layout.HBox?>-->
+<!--<?import javafx.scene.layout.VBox?>-->
+<!--<?import javafx.scene.text.Font?>-->
+<!--<?import javafx.scene.text.Text?>-->
+<!--<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #B39DDB, #81D4FA, #A5D6A7);" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ItemScreenController">-->
+<!--   <AnchorPane id="productAP" layoutY="91.0" minHeight="0.0" minWidth="0.0" prefHeight="677.0" prefWidth="1024.0">-->
+<!--      <HBox alignment="CENTER" layoutX="16.0" layoutY="42.0" prefHeight="339.0" prefWidth="447.0" style="-fx-background-color: rgba(255, 255, 255, 0.2),                linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);                 -fx-background-insets: 0, 1; -fx-border-color: rgba(255, 255, 255, 0.3);                  -fx-border-width: 4px; -fx-border-radius: 8px; -fx-background-radius: 10px;                   -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 10, 0.2, 0, 2),                   innershadow(gaussian, rgba(255, 255, 255, 0.2), 4, 0.3, 0, 0);">-->
+<!--         <ImageView fx:id="leftImage" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#showLeftImage" pickOnBounds="true" preserveRatio="true" rotate="180.0">-->
+<!--            <Image url="@../../../assets/arrow.png" />-->
+<!--         </ImageView>-->
+<!--         <ImageView fx:id="itemImage" fitHeight="311.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true" />-->
+<!--         <ImageView fx:id="rightImage" fitHeight="28.0" fitWidth="35.0" onMouseClicked="#showRightImage" pickOnBounds="true" preserveRatio="true">-->
+<!--            <Image url="@../../../assets/arrow.png" />-->
+<!--         </ImageView>-->
+<!--      </HBox>-->
+<!--      <VBox id="glassBox" layoutX="486.0" layoutY="43.0" prefHeight="576.0" prefWidth="521.0" style="-fx-background-color: rgba(255, 255, 255, 0.3),              linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);               -fx-background-insets: 0, 1;        -fx-border-color: rgba(255, 255, 255, 0.5);                  -fx-border-width: 2px;        -fx-border-radius: 10px;        -fx-background-radius: 10px;                        -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.2, 0, 0),                                          inner shadow(gaussian, rgba(255, 255, 255, 0.4), 5, 0.5, 0, 0);">-->
+<!--         <padding>-->
+<!--            <Insets left="5.0" />-->
+<!--         </padding>-->
+<!--         <Text fx:id="productName" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Montagu Slab;" text="Product Name" textAlignment="CENTER" wrappingWidth="507.7297058105469">-->
+<!--            <font>-->
+<!--               <Font name="Microsoft Sans Serif" size="20.0" />-->
+<!--            </font>-->
+<!--            <VBox.margin>-->
+<!--               <Insets bottom="8.0" left="2.0" right="2.0" top="8.0" />-->
+<!--            </VBox.margin>-->
+<!--         </Text>-->
+<!--         <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="521.0">-->
+<!--            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" underline="true">-->
+<!--               <font>-->
+<!--                  <Font name="Arial" size="18.0" />-->
+<!--               </font>-->
+<!--            </Text>-->
+<!--            <Text fx:id="productPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Price Here">-->
+<!--               <font>-->
+<!--                  <Font name="System Italic" size="18.0" />-->
+<!--               </font>-->
+<!--               <HBox.margin>-->
+<!--                  <Insets left="8.0" />-->
+<!--               </HBox.margin>-->
+<!--            </Text>-->
+<!--         </HBox>-->
+<!--         <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="524.0">-->
+<!--            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" underline="true">-->
+<!--               <font>-->
+<!--                  <Font name="Arial" size="18.0" />-->
+<!--               </font>-->
+<!--            </Text>-->
+<!--            <Text fx:id="productQuantity" strokeType="OUTSIDE" strokeWidth="0.0" text="1000">-->
+<!--               <font>-->
+<!--                  <Font size="16.0" />-->
+<!--               </font>-->
+<!--               <HBox.margin>-->
+<!--                  <Insets left="8.0" />-->
+<!--               </HBox.margin>-->
+<!--            </Text>-->
+<!--            <VBox.margin>-->
+<!--               <Insets top="5.0" />-->
+<!--            </VBox.margin>-->
+<!--         </HBox>-->
+<!--         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" underline="true">-->
+<!--            <font>-->
+<!--               <Font name="Thonburi" size="17.0" />-->
+<!--            </font>-->
+<!--            <VBox.margin>-->
+<!--               <Insets bottom="10.0" right="10.0" top="6.0" />-->
+<!--            </VBox.margin>-->
+<!--         </Text>-->
+<!--         <ScrollPane hbarPolicy="NEVER" prefHeight="509.0" prefWidth="322.0" style="-fx-background-color: transparent;        -fx-border-color: rgba(255, 255, 255, 0.4);        -fx-border-width: 2px;        -fx-border-radius: 8px;        -fx-background-radius: 8px;        -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0.15, 0, 0),                    inner shadow(gaussian, rgba(255, 255, 255, 0.3), 3, 0.4, 0, 0);">-->
+<!--            <VBox.margin>-->
+<!--               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />-->
+<!--            </VBox.margin>-->
+<!--            <padding>-->
+<!--               <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />-->
+<!--            </padding>-->
+<!--            <Label fx:id="productDescription" alignment="TOP_LEFT" prefHeight="512.0" prefWidth="485.0" style="-fx-background-color: rgba(255, 255, 255, 0.25), linear-gradient(to bottom right, #EDE7F6, #E1F5FE, #E8F5E9);        -fx-background-insets: 0, 1;        -fx-border-color: rgba(255, 255, 255, 0.4);        -fx-border-width: 2px;        -fx-border-radius: 8px;        -fx-background-radius: 8px;        -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0.15, 0, 0),                    inner shadow(gaussian, rgba(255, 255, 255, 0.3), 3, 0.4, 0, 0);" text="details" wrapText="true">-->
+<!--               <font>-->
+<!--                  <Font size="19.0" />-->
+<!--               </font></Label>-->
+<!--         </ScrollPane>-->
+<!--      </VBox>-->
+<!--      <VBox focusTraversable="true" layoutX="13.0" layoutY="396.0" prefHeight="202.0" prefWidth="447.0" style="-fx-border-radius: 10px; -fx-border-color: rgba(255, 255, 255, 0.5); -fx-border-width: 3px;">-->
+<!--         <HBox alignment="CENTER" prefHeight="34.0" prefWidth="528.0">-->
+<!--            <VBox.margin>-->
+<!--               <Insets bottom="5.0" left="10.0" top="10.0" />-->
+<!--            </VBox.margin>-->
+<!--            <Text fx:id="ownerName" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner name" textAlignment="CENTER" wrappingWidth="423.3313980102539">-->
+<!--               <font>-->
+<!--                  <Font name="Avenir Oblique" size="19.0" />-->
+<!--               </font></Text>-->
+<!--         </HBox>-->
+<!--         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="528.0">-->
+<!--            <VBox.margin>-->
+<!--               <Insets left="10.0" />-->
+<!--            </VBox.margin>-->
+<!--            <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">-->
+<!--               <Image url="@../../../assets/phone.png" />-->
+<!--            </ImageView>-->
+<!--            <Text fx:id="contactNo" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" textAlignment="CENTER">-->
+<!--               <font>-->
+<!--                  <Font name="Arial Bold" size="13.0" />-->
+<!--               </font>-->
+<!--               <HBox.margin>-->
+<!--                  <Insets left="10.0" />-->
+<!--               </HBox.margin>-->
+<!--            </Text>-->
+<!--         </HBox>-->
+<!--         <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="533.0">-->
+<!--            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">-->
+<!--               <Image url="@../../../assets/wpp_icon.png" />-->
+<!--            </ImageView>-->
+<!--            <Text fx:id="wAppNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="W app number">-->
+<!--               <font>-->
+<!--                  <Font name="Arial Bold" size="13.0" />-->
+<!--               </font>-->
+<!--               <HBox.margin>-->
+<!--                  <Insets left="10.0" />-->
+<!--               </HBox.margin>-->
+<!--            </Text>-->
+<!--            <VBox.margin>-->
+<!--               <Insets left="10.0" />-->
+<!--            </VBox.margin>-->
+<!--         </HBox>-->
+<!--         <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="535.0">-->
+<!--            <VBox.margin>-->
+<!--               <Insets left="10.0" />-->
+<!--            </VBox.margin>-->
+<!--            <ImageView fitHeight="32.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">-->
+<!--               <Image url="@../../../assets/facebook.png" />-->
+<!--            </ImageView>-->
+<!--            <Hyperlink fx:id="facebookLink" onAction="#navigateToLink" text="Facebook Link" underline="true">-->
+<!--               <HBox.margin>-->
+<!--                  <Insets left="10.0" />-->
+<!--               </HBox.margin></Hyperlink>-->
+<!--         </HBox>-->
+<!--         <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="530.0">-->
+<!--            <ImageView fitHeight="36.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">-->
+<!--               <HBox.margin>-->
+<!--                  <Insets />-->
+<!--               </HBox.margin>-->
+<!--               <Image url="@../../../assets/gmail.png" />-->
+<!--            </ImageView>-->
+<!--            <Text fx:id="emailId" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Id">-->
+<!--               <font>-->
+<!--                  <Font name="Arial Bold" size="13.0" />-->
+<!--               </font>-->
+<!--               <HBox.margin>-->
+<!--                  <Insets left="10.0" />-->
+<!--               </HBox.margin>-->
+<!--            </Text>-->
+<!--            <VBox.margin>-->
+<!--               <Insets left="10.0" />-->
+<!--            </VBox.margin>-->
+<!--         </HBox>-->
+<!--      </VBox>-->
+<!--   </AnchorPane>-->
+<!--   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #D1C4E9, #B3E5FC); -fx-border-color: #1F4A67; -fx-border-width: 0 0 2 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 2, 2);">-->
+<!--      <padding>-->
+<!--         <Insets bottom="10.0" top="10.0" />-->
+<!--      </padding>-->
+<!--      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="110.0">-->
+<!--         <Button fx:id="backButton" onAction="#handleBackButtonClick" style="-fx-background-color: transparent; -fx-padding: 0;">-->
+<!--            <graphic>-->
+<!--               <ImageView fitHeight="35.0" fitWidth="40.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 25, 0, 0, 0);">-->
+<!--                  <image>-->
+<!--                     <Image url="@../../../assets/back_button.png" />-->
+<!--                  </image>-->
+<!--               </ImageView>-->
+<!--            </graphic>-->
+<!--            <HBox.margin>-->
+<!--               <Insets left="20.0" />-->
+<!--            </HBox.margin>-->
+<!--         </Button>-->
+<!--      </HBox>-->
+<!--      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="695.0">-->
+<!--         <padding>-->
+<!--            <Insets right="10.0" />-->
+<!--         </padding>-->
+<!--         <HBox.margin>-->
+<!--            <Insets />-->
+<!--         </HBox.margin>-->
+<!--         <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 80; -fx-font-family: 'Satisfy'; -fx-fill: linear-gradient(to bottom, #1F4A67, #0D2744);" text="T-Shirt Details" textAlignment="CENTER" wrappingWidth="646.2941656112671">-->
+<!--            <effect>-->
+<!--               <Glow level="0.3" />-->
+<!--            </effect>-->
+<!--         </Text>-->
+<!--      </HBox>-->
+<!--      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="324.0">-->
+<!--         <Button fx:id="signOutButton" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleSignOut" prefHeight="50.0" prefWidth="70.0" style="-fx-background-color: linear-gradient(to bottom, #BDBDBD, #757575); -fx-text-fill: #FFFFFF; -fx-font-family: 'Limelight'; -fx-font-size: 18; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.3, 0, 8), innershadow(gaussian, rgba(255, 255, 255, 0.3), 4, 0.1, 0, -2);">-->
+<!--            <graphic>-->
+<!--               <ImageView blendMode="OVERLAY" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true">-->
+<!--                  <Image url="@../../../assets/sign_out.png" />-->
+<!--               </ImageView>-->
+<!--            </graphic>-->
+<!--            <VBox.margin>-->
+<!--               <Insets top="10.0" />-->
+<!--            </VBox.margin>-->
+<!--         </Button>-->
+<!--         <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Limelight'; -fx-font-size: 18;" text="Sign Out">-->
+<!--            <VBox.margin>-->
+<!--               <Insets top="15.0" />-->
+<!--            </VBox.margin>-->
+<!--         </Text>-->
+<!--      </VBox>-->
+<!--   </HBox>-->
+<!--</AnchorPane>-->
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.ItemScreenController">
    <AnchorPane id="productAP" layoutY="91.0" minHeight="0.0" minWidth="0.0" prefHeight="677.0" prefWidth="1024.0">
-      <HBox alignment="CENTER" layoutX="16.0" layoutY="42.0" prefHeight="339.0" prefWidth="447.0" style="-fx-background-color: rgba(255, 255, 255, 0.2),                linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);                 -fx-background-insets: 0, 1; -fx-border-color: rgba(255, 255, 255, 0.3);                  -fx-border-width: 4px; -fx-border-radius: 8px; -fx-background-radius: 10px;                   -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 10, 0.2, 0, 2),                   innershadow(gaussian, rgba(255, 255, 255, 0.2), 4, 0.3, 0, 0);">
-         <ImageView fx:id="leftImage" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#showLeftImage" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-            <Image url="@../../../assets/arrow.png" />
-         </ImageView>
-         <ImageView fx:id="itemImage" fitHeight="311.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fx:id="rightImage" fitHeight="28.0" fitWidth="35.0" onMouseClicked="#showRightImage" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../assets/arrow.png" />
-         </ImageView>
-      </HBox>
-      <VBox id="glassBox" layoutX="486.0" layoutY="43.0" prefHeight="576.0" prefWidth="521.0" style="-fx-background-color: rgba(255, 255, 255, 0.3),              linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);               -fx-background-insets: 0, 1;        -fx-border-color: rgba(255, 255, 255, 0.5);                  -fx-border-width: 2px;        -fx-border-radius: 10px;        -fx-background-radius: 10px;                        -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.2, 0, 0),                                          inner shadow(gaussian, rgba(255, 255, 255, 0.4), 5, 0.5, 0, 0);">
+
+            <AnchorPane layoutX="17.0" layoutY="43.0" prefHeight="328.0" prefWidth="449.0" style="-fx-background-color: white; -fx-border-radius: 20; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(128, 128, 128, 1), 10, .75, 0, 0);">
+               <ImageView fx:id="leftImage" fitHeight="50.0" fitWidth="96.0" layoutY="139.0" onMouseClicked="#showLeftImage" opacity="0.75" pickOnBounds="true">
+                  <Image url="@../../../assets/prev.jpg" />
+               </ImageView>
+               <ImageView fx:id="rightImage" fitHeight="50.0" fitWidth="104.0" layoutX="344.0" layoutY="139.0" onMouseClicked="#showRightImage" opacity="0.75" pickOnBounds="true">
+                  <Image url="@../../../assets/next.jpg" />
+               </ImageView>
+               <ImageView fx:id="itemImage" fitHeight="292.0" fitWidth="308.0" layoutX="76.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+            </AnchorPane>
+      <VBox id="glassBox" layoutX="486.0" layoutY="43.0" prefHeight="588.0" prefWidth="523.0" style="-fx-background-color: #E5FFF9; -fx-background-radius: 20; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(128, 128, 128, .75), 10, .75, 0, 0);">
          <padding>
             <Insets left="5.0" />
          </padding>
-         <Text fx:id="productName" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Montagu Slab;" text="Product Name" textAlignment="CENTER" wrappingWidth="507.7297058105469">
+         <Text fx:id="productName" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Montagu Slab;" text="Stay Cool, Stay Confident – The Ultimate Graphic Tee" textAlignment="JUSTIFY" wrappingWidth="485.2295837402344">
             <font>
-               <Font name="Microsoft Sans Serif" size="20.0" />
+               <Font name="System Bold" size="28.0" />
             </font>
             <VBox.margin>
-               <Insets bottom="8.0" left="2.0" right="2.0" top="8.0" />
+               <Insets left="25.0" top="10.0" />
             </VBox.margin>
          </Text>
-         <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="521.0">
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" underline="true">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="productPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Price Here">
-               <font>
-                  <Font name="System Italic" size="18.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="8.0" />
-               </HBox.margin>
-            </Text>
-         </HBox>
-         <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="524.0">
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" underline="true">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </Text>
-            <Text fx:id="productQuantity" strokeType="OUTSIDE" strokeWidth="0.0" text="1000">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="8.0" />
-               </HBox.margin>
-            </Text>
+         <HBox prefHeight="34.0" prefWidth="492.0">
+            <children>
+               <Text fill="#358fdd" strokeType="OUTSIDE" strokeWidth="0.0" text="Tk." wrappingWidth="33.94012260437012">
+                  <font>
+                     <Font name="System Bold" size="22.0" />
+                  </font>
+               </Text>
+               <Text fx:id="productPrice" fill="#358fdd" strokeType="OUTSIDE" strokeWidth="0.0" text="1000">
+                  <font>
+                     <Font name="System Bold" size="22.0" />
+                  </font>
+               </Text>
+            </children>
             <VBox.margin>
-               <Insets top="5.0" />
+               <Insets left="25.0" top="5.0" />
             </VBox.margin>
          </HBox>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" underline="true">
+         <HBox opacity="0.6" prefHeight="32.0" prefWidth="492.0">
+            <children>
+               <Text fx:id="productQuantity1" layoutX="10.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Only ">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Text>
+               <Text fx:id="productQuantity" strokeType="OUTSIDE" strokeWidth="0.0" text="100">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </Text>
+               <Text fx:id="productQuantity11" layoutX="118.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" left">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Text>
+            </children>
+            <VBox.margin>
+               <Insets left="25.0" />
+            </VBox.margin>
+         </HBox>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="About this item">
             <font>
-               <Font name="Thonburi" size="17.0" />
+               <Font name="System Bold" size="20.0" />
             </font>
             <VBox.margin>
-               <Insets bottom="10.0" right="10.0" top="6.0" />
+               <Insets bottom="5.0" left="25.0" top="10.0" />
             </VBox.margin>
          </Text>
-         <ScrollPane hbarPolicy="NEVER" prefHeight="509.0" prefWidth="322.0" style="-fx-background-color: transparent;        -fx-border-color: rgba(255, 255, 255, 0.4);        -fx-border-width: 2px;        -fx-border-radius: 8px;        -fx-background-radius: 8px;        -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0.15, 0, 0),                    inner shadow(gaussian, rgba(255, 255, 255, 0.3), 3, 0.4, 0, 0);">
+         <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="482.0" style="-fx-background-color: grey;">
             <VBox.margin>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               <Insets bottom="20.0" left="25.0" />
             </VBox.margin>
-            <padding>
-               <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-            </padding>
-            <Label fx:id="productDescription" alignment="TOP_LEFT" prefHeight="512.0" prefWidth="485.0" style="-fx-background-color: rgba(255, 255, 255, 0.25), linear-gradient(to bottom right, #EDE7F6, #E1F5FE, #E8F5E9);        -fx-background-insets: 0, 1;        -fx-border-color: rgba(255, 255, 255, 0.4);        -fx-border-width: 2px;        -fx-border-radius: 8px;        -fx-background-radius: 8px;        -fx-effect: drop shadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0.15, 0, 0),                    inner shadow(gaussian, rgba(255, 255, 255, 0.3), 3, 0.4, 0, 0);" text="details" wrapText="true">
-               <font>
-                  <Font size="19.0" />
-               </font></Label>
-         </ScrollPane>
+         </Separator>
+         <Label fx:id="productDescription" alignment="TOP_LEFT" prefHeight="369.0" prefWidth="483.0" style="-fx-padding: 10;" text="details" wrapText="true">
+            <font>
+               <Font size="18.0" />
+            </font>
+            <VBox.margin>
+               <Insets left="25.0" />
+            </VBox.margin>
+         </Label>
       </VBox>
-      <VBox focusTraversable="true" layoutX="13.0" layoutY="396.0" prefHeight="202.0" prefWidth="447.0" style="-fx-border-radius: 10px; -fx-border-color: rgba(255, 255, 255, 0.5); -fx-border-width: 3px;">
-         <HBox alignment="CENTER" prefHeight="34.0" prefWidth="528.0">
+
+      <VBox focusTraversable="true" layoutX="16.0" layoutY="396.0" prefHeight="234.0" prefWidth="447.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: f2f2f2; -fx-effect: dropshadow(gaussian, rgba(128, 128, 128, 1), 8, 0.2, 5, 5);">
+         <HBox alignment="CENTER" prefHeight="39.0" prefWidth="442.0">
+            <children>
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto-bold';" text="Seller Information" wrappingWidth="218.33953857421875">
+                  <font>
+                     <Font name="System Bold" size="22.0" />
+                  </font>
+               </Text>
+
+            </children>
             <VBox.margin>
-               <Insets bottom="5.0" left="10.0" top="10.0" />
-            </VBox.margin>
-            <Text fx:id="ownerName" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner name" textAlignment="CENTER" wrappingWidth="423.3313980102539">
-               <font>
-                  <Font name="Avenir Oblique" size="19.0" />
-               </font></Text>
-         </HBox>
-         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="528.0">
-            <VBox.margin>
-               <Insets left="10.0" />
-            </VBox.margin>
-            <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../../assets/phone.png" />
-            </ImageView>
-            <Text fx:id="contactNo" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" textAlignment="CENTER">
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Text>
-         </HBox>
-         <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="533.0">
-            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../../assets/wpp_icon.png" />
-            </ImageView>
-            <Text fx:id="wAppNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="W app number">
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Text>
-            <VBox.margin>
-               <Insets left="10.0" />
+               <Insets bottom="10.0" top="5.0" />
             </VBox.margin>
          </HBox>
-         <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="535.0">
+         <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="400.0" style="-fx-background-color: grey;">
             <VBox.margin>
-               <Insets left="10.0" />
+               <Insets bottom="10.0" left="25.0" />
+            </VBox.margin></Separator>
+         <HBox prefHeight="100.0" prefWidth="409.0">
+            <children>
+               <Text fill="#4d4d4d" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="Sold By      :" wrappingWidth="84.62814712524414">
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font size="16.0" />
+                  </font></Text>
+               <Text fx:id="ownerName" fill="#358fdd" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner name" wrappingWidth="298.58663177490234">
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font></Text>
+            </children>
+            <VBox.margin>
+               <Insets left="30.0" />
             </VBox.margin>
-            <ImageView fitHeight="32.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../../../assets/facebook.png" />
-            </ImageView>
-            <Hyperlink fx:id="facebookLink" onAction="#navigateToLink" text="Facebook Link" underline="true">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin></Hyperlink>
          </HBox>
-         <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="530.0">
-            <ImageView fitHeight="36.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <Image url="@../../../assets/gmail.png" />
-            </ImageView>
-            <Text fx:id="emailId" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Id">
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Text>
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <Text fill="#4d4d4d" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone        :" wrappingWidth="85.78155899047852">
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font size="16.0" />
+                  </font></Text>
+               <Text fx:id="contactNo" fill="#358fdd" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" wrappingWidth="296.10650634765625">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
+               </Text>
+            </children>
             <VBox.margin>
-               <Insets left="10.0" />
+               <Insets left="30.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <Text fill="#4d4d4d" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="WhatsApp :" wrappingWidth="85.54265594482422">
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font size="16.0" />
+                  </font></Text>
+               <Text fx:id="wAppNumber" fill="#358fdd" strokeType="OUTSIDE" strokeWidth="0.0" text="W app number" wrappingWidth="313.48400115966797">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
+               </Text>
+            </children>
+            <VBox.margin>
+               <Insets left="30.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <Text fill="#4d4d4d" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="Facebook  :" wrappingWidth="84.34265899658203">
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font size="16.0" />
+                  </font></Text>
+               <Hyperlink fx:id="facebookLink" onAction="#navigateToLink" prefHeight="29.0" prefWidth="321.0" text="Facebook Link" underline="true">
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font></Hyperlink>
+            </children>
+            <VBox.margin>
+               <Insets left="30.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <Text fill="#4d4d4d" opacity="0.75" strokeType="OUTSIDE" strokeWidth="0.0" text="Email         :" wrappingWidth="83.7095832824707">
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font size="16.0" />
+                  </font></Text>
+               <Text fx:id="emailId" fill="#358fdd" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Id">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets right="10.0" />
+                  </HBox.margin>
+               </Text>
+            </children>
+            <VBox.margin>
+               <Insets left="30.0" />
             </VBox.margin>
          </HBox>
       </VBox>
