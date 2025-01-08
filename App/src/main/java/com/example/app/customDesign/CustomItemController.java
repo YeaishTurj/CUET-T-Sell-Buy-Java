@@ -80,13 +80,34 @@ public class CustomItemController implements Initializable {
         itemImage2.setImage(product2ImageList.getFirst());
         itemBox2.setVisible(true);
     }
-    public void seeDetails2(ActionEvent actionEvent) {
+
+    public void seeDetailsFullItem1(MouseEvent mouseEvent) {
         try {
+            System.out.println("clicked on see details 1");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/item_screen.fxml"));
+            Parent root = loader.load();
+            ItemScreenController itemScreenController = loader.getController();
+            itemScreenController.getDetails(itemOwner1, singleItem1,product1ImageList);
+            Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
+            stage.setScene(scene);
+            stage.setHeight(768);
+            stage.setWidth(1024);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    public void seeDetailsFullItem2(MouseEvent mouseEvent) {
+        try {
+            System.out.println("clicked on see details 2");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/item_screen.fxml"));
             Parent root = loader.load();
             ItemScreenController itemScreenController = loader.getController();
             itemScreenController.getDetails(itemOwner2, singleItem2,product2ImageList);
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
             stage.setScene(scene);
@@ -98,21 +119,54 @@ public class CustomItemController implements Initializable {
             System.out.println("Error");
         }
     }
-    public void seeDetails1(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/item_screen.fxml"));
-            Parent root = loader.load();
-            ItemScreenController itemScreenController = loader.getController();
-            itemScreenController.getDetails(itemOwner1, singleItem1,product1ImageList);
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/css/styles.css")).toExternalForm());
-            stage.setScene(scene);
-            stage.setHeight(768);
-            stage.setWidth(1024);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println("Error");
-        }
+
+    public void onMouseEntered1(MouseEvent mouseEvent) {
+        HBox hBox = (HBox) mouseEvent.getSource();
+        hBox.setStyle("-fx-background-color: rgba(255, 255, 255, 0.2), linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);" +
+                "-fx-background-insets: 0, 1; " +
+                "-fx-border-color: rgba(255, 255, 255, 0.3);" +
+                "-fx-border-width: 4px; " +
+                "-fx-border-radius: 20px; " +
+                "-fx-background-radius: 20px;" +
+                "-fx-effect: dropshadow(gaussian, black, 20, 0, 0, 0), innershadow(gaussian, rgba(255, 255, 255, 0.2), 4, 0.3, 0, 0);" +
+                "-fx-cursor: hand; ");
+
+    }
+
+    public void onMouseEntered2(MouseEvent mouseEvent) {
+        HBox hBox = (HBox) mouseEvent.getSource();
+        hBox.setStyle("-fx-background-color: rgba(255, 255, 255, 0.2), linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);" +
+                "-fx-background-insets: 0, 1; " +
+                "-fx-border-color: rgba(255, 255, 255, 0.3);" +
+                "-fx-border-width: 4px; " +
+                "-fx-border-radius: 20px; " +
+                "-fx-background-radius: 20px;" +
+                "-fx-effect: dropshadow(gaussian, black, 20, 0, 0, 0), innershadow(gaussian, rgba(255, 255, 255, 0.2), 4, 0.3, 0, 0);" +
+                "-fx-cursor: hand; ");
+
+    }
+
+    public void onMouseExited1(MouseEvent mouseEvent) {
+        HBox hBox = (HBox) mouseEvent.getSource();
+        hBox.setStyle("-fx-background-color: rgba(255, 255, 255, 0.2), linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);" +
+                    "-fx-background-insets: 0, 1; " +
+                    "-fx-border-color: rgba(255, 255, 255, 0.3);" +
+                    "-fx-border-width: 4px; " +
+                    "-fx-border-radius: 8px; " +
+                    "-fx-background-radius: 10px;" +
+                    "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 10, 0.2, 0, 2), innershadow(gaussian, rgba(255, 255, 255, 0.2), 4, 0.3, 0, 0);");
+
+    }
+
+    public void onMouseExited2(MouseEvent mouseEvent) {
+        HBox hBox = (HBox) mouseEvent.getSource();
+        hBox.setStyle("-fx-background-color: rgba(255, 255, 255, 0.2), linear-gradient(to bottom right, #D1C4E9, #B3E5FC, #C8E6C9);" +
+                "-fx-background-insets: 0, 1; " +
+                "-fx-border-color: rgba(255, 255, 255, 0.3);" +
+                "-fx-border-width: 4px; " +
+                "-fx-border-radius: 8px; " +
+                "-fx-background-radius: 10px;" +
+                "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 10, 0.2, 0, 2), innershadow(gaussian, rgba(255, 255, 255, 0.2), 4, 0.3, 0, 0);");
+
     }
 }
