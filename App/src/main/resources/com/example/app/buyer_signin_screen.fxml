@@ -50,13 +50,6 @@
                     </VBox.margin>
                 </Button>
 
-                <!-- Forgot Password Link with Hover Effect -->
-                <Text fx:id="forgotPasswordText" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Forgot Password?">
-                    <VBox.margin>
-                        <Insets top="25.0" />
-                    </VBox.margin>
-                </Text>
-
 
                 <Text fx:id="signUpText" onMouseClicked="#handleSignUpClick" style="-fx-font-size: 16; -fx-fill: #1A237E; -fx-underline: true;" text="Don't have an account? Sign Up">
                     <VBox.margin>
