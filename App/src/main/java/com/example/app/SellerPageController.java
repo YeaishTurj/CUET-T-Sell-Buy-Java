@@ -146,19 +146,15 @@ public class SellerPageController {
     }
 
     private void showErrorPopup(String message) {
-        // Create a custom alert with ERROR type
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Sign In Error");
-        alert.setHeaderText(null); // No header
+        alert.setHeaderText(null);
 
-        // Set the message with bold and red text style
         Label label = new Label(message);
         label.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
 
-        // Set the content of the alert with the label
         alert.getDialogPane().setContent(label);
 
-        // Show the alert
         alert.showAndWait();
     }
 

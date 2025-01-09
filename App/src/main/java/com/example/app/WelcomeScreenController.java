@@ -23,16 +23,14 @@ public class WelcomeScreenController {
 
     @FXML
     private void handleSellerButtonClick() throws IOException {
-        loadFXML("seller_signin_screen.fxml"); // Replace with your other FXML file
+        loadFXML("seller_signin_screen.fxml");
     }
 
     private void loadFXML(String fxmlFile) throws IOException {
-        // Load the new FXML file
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent root = fxmlLoader.load();
 
-        // Get the current stage from any component
-        Stage stage = (Stage) buyerButton.getScene().getWindow(); // assuming `buyerButton` is in the current scene
+        Stage stage = (Stage) buyerButton.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }

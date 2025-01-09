@@ -303,7 +303,6 @@ import java.util.ResourceBundle;
 
 public class ProductUpdateController implements Initializable {
 
-    // Constants for FXML file paths, CSS path, and dimensions
     private static final String PRODUCT_MANAGEMENT_FXML = "product_management.fxml";            // Path to the seller page screen FXML file
     private static final String WELCOME_SCREEN_FXML = "welcome_screen.fxml";                    // Path to the welcome screen FXML file
     private static final String CSS_PATH = "/css/styles.css";                          // Path to the CSS stylesheet
@@ -341,7 +340,6 @@ public class ProductUpdateController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mainPane.requestFocus();
-        // Apply a delayed request to ensure focus is not on any text field
         Platform.runLater(() -> mainPane.requestFocus());
         connectToDatabase();
         showSellerProducts();
@@ -373,7 +371,6 @@ public class ProductUpdateController implements Initializable {
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                // Retrieve product details
                 String product_title = rs.getString("product_title");
                 int quantity = rs.getInt("quantity");
                 double price = rs.getDouble("price");
@@ -543,7 +540,6 @@ public class ProductUpdateController implements Initializable {
             byte[] buffer = new byte[1024];
             int bytesRead;
 
-            // Read file into buffer and write to ByteArrayOutputStream
             while ((bytesRead = fis.read(buffer)) != -1) {
                 bos.write(buffer, 0, bytesRead);
             }
@@ -557,7 +553,6 @@ public class ProductUpdateController implements Initializable {
         imageView.setImage(image);
     }
 
-    // Handle Update Main Image Click
     public void handleUpdateMainClick(MouseEvent mouseEvent) {
         File file = selectFile(mainImageView, "Select Main Photo");
         if (file != null) {
@@ -566,7 +561,6 @@ public class ProductUpdateController implements Initializable {
         }
     }
 
-    // Handle Mouse Hover Events for Update Main
     public void handleMouseEnteredUpdateMain(MouseEvent mouseEvent) {
         updateMain.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, black, 50, 0, 0, 0); -fx-cursor: hand; ");
     }
@@ -575,7 +569,6 @@ public class ProductUpdateController implements Initializable {
         updateMain.setStyle("-fx-border-radius: 25; -fx-background-radius: 25; -fx-background-color: C6E7FF; -fx-effect: dropshadow(gaussian, black, 25, 0, 0, 0);");
     }
 
-    // Handle Update Additional Image Clicks
     public void handleUpdateAdditional1Click(MouseEvent mouseEvent) {
         File file = selectFile(additionalImageView1, "Select Additional Photo 1");
         if (file != null) {

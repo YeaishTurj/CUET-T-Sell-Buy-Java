@@ -94,7 +94,6 @@ public class BuyerSignInScreenController implements Initializable {
             showErrorPopup("Incorrect Password!");
             return;
         }
-        //======== before goto buyer  page , we first retrieve the user data then load the buyer page  ========//
         try {
             BuyerData buyerData = getBuyerData(usernameField.getText());
             FXMLLoader loader = new FXMLLoader(getClass().getResource("buyer_page.fxml"));
@@ -129,19 +128,15 @@ public class BuyerSignInScreenController implements Initializable {
         return buyer;
     }
     private void showErrorPopup(String message) {
-        // Create a custom alert with ERROR type
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Sign In Error");
         alert.setHeaderText(null); // No header
 
-        // Set the message with bold and red text style
         Label label = new Label(message);
         label.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
 
-        // Set the content of the alert with the label
         alert.getDialogPane().setContent(label);
 
-        // Show the alert
         alert.showAndWait();
     }
     private boolean isBuyerRegistered() {

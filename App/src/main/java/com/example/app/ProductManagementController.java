@@ -151,7 +151,6 @@ public class ProductManagementController {
     public void handleDeleteProductButtonClick(MouseEvent mouseEvent) {
         Product selectedProduct = productTable.getSelectionModel().getSelectedItem();
         if (selectedProduct != null) {
-            // Create a confirmation alert
             Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
             confirmationAlert.setTitle("Confirm Deletion");
             confirmationAlert.setHeaderText("Are you sure you want to delete this product?");
@@ -160,16 +159,13 @@ public class ProductManagementController {
             DialogPane dialogPane = confirmationAlert.getDialogPane();
             dialogPane.setStyle("-fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-font-weight: bold;");
 
-            // Wait for user response
             Optional<ButtonType> result = confirmationAlert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                // User confirmed deletion
                 String deleteQuery = "DELETE FROM product WHERE product_id = ?";
                 try (PreparedStatement pstmt = connection.prepareStatement(deleteQuery)) {
                     pstmt.setInt(1, selectedProduct.getProductId());
                     pstmt.executeUpdate();
 
-                    // Remove product from list and reset serial numbers
                     productList.remove(selectedProduct);
                     resetSerialNumbers();
                     productTable.refresh();
@@ -179,7 +175,6 @@ public class ProductManagementController {
                     System.out.println("Failed to delete product.");
                 }
             } else {
-                // User canceled deletion
                 System.out.println("Product deletion canceled.");
             }
         } else {

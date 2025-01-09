@@ -122,7 +122,7 @@ public class ProductUploadController implements Initializable {
                 pstmt.setBytes(10,addImg4);
 
                 pstmt.executeUpdate();
-                return true; // Upload was successful
+                return true;
             } catch (NumberFormatException e) {
                 showErrorDialog("Invalid Input", "Please ensure that Quantity and Price are numbers.");
             } catch (SQLException e) {
@@ -133,7 +133,7 @@ public class ProductUploadController implements Initializable {
         } else {
             showErrorDialog("Database Connection", "No active database connection. Please check your setup.");
         }
-        return false; // Upload failed
+        return false;
     }
 
     private void showErrorDialog(String title, String content) {
@@ -170,7 +170,6 @@ public class ProductUploadController implements Initializable {
 
             alert.showAndWait();
 
-            // Navigate to the next page only after success
             Parent root = loadFXML(SELLER_PAGE_FXML);
             Stage stage = (Stage) uploadButton.getScene().getWindow();
             setScene(stage, root);
@@ -178,7 +177,6 @@ public class ProductUploadController implements Initializable {
     }
 
 
-    // Sign out method
     @FXML
     public void handleSignOutButtonClick() throws IOException {
         Parent root = loadFXML(WELCOME_SCREEN_FXML);
@@ -186,7 +184,6 @@ public class ProductUploadController implements Initializable {
         setScene(stage, root);
     }
 
-    // Back button handler
     @FXML
     private void handleBackButtonClick() throws IOException {
         Parent root = loadFXML(SELLER_PAGE_FXML);
@@ -194,7 +191,6 @@ public class ProductUploadController implements Initializable {
         setScene(stage, root);
     }
 
-    // Image upload handlers (Main and Additional Images)
     public void handleUploadMainClick() {
         File file = selectFile(mainImageView, "Select Main Photo");
         if (file != null) {
@@ -235,7 +231,6 @@ public class ProductUploadController implements Initializable {
         }
     }
 
-    // Mouse event handlers for image hover effects
     @FXML
     public void handleMouseEnteredUploadMain() {
         uploadMain.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, black, 50, 0, 0, 0); -fx-cursor: hand; ");
@@ -261,7 +256,6 @@ public class ProductUploadController implements Initializable {
         uploadAdditional4.setStyle("-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: #fffef5;  -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0); -fx-cursor: hand; ");
     }
 
-    // Mouse exited event handlers for images
     @FXML
     public void handleMouseExitedUploadMain() {
         uploadMain.setStyle("-fx-border-radius: 25; -fx-background-radius: 25; -fx-background-color: C6E7FF; -fx-effect: dropshadow(gaussian, black, 25, 0, 0, 0);");
@@ -287,7 +281,6 @@ public class ProductUploadController implements Initializable {
         uploadAdditional4.setStyle("-fx-background-radius: 0 0 25 0; -fx-background-color: C6E7FF; -fx-border-radius: 0 0 25 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,1), 20, 0, 0, 0);");
     }
 
-    // Utility method for file selection
     private File selectFile(ImageView imageView, String title) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg"));
@@ -296,7 +289,7 @@ public class ProductUploadController implements Initializable {
     }
 
     private byte[] fileToByteArray(File file) throws IOException {
-        if (file == null) return null; // Return null if no file is selected
+        if (file == null) return null;
 
         try (FileInputStream fis = new FileInputStream(file);
              ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
@@ -304,12 +297,11 @@ public class ProductUploadController implements Initializable {
             byte[] buffer = new byte[1024];
             int bytesRead;
 
-            // Read file into buffer and write to ByteArrayOutputStream
             while ((bytesRead = fis.read(buffer)) != -1) {
                 bos.write(buffer, 0, bytesRead);
             }
 
-            return bos.toByteArray(); // Return the byte array
+            return bos.toByteArray();
         }
     }
 

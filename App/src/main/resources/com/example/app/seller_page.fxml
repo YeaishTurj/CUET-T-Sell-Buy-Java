@@ -16,7 +16,6 @@
     <children>
 
 
-        <!-- Separator -->
         <Separator layoutX="62.0" layoutY="562.0" prefWidth="900.0" />
         <Button fx:id="uploadProductButton" alignment="CENTER" layoutX="547.0" layoutY="590.0" mnemonicParsing="false" onMouseClicked="#handleUploadProduct" prefHeight="85.0" prefWidth="380.0" stylesheets="@../../../css/styles.css" text="Upload Your Products" />
 
@@ -27,19 +26,14 @@
                     <children>
 
 
-                        <!-- Company Name -->
                         <Text layoutY="57.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text="Company Name " />
 
-                        <!-- Email -->
                         <Text layoutY="126.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text="Email " />
 
-                        <!-- Phone Number -->
                         <Text layoutY="201.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text="Phone Number " />
 
-                        <!-- WhatsApp -->
                         <Text layoutY="276.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text="WhatsApp" />
 
-                        <!-- Facebook Link -->
                         <Text layoutY="356.0" style="-fx-font-family: 'Montagu Slab'; -fx-font-size: 22;" text="Facebook Link " />
                         <AnchorPane layoutX="170.0" prefHeight="406.0" prefWidth="30.0">
                             <children>
